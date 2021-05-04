@@ -1,0 +1,18 @@
+{
+    "name": "Juce.TweenPlayer.Examples",
+    "rootNamespace": "",
+    "references": [
+        "GUID:1765b9cf2ac90c24c957166617f61cc1",
+        "GUID:8bc451827501f8e45a97f2e2d20a6338",
+        "GUID:9a64ff96d3b16d7498c8f46b660d81a0"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

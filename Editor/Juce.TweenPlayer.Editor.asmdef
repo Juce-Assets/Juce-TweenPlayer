@@ -1,0 +1,17 @@
+{
+    "name": "Juce.TweenPlayer.Editor",
+    "rootNamespace": "",
+    "references": [
+        "GUID:8bc451827501f8e45a97f2e2d20a6338",
+        "GUID:1765b9cf2ac90c24c957166617f61cc1"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
