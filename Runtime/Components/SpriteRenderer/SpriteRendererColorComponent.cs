@@ -6,12 +6,12 @@ using UnityEngine;
 
 namespace Juce.TweenPlayer.Components
 {
-    [TweenPlayerComponent("UI Alpha", "UI/Alpha")]
+    [TweenPlayerComponent("SpriteRenderer Color", "SpriteRenderer/Color")]
     [System.Serializable]
-    public class UIAlphaComponent : AnimationTweenPlayerComponent
+    public class SpriteRendererColorComponent : AnimationTweenPlayerComponent
     {
-        [SerializeField] private GameObjectBinding target = new GameObjectBinding();
-        [SerializeField] private UnitFloatBinding value = new UnitFloatBinding();
+        [SerializeField] private SpriteRendererBinding target = new SpriteRendererBinding();
+        [SerializeField] private ColorBinding value = new ColorBinding();
         [SerializeField] private FloatBinding delay = new FloatBinding();
         [SerializeField] private FloatBinding duration = new FloatBinding();
         [SerializeField] private AnimationCurveBinding easing = new AnimationCurveBinding();
@@ -37,22 +37,15 @@ namespace Juce.TweenPlayer.Components
                 return ComponentExecutionResult.Empty;
             }
 
-            CanvasGroup canvasGroup = target.GetValue().GetComponent<CanvasGroup>();
-
-            if (canvasGroup == null)
-            {
-                canvasGroup = target.GetValue().AddComponent<CanvasGroup>();
-            }
-
             ITween delayTween = DelayUtils.Apply(sequenceTween, delay);
 
-            ITween progressTween = canvasGroup.TweenAlpha(value.GetValue(), duration.GetValue());
+            ITween progressTween = target.GetValue().TweenColor(value.GetValue(), duration.GetValue());
 
             progressTween.SetEase(easing.GetValue());
 
             sequenceTween.Append(progressTween);
 
-            return new ComponentExecutionResult(progressTween, delayTween);
+            return new ComponentExecutionResult(delayTween);
         }
     }
 }

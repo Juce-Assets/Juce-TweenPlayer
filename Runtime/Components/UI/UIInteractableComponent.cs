@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Juce.TweenPlayer.Components
 {
-    [TweenPlayerComponent("UI Interactable", "UI/UI Interactable")]
+    [TweenPlayerComponent("UI Interactable", "UI/Interactable")]
     [System.Serializable]
     public class UIInteractableComponent : AnimationTweenPlayerComponent
     {

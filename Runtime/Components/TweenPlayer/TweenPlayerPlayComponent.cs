@@ -14,6 +14,7 @@ namespace Juce.TweenPlayer.Components
     public class TweenPlayerPlayComponent : AnimationTweenPlayerComponent
     {
         [SerializeField] private TweenPlayerBinding target = new TweenPlayerBinding();
+        [SerializeField] private BoolBinding complete = new BoolBinding();
         [SerializeField] private BoolBinding bind = new BoolBinding();
         [SerializeField] private FloatBinding delay = new FloatBinding();
 
@@ -63,6 +64,11 @@ namespace Juce.TweenPlayer.Components
             ITween progressTween = target.GetValue().GenerateSequence();
 
             sequenceTween.Append(progressTween);
+
+            if (complete.GetValue())
+            {
+                sequenceTween.JoinCallback(progressTween.Complete);
+            }
 
             return new ComponentExecutionResult(delayTween, progressTween);
         }
