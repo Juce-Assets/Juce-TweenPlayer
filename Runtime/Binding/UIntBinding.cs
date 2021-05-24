@@ -5,20 +5,20 @@ using Juce.TweenPlayer.Utils;
 namespace Juce.TweenPlayer.Bindings
 {
     [System.Serializable]
-    public class ColorBinding : Binding
+    public class UIntBinding : Binding
     {
-        [SerializeField] public Color FallbackValue = Color.white;
+        [SerializeField] [Min(0)] public int FallbackValue;
 
-        private Color bindedValue;
+        private int bindedValue;
 
-        public override Type BindingType => typeof(Color);
+        public override Type BindingType => typeof(int);
 
         public override void SetBindedValue(object objectValue)
         {
             BindingUtils.TrySetBindedValue(objectValue, ref bindedValue);
         }
 
-        public Color GetValue()
+        public int GetValue()
         {
             return BindingUtils.TrGetValue(this, bindedValue, FallbackValue);
         }

@@ -53,6 +53,8 @@ namespace Juce.TweenPlayer
             if (dragged)
             {
                 bindingPlayerEditor.ReorderComponent(startIndex, endIndex);
+
+                EditorUtility.SetDirty(bindingPlayerEditor.target);
             }
         }
 

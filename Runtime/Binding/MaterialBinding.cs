@@ -1,24 +1,26 @@
-﻿using System;
+﻿using Juce.TweenPlayer.Utils;
+using System;
 using UnityEngine;
-using Juce.TweenPlayer.Utils;
 
 namespace Juce.TweenPlayer.Bindings
 {
     [System.Serializable]
-    public class ColorBinding : Binding
+    public class MaterialBinding : Binding
     {
-        [SerializeField] public Color FallbackValue = Color.white;
+        [SerializeField] public Material FallbackValue;
 
-        private Color bindedValue;
+        private Material bindedValue;
 
-        public override Type BindingType => typeof(Color);
+        public Material Value => Binded ? bindedValue : FallbackValue;
+
+        public override Type BindingType => typeof(Material);
 
         public override void SetBindedValue(object objectValue)
         {
             BindingUtils.TrySetBindedValue(objectValue, ref bindedValue);
         }
 
-        public Color GetValue()
+        public Material GetValue()
         {
             return BindingUtils.TrGetValue(this, bindedValue, FallbackValue);
         }

@@ -19,6 +19,8 @@ namespace Juce.TweenPlayer
                 {
                     bindingPlayerEditor.RemoveComponent(component);
 
+                    EditorUtility.SetDirty(bindingPlayerEditor.target);
+
                     Event.current?.Use();
                 });
 
@@ -29,6 +31,8 @@ namespace Juce.TweenPlayer
                 {
                     CopyPasteComponentHelper.Copy(component);
                     CopyPasteComponentHelper.PasteAsNew(bindingPlayerEditor.ActualTarget, component);
+
+                    EditorUtility.SetDirty(bindingPlayerEditor.target);
 
                     Event.current?.Use();
                 });
@@ -42,6 +46,8 @@ namespace Juce.TweenPlayer
                 menu.AddItem(new GUIContent("Paste as new"), false, () =>
                 {
                     CopyPasteComponentHelper.PasteAsNew(bindingPlayerEditor.ActualTarget, component);
+
+                    EditorUtility.SetDirty(bindingPlayerEditor.target);
 
                     Event.current?.Use();
                 });
@@ -57,6 +63,8 @@ namespace Juce.TweenPlayer
                 {
                     CopyPasteComponentHelper.PasteValues(component);
 
+                    EditorUtility.SetDirty(bindingPlayerEditor.target);
+
                     Event.current?.Use();
                 });
             }
@@ -64,39 +72,6 @@ namespace Juce.TweenPlayer
             {
                 menu.AddDisabledItem(new GUIContent("Paste values"), false);
             }
-
-            //if (CopyPasteHelper.Instance.CanPasteAsNew())
-            //{
-            //    menu.AddItem(new GUIContent("Paste As New"), false, () =>
-            //    {
-            //        int feedbackIndex = GetFeedbackIndex(feedback);
-
-            //        UndoHelper.Instance.BeginUndo("PasteAsNew");
-            //        CopyPasteHelper.Instance.PasteFeedbackAsNew(this, feedbackIndex + 1);
-            //        UndoHelper.Instance.EndUndo();
-            //    });
-            //}
-            //else
-            //{
-            //    menu.AddDisabledItem(new GUIContent("Paste As New"), false);
-            //}
-            //menu.AddItem(new GUIContent("Duplicate As New"), false, () =>
-            //{
-            //    int feedbackIndex = GetFeedbackIndex(feedback);
-
-            //    UndoHelper.Instance.BeginUndo("Duplicate");
-            //    CopyPasteHelper.Instance.CopyFeedback(feedback);
-            //    CopyPasteHelper.Instance.PasteFeedbackAsNew(this, feedbackIndex + 1);
-            //    UndoHelper.Instance.EndUndo();
-            //});
-            //menu.AddSeparator("");
-
-            //menu.AddItem(new GUIContent("Expand All"), false, () => FeedbacksSetExpanded(true));
-            //menu.AddItem(new GUIContent("Collapse All"), false, () => FeedbacksSetExpanded(false));
-
-            //menu.AddSeparator("");
-
-            //menu.AddItem(new GUIContent("Documentation"), false, () => ShowFeedbackDocumentation(feedback));
 
             menu.ShowAsContext();
         }
