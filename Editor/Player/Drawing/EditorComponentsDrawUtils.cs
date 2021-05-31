@@ -15,7 +15,7 @@ namespace Juce.TweenPlayer
         {
             if (bindingPlayerEditor.BindingPlayerComponentsProperty.arraySize == 0)
             {
-                EditorGUILayout.LabelField("No components added. Press Add Component to add a neew " +
+                EditorGUILayout.LabelField("No components added. Press Add Component to add a new " +
                     "twening component", EditorStyles.wordWrappedLabel);
             }
             else
