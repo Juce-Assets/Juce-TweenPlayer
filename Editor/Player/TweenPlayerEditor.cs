@@ -170,6 +170,19 @@ namespace Juce.TweenPlayer
 
         private void DrawAddComponent()
         {
+            if (ActualTarget.BindingPlayerComponents.Count == 0)
+            {
+                if (CopyPasteComponentHelper.HasCopiedComponent)
+                {
+                    if (GUILayout.Button("Paste as new"))
+                    {
+                        CopyPasteComponentHelper.PasteAsNew(ActualTarget, destination: null);
+
+                        EditorUtility.SetDirty(ActualTarget);
+                    }
+                }
+            }
+
             if (GUILayout.Button("Add component"))
             {
                 ShowComponentsMenu();
