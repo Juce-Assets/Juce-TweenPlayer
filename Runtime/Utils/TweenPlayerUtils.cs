@@ -15,6 +15,12 @@ namespace Juce.TweenPlayer.Utils
             IBindableData bindableData
             )
         {
+            if(tweenPlayer == null) 
+            {
+                UnityEngine.Debug.LogError($"{nameof(TweenPlayerUtils)} is null", tweenPlayer);
+                return false;
+            }
+
             if (!tweenPlayer.BindingEnabled)
             {
                 return false;
@@ -52,6 +58,12 @@ namespace Juce.TweenPlayer.Utils
 
             foreach (TweenPlayerComponent component in tweenPlayer.BindingPlayerComponents)
             {
+                if(component == null)
+                {
+                    UnityEngine.Debug.LogError($"Null component while trying to bind data");
+                    continue;
+                }
+
                 if (!component.Enabled)
                 {
                     continue;
