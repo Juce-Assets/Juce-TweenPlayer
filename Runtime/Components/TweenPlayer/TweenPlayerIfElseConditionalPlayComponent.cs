@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace Juce.TweenPlayer.Components
 {
-    [TweenPlayerComponent("Tween Player If Else Conditional Play", "Tween Player/If Else Conditional Play")]
+    [TweenPlayerComponent("TweenPlayer If Else Conditional Play", "TweenPlayer/If Else Conditional Play")]
     [System.Serializable]
     public class TweenPlayerIfElseConditionalPlayComponent : AnimationTweenPlayerComponent
     {

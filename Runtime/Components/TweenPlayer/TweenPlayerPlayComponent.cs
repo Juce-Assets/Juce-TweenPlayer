@@ -8,7 +8,7 @@ using UnityEngine.Scripting.APIUpdating;
 
 namespace Juce.TweenPlayer.Components
 {
-    [TweenPlayerComponent("Tween Player Play", "Tween Player/Play")]
+    [TweenPlayerComponent("TweenPlayer Play", "TweenPlayer/Play")]
     [System.Serializable]
     [MovedFrom(false, null, null, "AnimationPlayerPlayerPlayComponent")]
     public class TweenPlayerPlayComponent : AnimationTweenPlayerComponent
