@@ -8,6 +8,7 @@ using UnityEngine.UI;
 namespace Juce.TweenPlayer.Components
 {
     [TweenPlayerComponent("Image Color", "Image/Color")]
+    [TweenPlayerComponentColor(0.81f, 0.62f, 0.19f)]
     [System.Serializable]
     public class ImageColorComponent : AnimationTweenPlayerComponent
     {

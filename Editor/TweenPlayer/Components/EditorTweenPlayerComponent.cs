@@ -1,4 +1,5 @@
 ﻿using System;
+using UnityEngine;
 
 namespace Juce.TweenPlayer
 {
@@ -7,17 +8,19 @@ namespace Juce.TweenPlayer
         public Type Type { get; }
         public string Name { get; }
         public string MenuPath { get; }
-        public string[] FieldsNames { get; }
+        public Color Color { get; }
 
         public EditorTweenPlayerComponent(
             Type type,
             string name,
-            string menuPath
+            string menuPath,
+            Color color
             )
         {
             Type = type;
             Name = name;
             MenuPath = menuPath;
+            Color = color;
         }
     }
 }

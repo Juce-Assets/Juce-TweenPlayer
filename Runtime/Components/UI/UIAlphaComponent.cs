@@ -7,6 +7,7 @@ using UnityEngine;
 namespace Juce.TweenPlayer.Components
 {
     [TweenPlayerComponent("UI Alpha", "UI/Alpha")]
+    [TweenPlayerComponentColor(0.77f, 0.74f, 0.16f)]
     [System.Serializable]
     public class UIAlphaComponent : AnimationTweenPlayerComponent
     {

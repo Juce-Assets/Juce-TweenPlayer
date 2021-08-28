@@ -7,6 +7,7 @@ using UnityEngine;
 namespace Juce.TweenPlayer.Components
 {
     [TweenPlayerComponent("UI Interactable", "UI/Interactable")]
+    [TweenPlayerComponentColor(0.77f, 0.74f, 0.16f)]
     [System.Serializable]
     public class UIInteractableComponent : AnimationTweenPlayerComponent
     {
@@ -55,7 +56,7 @@ namespace Juce.TweenPlayer.Components
                     lastBlocksRaycast = canvasGroup.blocksRaycasts;
 
                     canvasGroup.interactable = interactable.GetValue();
-                    canvasGroup.blocksRaycasts = interactable.GetValue();
+                    canvasGroup.blocksRaycasts = blocksRaycast.GetValue();
                 },
                 () =>
                 {

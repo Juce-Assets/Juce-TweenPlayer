@@ -27,7 +27,7 @@ namespace Juce.TweenPlayer
 
             Rect backgroundRect = GUILayoutUtility.GetRect(4f, 17f);
 
-            float offset = 24f;
+            float offset = 28f;
 
             reorderInteractionRect = backgroundRect;
             reorderInteractionRect.xMin = offset;

@@ -7,6 +7,7 @@ using UnityEngine;
 namespace Juce.TweenPlayer.Components
 {
     [TweenPlayerComponent("RectTransform Offset Max X", "RectTransform/Offset Max X")]
+    [TweenPlayerComponentColor(0.19f, 0.81f, 0.34f)]
     [System.Serializable]
     public class RectTransformOffsetMaxXComponent : AnimationTweenPlayerComponent
     {

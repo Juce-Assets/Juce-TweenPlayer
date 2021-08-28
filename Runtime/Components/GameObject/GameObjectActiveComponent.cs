@@ -7,6 +7,7 @@ using UnityEngine;
 namespace Juce.TweenPlayer.Components
 {
     [TweenPlayerComponent("GameObject Active", "GameObject/Active")]
+    [TweenPlayerComponentColor(0.85f, 0.89f, 0.85f)]
     [System.Serializable]
     public class GameObjectActiveComponent : AnimationTweenPlayerComponent
     {

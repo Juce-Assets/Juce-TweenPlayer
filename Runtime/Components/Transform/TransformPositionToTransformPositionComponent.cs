@@ -7,6 +7,7 @@ using UnityEngine;
 namespace Juce.TweenPlayer.Components
 {
     [TweenPlayerComponent("Transform Position To Transform Position", "Transform/Position To Transform Position")]
+    [TweenPlayerComponentColor(0.88f, 0.35f, 0.36f)]
     [System.Serializable]
     public class TransformPositionToTransformPositionComponent : AnimationTweenPlayerComponent
     {

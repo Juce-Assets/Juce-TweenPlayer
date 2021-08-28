@@ -132,10 +132,27 @@ namespace Juce.TweenPlayer
 
                 if(!found)
                 {
-                    continue; ;
+                    continue; 
                 }
 
-                editorPlayerComponents.Add(new EditorTweenPlayerComponent(type, attribute.Name, attribute.MenuPath));
+                bool colorFound = ReflectionUtils.TryGetAttribute(
+                    type, 
+                    out TweenPlayerComponentColorAttribute colorAttribute
+                    );
+
+                Color color = new Color(0, 0, 0, 0);
+
+                if(colorFound)
+                {
+                    color = colorAttribute.Color;
+                }
+
+                editorPlayerComponents.Add(new EditorTweenPlayerComponent(
+                    type, 
+                    attribute.Name, 
+                    attribute.MenuPath,
+                    color
+                    ));
             }
         }
 

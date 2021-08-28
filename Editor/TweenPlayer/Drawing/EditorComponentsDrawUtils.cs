@@ -127,6 +127,12 @@ namespace Juce.TweenPlayer
                     out Rect reorderColorRect
                     );
 
+                if (editorPlayerComponent.Color.a > 0.0f)
+                {
+                    Rect colorRect = new Rect(reorderColorRect.x + 1, reorderColorRect.y + 1, 3, 19);
+                    EditorGUI.DrawRect(colorRect, editorPlayerComponent.Color);
+                }
+
                 EditorComponentDrawUtils.DrawComponentProgressBar(component);
 
                 bindingPlayerEditor.ComponentsDraggable.CheckDraggingItem(

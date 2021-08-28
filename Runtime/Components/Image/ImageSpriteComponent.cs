@@ -7,6 +7,7 @@ using UnityEngine;
 namespace Juce.TweenPlayer.Components
 {
     [TweenPlayerComponent("Image Sprite", "Image/Sprite")]
+    [TweenPlayerComponentColor(0.81f, 0.62f, 0.19f)]
     [System.Serializable]
     public class ImageSpriteComponent : AnimationTweenPlayerComponent
     {
