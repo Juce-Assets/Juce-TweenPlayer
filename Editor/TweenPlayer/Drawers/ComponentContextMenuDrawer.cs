@@ -1,14 +1,15 @@
 ﻿using Juce.TweenPlayer.Components;
 using Juce.TweenPlayer.Helpers;
+using Juce.TweenPlayer.Utils;
 using UnityEditor;
 using UnityEngine;
 
 namespace Juce.TweenPlayer
 {
-    public static class EditorComponentContextMenuDrawUtils
+    public static class ComponentContextMenuDrawer
     {
-        public static void ShowComponentContextMenu(
-            TweenPlayerEditor bindingPlayerEditor, 
+        public static void Draw(
+            TweenPlayerEditor editor, 
             TweenPlayerComponent component
             )
         {
@@ -17,9 +18,9 @@ namespace Juce.TweenPlayer
             menu.AddItem(new GUIContent("Remove"), false,
                 () =>
                 {
-                    bindingPlayerEditor.RemoveComponent(component);
+                    editor.RemoveComponent(component);
 
-                    EditorUtility.SetDirty(bindingPlayerEditor.target);
+                    EditorUtility.SetDirty(editor.target);
 
                     Event.current?.Use();
                 });
@@ -30,9 +31,9 @@ namespace Juce.TweenPlayer
                 () =>
                 {
                     CopyPasteComponentHelper.Copy(component);
-                    CopyPasteComponentHelper.PasteAsNew(bindingPlayerEditor.ActualTarget, component);
+                    CopyPasteComponentHelper.PasteAsNew(editor.ActualTarget, component);
 
-                    EditorUtility.SetDirty(bindingPlayerEditor.target);
+                    EditorUtility.SetDirty(editor.target);
 
                     Event.current?.Use();
                 });
@@ -41,13 +42,13 @@ namespace Juce.TweenPlayer
 
             menu.AddItem(new GUIContent("Copy"), false, () => CopyPasteComponentHelper.Copy(component));
 
-            if (CopyPasteComponentHelper.HasCopiedComponent)
+            if (CopyPasteComponentHelper.HasCopiedComponents)
             {
                 menu.AddItem(new GUIContent("Paste as new"), false, () =>
                 {
-                    CopyPasteComponentHelper.PasteAsNew(bindingPlayerEditor.ActualTarget, component);
+                    CopyPasteComponentHelper.PasteAsNew(editor.ActualTarget, component);
 
-                    EditorUtility.SetDirty(bindingPlayerEditor.target);
+                    EditorUtility.SetDirty(editor.target);
 
                     Event.current?.Use();
                 });
@@ -57,13 +58,13 @@ namespace Juce.TweenPlayer
                 menu.AddDisabledItem(new GUIContent("Paste as new"), false);
             }
 
-            if (CopyPasteComponentHelper.HasCopiedComponent && CopyPasteComponentHelper.CanPasteValues(component))
+            if (CopyPasteComponentHelper.HasCopiedComponents && CopyPasteComponentHelper.CanPasteValues(component))
             {
                 menu.AddItem(new GUIContent("Paste values"), false, () =>
                 {
                     CopyPasteComponentHelper.PasteValues(component);
 
-                    EditorUtility.SetDirty(bindingPlayerEditor.target);
+                    EditorUtility.SetDirty(editor.target);
 
                     Event.current?.Use();
                 });
@@ -72,6 +73,26 @@ namespace Juce.TweenPlayer
             {
                 menu.AddDisabledItem(new GUIContent("Paste values"), false);
             }
+
+            menu.AddSeparator("");
+
+            menu.AddItem(new GUIContent("Collapse All"), false, () =>
+            {
+                ComponentUtils.CollapseAll(editor);
+
+                EditorUtility.SetDirty(editor.target);
+
+                Event.current?.Use();
+            });
+
+            menu.AddItem(new GUIContent("Expand All"), false, () =>
+            {
+                ComponentUtils.ExpandAll(editor);
+
+                EditorUtility.SetDirty(editor.target);
+
+                Event.current?.Use();
+            });
 
             menu.ShowAsContext();
         }

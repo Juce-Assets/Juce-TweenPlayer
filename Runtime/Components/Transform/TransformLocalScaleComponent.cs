@@ -7,7 +7,7 @@ using UnityEngine;
 namespace Juce.TweenPlayer.Components
 {
     [TweenPlayerComponent("Transform Local Scale", "Transform/Local Scale")]
-    [TweenPlayerComponentColor(0.88f, 0.35f, 0.36f)]
+    [TweenPlayerComponentColor(1f, 0.368f, 0.066f)]
     [System.Serializable]
     public class TransformLocalScaleComponent : AnimationTweenPlayerComponent
     {

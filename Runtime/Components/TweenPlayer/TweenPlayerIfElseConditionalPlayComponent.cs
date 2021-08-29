@@ -8,6 +8,7 @@ using UnityEngine;
 namespace Juce.TweenPlayer.Components
 {
     [TweenPlayerComponent("TweenPlayer If Else Conditional Play", "TweenPlayer/If Else Conditional Play")]
+    [TweenPlayerComponentColor(0.909f, 0.231f, 0.231f)]
     [System.Serializable]
     public class TweenPlayerIfElseConditionalPlayComponent : AnimationTweenPlayerComponent
     {

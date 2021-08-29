@@ -7,7 +7,7 @@ using UnityEngine;
 namespace Juce.TweenPlayer.Components
 {
     [TweenPlayerComponent("Wait All Above", "Flow/WaitAllAbove")]
-    [TweenPlayerComponentColor(0.35f, 0.44f, 0.88f)]
+    [TweenPlayerComponentColor(0f, 0.792f, 0.721f, useAsBackground: true)]
     public class WaitAllAboveComponent : FlowComponent
     {
         [SerializeField] private FloatBinding delay = new FloatBinding();

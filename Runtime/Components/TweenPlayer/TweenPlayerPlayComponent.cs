@@ -4,13 +4,12 @@ using Juce.TweenPlayer.Bindings;
 using Juce.TweenPlayer.Utils;
 using Juce.TweenPlayer.Validation;
 using UnityEngine;
-using UnityEngine.Scripting.APIUpdating;
 
 namespace Juce.TweenPlayer.Components
 {
     [TweenPlayerComponent("TweenPlayer Play", "TweenPlayer/Play")]
+    [TweenPlayerComponentColor(0.909f, 0.231f, 0.231f)]
     [System.Serializable]
-    [MovedFrom(false, null, null, "AnimationPlayerPlayerPlayComponent")]
     public class TweenPlayerPlayComponent : AnimationTweenPlayerComponent
     {
         [SerializeField] private TweenPlayerBinding target = new TweenPlayerBinding();

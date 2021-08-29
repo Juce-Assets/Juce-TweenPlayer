@@ -7,6 +7,7 @@ using UnityEngine;
 namespace Juce.TweenPlayer.Components
 {
     [TweenPlayerComponent("SpriteRenderer Color", "SpriteRenderer/Color")]
+    [TweenPlayerComponentColor(0.388f, 0.780f, 0.301f)]
     [System.Serializable]
     public class SpriteRendererColorComponent : AnimationTweenPlayerComponent
     {

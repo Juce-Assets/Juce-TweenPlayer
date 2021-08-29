@@ -7,6 +7,7 @@ using UnityEngine;
 namespace Juce.TweenPlayer.Components
 {
     [TweenPlayerComponent("ParticleSystem Play", "ParticleSystem/Play")]
+    [TweenPlayerComponentColor(0.658f, 0.517f, 0.952f)]
     [System.Serializable]
     public class ParticleSystemPlayComponent : AnimationTweenPlayerComponent
     {

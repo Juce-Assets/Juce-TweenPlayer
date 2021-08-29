@@ -9,18 +9,21 @@ namespace Juce.TweenPlayer
         public string Name { get; }
         public string MenuPath { get; }
         public Color Color { get; }
+        public bool UseColorAsBackground { get; }
 
         public EditorTweenPlayerComponent(
             Type type,
             string name,
             string menuPath,
-            Color color
+            Color color,
+            bool useColorAsBackground
             )
         {
             Type = type;
             Name = name;
             MenuPath = menuPath;
             Color = color;
+            UseColorAsBackground = useColorAsBackground;
         }
     }
 }

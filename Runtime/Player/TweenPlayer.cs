@@ -47,6 +47,8 @@ namespace Juce.TweenPlayer
         public bool BindingEnabled => bindingEnabled;
         public string BindableDataUid => bindableDataUid;
 
+        public float TimeScale { get; private set; } = 1.0f;
+
         private void Awake()
         {
             TryPlay(ExecutionMode.Awake);
@@ -119,6 +121,16 @@ namespace Juce.TweenPlayer
             return currMainSequence.GetNormalizedProgress();
         }
 
+        public float GetDuration()
+        {
+            if (currMainSequence == null)
+            {
+                return 0.0f;
+            }
+;
+            return currMainSequence.GetDuration();
+        }
+
         public ISequenceTween GenerateSequence()
         {
             FlowContext context = new FlowContext();
@@ -154,6 +166,8 @@ namespace Juce.TweenPlayer
         public void Play()
         {
             ISequenceTween sequence = GenerateSequence();
+
+            sequence.SetTimeScale(TimeScale);
 
             sequence.Play();
         }
@@ -261,6 +275,18 @@ namespace Juce.TweenPlayer
             Complete();
 
             return Task.CompletedTask;
+        }
+
+        public void SetTimeScale(float timeScale)
+        {
+            if(currMainSequence == null)
+            {
+                return;
+            }
+
+            TimeScale = timeScale;
+
+            currMainSequence.SetTimeScale(TimeScale);
         }
 
         private void SetLoop(ITween tween, LoopMode loopMode)

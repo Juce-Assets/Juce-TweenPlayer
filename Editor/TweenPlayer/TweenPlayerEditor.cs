@@ -1,5 +1,6 @@
 using Juce.TweenPlayer.BindableData;
 using Juce.TweenPlayer.Components;
+using Juce.TweenPlayer.Drawers;
 using Juce.TweenPlayer.Helpers;
 using Juce.TweenPlayer.Reflection;
 using Juce.TweenPlayer.Utils;
@@ -14,7 +15,7 @@ namespace Juce.TweenPlayer
     [CustomEditor(typeof(TweenPlayer))]
     public class TweenPlayerEditor : Editor
     {
-        private readonly List<EditorTweenPlayerComponent> editorPlayerComponents = new List<EditorTweenPlayerComponent>();
+        private List<EditorTweenPlayerComponent> editorPlayerComponents = new List<EditorTweenPlayerComponent>();
         private readonly Dictionary<Type, EditorTweenPlayerComponent> cachedEditorPlayerComponents = new Dictionary<Type, EditorTweenPlayerComponent>();
 
         private List<EditorBindableData> editorBindableDatas = new List<EditorBindableData>();
@@ -30,6 +31,8 @@ namespace Juce.TweenPlayer
         private SerializedProperty bindingEnabledProperty;
         private SerializedProperty bindableDataUidProperty;
 
+        public IReadOnlyList<EditorTweenPlayerComponent> EditorPlayerComponents => editorPlayerComponents;
+        public Dictionary<Type, EditorTweenPlayerComponent> CachedEditorPlayerComponents => cachedEditorPlayerComponents;
         public IReadOnlyList<EditorBindableData> EditorBindableDatas => editorBindableDatas;
 
         public TweenPlayer ActualTarget { get; private set; }
@@ -64,31 +67,31 @@ namespace Juce.TweenPlayer
 
             serializedObject.Update();
 
-            TweenPlayerEditorDrawUtils.DrawGeneralProgressBar(this);
+            GeneralProgressBarDrawer.Draw(this);
 
             EditorGUILayout.Space(1);
 
-            TweenPlayerEditorDrawUtils.DrawExecutionMode(this);
+            ExecutionModeDrawer.Draw(this);
 
             EditorGUILayout.Space(1);
 
-            TweenPlayerEditorDrawUtils.DrawLoopMode(this);
+            LoopModeDrawer.Draw(this);
 
             EditorGUILayout.Space(1);
 
-            TweenPlayerEditorDrawUtils.DrawSelectedBindableData(this);
+            BindableDataDrawer.Draw(this);
 
             EditorGUILayout.Space(1);
 
-            EditorComponentsDrawUtils.DrawComponents(this);
+            ComponentsDrawer.Draw(this);
 
             EditorGUILayout.Space(1);
 
-            DrawAddComponent();
+            BottomComponentControlsDrawer.Draw(this);
 
             EditorGUILayout.Space(1);
 
-            TweenPlayerEditorDrawUtils.DrawPlaybackControls(this);
+            PlaybackControlsDrawer.Draw(this);
 
             ActuallyRemoveComponents();
 
@@ -116,125 +119,14 @@ namespace Juce.TweenPlayer
             bindableDataUidProperty = serializedObject.FindProperty("bindableDataUid");
         }
 
-        public void SetBindableDataUid(string uid)
-        {
-            bindableDataUidProperty.stringValue = uid;
-            serializedObject.ApplyModifiedProperties();
-        }
-
         private void GatherEditorBindingPlayerComponents()
         {
-            List<Type> types = ReflectionUtils.GetInheritedTypes(typeof(TweenPlayerComponent));
-
-            foreach (Type type in types)
-            {
-                bool found = ReflectionUtils.TryGetAttribute(type, out TweenPlayerComponentAttribute attribute);
-
-                if(!found)
-                {
-                    continue; 
-                }
-
-                bool colorFound = ReflectionUtils.TryGetAttribute(
-                    type, 
-                    out TweenPlayerComponentColorAttribute colorAttribute
-                    );
-
-                Color color = new Color(0, 0, 0, 0);
-
-                if(colorFound)
-                {
-                    color = colorAttribute.Color;
-                }
-
-                editorPlayerComponents.Add(new EditorTweenPlayerComponent(
-                    type, 
-                    attribute.Name, 
-                    attribute.MenuPath,
-                    color
-                    ));
-            }
-        }
-
-        public bool TryGetCachedEditorPlayerComponent(Type componentType, out EditorTweenPlayerComponent editorPlayerComponent)
-        {
-            bool found = cachedEditorPlayerComponents.TryGetValue(componentType, out editorPlayerComponent);
-
-            if (found)
-            {
-                return true;
-            }
-
-            foreach (EditorTweenPlayerComponent component in editorPlayerComponents)
-            {
-                if (componentType == component.Type)
-                {
-                    cachedEditorPlayerComponents.Add(componentType, component);
-
-                    editorPlayerComponent = component;
-                    return true;
-                }
-            }
-
-            editorPlayerComponent = null;
-            return false;
+            editorPlayerComponents = EditorComponentUtils.GatherEditorComponents();
         }
 
         private void GatherEditorBindableData()
         {
             editorBindableDatas = EditorBindableDataUtils.GatherEditorBindableData();
-        }
-
-        private void DrawAddComponent()
-        {
-            if (ActualTarget.BindingPlayerComponents.Count == 0)
-            {
-                if (CopyPasteComponentHelper.HasCopiedComponent)
-                {
-                    if (GUILayout.Button("Paste as new"))
-                    {
-                        CopyPasteComponentHelper.PasteAsNew(ActualTarget, destination: null);
-
-                        EditorUtility.SetDirty(ActualTarget);
-                    }
-                }
-            }
-
-            if (GUILayout.Button("Add component"))
-            {
-                ShowComponentsMenu();
-            }
-        }
-
-        public void ShowBindableDatasMenu()
-        {
-            GenericMenu menu = new GenericMenu();
-
-            foreach (EditorBindableData bindableDatas in editorBindableDatas)
-            {
-                menu.AddItem(new GUIContent($"{bindableDatas.MenuPath}"),
-                false, () => SetBindableDataUid(bindableDatas.Uid));
-            }
-
-            menu.ShowAsContext();
-        }
-
-        private void ShowComponentsMenu()
-        {
-            GenericMenu menu = new GenericMenu();
-
-            foreach(EditorTweenPlayerComponent component in editorPlayerComponents)
-            {
-                menu.AddItem(new GUIContent($"{component.MenuPath}"),
-                false, () => OnAddComponentSelected(component.Type));
-            }
-
-            menu.ShowAsContext();
-        }
-
-        private void OnAddComponentSelected(Type componentType)
-        {
-            ActualTarget.AddComponent(componentType);
         }
 
         public void RemoveComponent(TweenPlayerComponent component) 
@@ -245,27 +137,6 @@ namespace Juce.TweenPlayer
         public void RemoveComponent(int index)
         {
             componentsIndexToRemove.Add(index);
-        }
-
-        public void ReorderComponent(int componentIndex, int newComponentIndex)
-        {
-            if (componentIndex == newComponentIndex)
-            {
-                return;
-            }
-
-            if (componentIndex < 0 || componentIndex >= ActualTarget.BindingPlayerComponents.Count)
-            {
-                return;
-            }
-
-            newComponentIndex = Math.Min(newComponentIndex, ActualTarget.BindingPlayerComponents.Count - 1);
-            newComponentIndex = Math.Max(newComponentIndex, 0);
-
-            TweenPlayerComponent component = ActualTarget.BindingPlayerComponents[componentIndex];
-
-            ActualTarget.BindingPlayerComponents.RemoveAt(componentIndex);
-            ActualTarget.BindingPlayerComponents.Insert(newComponentIndex, component);
         }
 
         private void ActuallyRemoveComponents()

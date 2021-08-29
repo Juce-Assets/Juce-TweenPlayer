@@ -7,6 +7,7 @@ using UnityEngine;
 namespace Juce.TweenPlayer.Components
 {
     [TweenPlayerComponent("Material Renderer Color", "Material Renderer/Color")]
+    [TweenPlayerComponentColor(0.835f, 0.878f, 0.294f)]
     [System.Serializable]
     public class MaterialRendererColor : AnimationTweenPlayerComponent
     {

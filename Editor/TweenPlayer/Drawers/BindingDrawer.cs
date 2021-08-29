@@ -5,11 +5,11 @@ using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
-namespace Juce.TweenPlayer
+namespace Juce.TweenPlayer.Drawers
 {
-    public static class EditorBindingDrawUtils
+    public static class BindingDrawer
     {
-        public static void DrawEditorBinding(
+        public static void Draw(
          TweenPlayerEditor bindingPlayerEditor,
          SerializedProperty parentSerializedProperty,
          EditorBinding editorBinding
