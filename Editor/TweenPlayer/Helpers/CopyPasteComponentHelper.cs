@@ -62,7 +62,7 @@ namespace Juce.TweenPlayer.Helpers
             {
                 TweenPlayerComponent copiedComponent = copiedComponents[i];
 
-                TweenPlayerComponent newComponent = tweenPlayer.AddComponent(
+                TweenPlayerComponent newComponent = tweenPlayer.AddTweenPlayerComponent(
                     copiedComponent.GetType(), 
                     index + 1 + i
                     );

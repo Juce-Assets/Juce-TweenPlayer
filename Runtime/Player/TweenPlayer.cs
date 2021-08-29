@@ -59,12 +59,12 @@ namespace Juce.TweenPlayer
             TryPlay(ExecutionMode.OnEnable);
         }
 
-        public TweenPlayerComponent AddComponent(Type type)
+        public TweenPlayerComponent AddTweenPlayerComponent(Type type)
         {
-            return AddComponent(type, BindingPlayerComponents.Count);
+            return AddTweenPlayerComponent(type, BindingPlayerComponents.Count);
         }
 
-        public TweenPlayerComponent AddComponent(Type type, int index) 
+        public TweenPlayerComponent AddTweenPlayerComponent(Type type, int index) 
         {
             index = Math.Max(index, 0);
             index = Math.Min(index, BindingPlayerComponents.Count);
@@ -79,6 +79,28 @@ namespace Juce.TweenPlayer
             BindingPlayerComponents.Insert(index, instance);
 
             return instance;
+        }
+
+        public T GetTweenPlayerComponent<T>() where T : TweenPlayerComponent
+        {
+            Type type = typeof(T);
+
+            foreach(TweenPlayerComponent component in BindingPlayerComponents)
+            {
+                if(component.GetType() == type)
+                {
+                    return component as T;
+                }
+            }
+
+            return null;
+        }
+
+        public bool TryGetTweenPlayerComponent<T>(out T component) where T : TweenPlayerComponent
+        {
+            component = GetTweenPlayerComponent<T>();
+
+            return component != null;
         }
 
         public void Bind(IBindableData bindableData)
@@ -140,6 +162,8 @@ namespace Juce.TweenPlayer
                 if (component == null)
                 {
                     UnityEngine.Debug.LogError($"Null component found at {nameof(TweenPlayer)}", this);
+
+                    continue;
                 }
 
                 if (!component.Enabled)

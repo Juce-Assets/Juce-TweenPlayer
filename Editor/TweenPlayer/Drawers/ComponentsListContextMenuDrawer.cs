@@ -12,7 +12,7 @@ namespace Juce.TweenPlayer.Drawers
             foreach (EditorTweenPlayerComponent component in editor.EditorPlayerComponents)
             {
                 menu.AddItem(new GUIContent($"{component.MenuPath}"),
-                false, () => editor.ActualTarget.AddComponent(component.Type));
+                false, () => editor.ActualTarget.AddTweenPlayerComponent(component.Type));
             }
 
             menu.ShowAsContext();

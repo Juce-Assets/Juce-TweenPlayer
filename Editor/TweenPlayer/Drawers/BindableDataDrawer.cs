@@ -94,8 +94,9 @@ namespace Juce.TweenPlayer.Drawers
 
             EditorGUILayout.LabelField("Properties:");
 
-            bindingPlayerEditor.ShowBindedDataPropertiesScrollViewPosition =
-                EditorGUILayout.BeginScrollView(bindingPlayerEditor.ShowBindedDataPropertiesScrollViewPosition, GUILayout.MaxHeight(150));
+            bindingPlayerEditor.ShowBindedDataPropertiesScrollViewPosition = EditorGUILayout.BeginScrollView(
+                    bindingPlayerEditor.ShowBindedDataPropertiesScrollViewPosition
+                    );
             {
                 foreach (EditorBindableDataField field in editorBindableData.Fields)
                 {
