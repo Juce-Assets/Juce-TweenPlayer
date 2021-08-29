@@ -1,4 +1,5 @@
 ﻿using Juce.TweenPlayer.Components;
+using Juce.TweenPlayer.Helpers;
 using Juce.TweenPlayer.Utils;
 using UnityEditor;
 using UnityEngine;
@@ -16,7 +17,19 @@ namespace Juce.TweenPlayer.Drawers
             }
             else
             {
-                EditorGUILayout.LabelField("Components");
+                EditorGUILayout.BeginHorizontal();
+                {
+                    EditorGUILayout.LabelField("Components");
+
+                    if (editor.ActualTarget.BindingPlayerComponents.Count > 0)
+                    {
+                        if (GUILayout.Button("Copy All"))
+                        {
+                            CopyPasteComponentHelper.Copy(editor.ActualTarget.BindingPlayerComponents);
+                        }
+                    }
+                }
+                EditorGUILayout.EndHorizontal();
             }
 
             for (int i = 0; i < editor.BindingPlayerComponentsProperty.arraySize; ++i)

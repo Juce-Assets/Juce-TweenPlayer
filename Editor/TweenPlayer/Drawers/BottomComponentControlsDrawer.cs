@@ -25,14 +25,6 @@ namespace Juce.TweenPlayer.Drawers
             {
                 ComponentsListContextMenuDrawer.Draw(editor);
             }
-
-            if (editor.ActualTarget.BindingPlayerComponents.Count > 0)
-            {
-                if (GUILayout.Button("Copy All"))
-                {
-                    CopyPasteComponentHelper.Copy(editor.ActualTarget.BindingPlayerComponents);
-                }
-            }
         }
     }
 }
