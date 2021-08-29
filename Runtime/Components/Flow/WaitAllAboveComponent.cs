@@ -18,9 +18,11 @@ namespace Juce.TweenPlayer.Components
 
             context.MainSequence.Append(context.CurrentSequence);
 
+            ITween progressTween = context.CurrentSequence;
+
             context.CurrentSequence = JuceTween.Sequence();
 
-            return new ComponentExecutionResult(delayTween);
+            return new ComponentExecutionResult(delayTween, progressTween);
         }
     }
 }

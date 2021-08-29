@@ -34,8 +34,8 @@ namespace Juce.TweenPlayer.Drawers
                     {
                         GUILayout.Label($"Loop reset mode:");
 
-                        LoopResetMode resetMode = (LoopResetMode)editor.LoopResetModeProperty.enumValueIndex;
-                        LoopResetMode newResetMode = (LoopResetMode)EditorGUILayout.EnumPopup("", resetMode);
+                        ResetMode resetMode = (ResetMode)editor.LoopResetModeProperty.enumValueIndex;
+                        ResetMode newResetMode = (ResetMode)EditorGUILayout.EnumPopup("", resetMode);
                         editor.LoopResetModeProperty.enumValueIndex = (int)newResetMode;
                     }
                     GUILayout.FlexibleSpace();

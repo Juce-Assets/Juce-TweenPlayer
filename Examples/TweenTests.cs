@@ -33,7 +33,7 @@ public class TweenTests : MonoBehaviour
         groupTween.Append(tween2);
         groupTween.Append(groupTween2);
 
-        groupTween.SetLoops(5, LoopResetMode.InitialValues);
+        groupTween.SetLoops(5, ResetMode.InitialValues);
 
         groupTween.Play();
     }
@@ -53,7 +53,7 @@ public class TweenTests : MonoBehaviour
 
         if (Input.GetKeyDown("r"))
         {
-            groupTween.Reset();
+            groupTween.Reset(kill: true);
         }
 
         if (Input.GetKeyDown("p"))

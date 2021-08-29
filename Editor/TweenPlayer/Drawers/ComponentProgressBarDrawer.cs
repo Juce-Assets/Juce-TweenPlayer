@@ -45,8 +45,10 @@ namespace Juce.TweenPlayer.Drawers
             {
                 if (component.ExecutionResult.ProgressTween.IsPlaying)
                 {
+                    float normalizedProgress = component.ExecutionResult.ProgressTween.GetNormalizedProgress();
+
                     ProgressBarDrawer.Draw(
-                        component.ExecutionResult.ProgressTween.GetNormalizedProgress(),
+                        normalizedProgress,
                         TweenPlayerEditorStyles.TaskRunningColor,
                         offsetX,
                         offsetY

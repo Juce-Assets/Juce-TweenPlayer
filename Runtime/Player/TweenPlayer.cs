@@ -23,7 +23,7 @@ namespace Juce.TweenPlayer
 
         [SerializeField]
         [HideInInspector]
-        private LoopResetMode loopResetMode = LoopResetMode.InitialValues;
+        private ResetMode loopResetMode = ResetMode.InitialValues;
 
         [SerializeField]
         [HideInInspector]
@@ -325,7 +325,7 @@ namespace Juce.TweenPlayer
 
                 case LoopMode.UntilManuallyStopped:
                     {
-                        tween.SetLoops(int.MaxValue, LoopResetMode.InitialValues);
+                        tween.SetLoops(int.MaxValue, ResetMode.InitialValues);
                     }
                     break;
             }
