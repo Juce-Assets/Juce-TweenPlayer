@@ -37,12 +37,25 @@ namespace Juce.TweenPlayer.Utils
                     useAsBackground = colorAttribute.UseAsBackground;
                 }
 
+                bool documentationFound = ReflectionUtils.TryGetAttribute(
+                    type,
+                    out TweenPlayerComponentDocumentation documentationAttribute
+                    );
+
+                string documentation = string.Empty;
+
+                if(documentationFound)
+                {
+                    documentation = documentationAttribute.Documentation;
+                }
+
                 ret.Add(new EditorTweenPlayerComponent(
                     type,
                     attribute.Name,
                     attribute.MenuPath,
                     color,
-                    useAsBackground
+                    useAsBackground,
+                    documentation
                     ));
             }
 

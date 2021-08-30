@@ -55,7 +55,7 @@ namespace Juce.TweenPlayer.Utils
 
             PropertyInfo[] bindableDataProperties = bindableData.GetType().GetProperties();
 
-            foreach (TweenPlayerComponent component in tweenPlayer.BindingPlayerComponents)
+            foreach (TweenPlayerComponent component in tweenPlayer.Components)
             {
                 if(component == null)
                 {

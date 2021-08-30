@@ -45,11 +45,11 @@ namespace Juce.TweenPlayer.Helpers
                 return;
             }
 
-            int index = tweenPlayer.BindingPlayerComponents.Count;
+            int index = tweenPlayer.Components.Count;
 
-            for (int i = 0; i < tweenPlayer.BindingPlayerComponents.Count; ++i)
+            for (int i = 0; i < tweenPlayer.Components.Count; ++i)
             {
-                TweenPlayerComponent component = tweenPlayer.BindingPlayerComponents[i];
+                TweenPlayerComponent component = tweenPlayer.Components[i];
 
                 if (component == destination)
                 {

@@ -27,7 +27,7 @@ namespace Juce.TweenPlayer
         private SerializedProperty loopModeProperty;
         private SerializedProperty loopResetModeProperty;
         private SerializedProperty loopsProperty;
-        private SerializedProperty bindingPlayerComponentsProperty;
+        private SerializedProperty componentsProperty;
         private SerializedProperty bindingEnabledProperty;
         private SerializedProperty bindableDataUidProperty;
 
@@ -43,13 +43,14 @@ namespace Juce.TweenPlayer
         public SerializedProperty LoopModeProperty => loopModeProperty;
         public SerializedProperty LoopResetModeProperty => loopResetModeProperty;
         public SerializedProperty LoopsProperty => loopsProperty;
-        public SerializedProperty BindingPlayerComponentsProperty => bindingPlayerComponentsProperty;
+        public SerializedProperty ComponentsProperty => componentsProperty;
         public SerializedProperty BindingEnabledProperty => bindingEnabledProperty;
         public SerializedProperty BindableDataUidProperty => bindableDataUidProperty;
 
         public EditorBindableData SelectedEditorBindableData { get; set; }
         public bool ShowBindedDataProperties { get; set; }
         public Vector2 ShowBindedDataPropertiesScrollViewPosition { get; set; }
+        public bool DocumentationEnabled { get; set; } 
 
         private void OnEnable()
         {
@@ -114,7 +115,7 @@ namespace Juce.TweenPlayer
             loopModeProperty = serializedObject.FindProperty("loopMode");
             loopResetModeProperty = serializedObject.FindProperty("loopResetMode");
             loopsProperty = serializedObject.FindProperty("loops");
-            bindingPlayerComponentsProperty = serializedObject.FindProperty("BindingPlayerComponents");
+            componentsProperty = serializedObject.FindProperty("Components");
             bindingEnabledProperty = serializedObject.FindProperty("bindingEnabled");
             bindableDataUidProperty = serializedObject.FindProperty("bindableDataUid");
         }
@@ -143,12 +144,12 @@ namespace Juce.TweenPlayer
         {
             foreach (int componentIndex in componentsIndexToRemove)
             {
-                ActualTarget.BindingPlayerComponents.RemoveAt(componentIndex);
+                ActualTarget.Components.RemoveAt(componentIndex);
             }
 
             foreach (TweenPlayerComponent component in componentsToRemove)
             {
-                ActualTarget.BindingPlayerComponents.Remove(component);
+                ActualTarget.Components.Remove(component);
             }
 
             componentsIndexToRemove.Clear();

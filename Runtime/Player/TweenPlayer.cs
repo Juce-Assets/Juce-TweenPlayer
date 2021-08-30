@@ -32,15 +32,15 @@ namespace Juce.TweenPlayer
         [SerializeField] 
         [HideInInspector] 
         [SerializeReference] 
-        public List<TweenPlayerComponent> BindingPlayerComponents = new List<TweenPlayerComponent>();
+        public List<TweenPlayerComponent> Components = new List<TweenPlayerComponent>();
+
+        [SerializeField]
+        [HideInInspector]
+        private bool bindingEnabled = default;
 
         [SerializeField] 
         [HideInInspector] 
-        private bool bindingEnabled;
-
-        [SerializeField] 
-        [HideInInspector] 
-        private string bindableDataUid;
+        private string bindableDataUid = default;
 
         private ISequenceTween currMainSequence;
 
@@ -54,6 +54,11 @@ namespace Juce.TweenPlayer
             TryPlay(ExecutionMode.Awake);
         }
 
+        private void Start()
+        {
+            TryPlay(ExecutionMode.Start);
+        }
+
         private void OnEnable()
         {
             TryPlay(ExecutionMode.OnEnable);
@@ -61,13 +66,13 @@ namespace Juce.TweenPlayer
 
         public TweenPlayerComponent AddTweenPlayerComponent(Type type)
         {
-            return AddTweenPlayerComponent(type, BindingPlayerComponents.Count);
+            return AddTweenPlayerComponent(type, Components.Count);
         }
 
         public TweenPlayerComponent AddTweenPlayerComponent(Type type, int index) 
         {
             index = Math.Max(index, 0);
-            index = Math.Min(index, BindingPlayerComponents.Count);
+            index = Math.Min(index, Components.Count);
 
             TweenPlayerComponent instance = Activator.CreateInstance(type) as TweenPlayerComponent;
 
@@ -76,7 +81,7 @@ namespace Juce.TweenPlayer
                 return null;
             }
 
-            BindingPlayerComponents.Insert(index, instance);
+            Components.Insert(index, instance);
 
             return instance;
         }
@@ -85,7 +90,7 @@ namespace Juce.TweenPlayer
         {
             Type type = typeof(T);
 
-            foreach(TweenPlayerComponent component in BindingPlayerComponents)
+            foreach(TweenPlayerComponent component in Components)
             {
                 if(component.GetType() == type)
                 {
@@ -112,7 +117,7 @@ namespace Juce.TweenPlayer
                 return;
             }
 
-            foreach (TweenPlayerComponent component in BindingPlayerComponents)
+            foreach (TweenPlayerComponent component in Components)
             {
                 if (component == null)
                 {
@@ -157,7 +162,7 @@ namespace Juce.TweenPlayer
         {
             FlowContext context = new FlowContext();
 
-            foreach (TweenPlayerComponent component in BindingPlayerComponents)
+            foreach (TweenPlayerComponent component in Components)
             {
                 if (component == null)
                 {

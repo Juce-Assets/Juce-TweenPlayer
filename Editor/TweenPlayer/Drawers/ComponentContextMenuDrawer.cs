@@ -94,6 +94,27 @@ namespace Juce.TweenPlayer
                 Event.current?.Use();
             });
 
+            menu.AddSeparator("");
+
+            if (!editor.DocumentationEnabled)
+            {
+                menu.AddItem(new GUIContent("Show Documentation"), false, () =>
+                {
+                    editor.DocumentationEnabled = true;
+
+                    Event.current?.Use();
+                });
+            }
+            else
+            {
+                menu.AddItem(new GUIContent("Hide Documentation"), false, () =>
+                {
+                    editor.DocumentationEnabled = false;
+
+                    Event.current?.Use();
+                });
+            }
+
             menu.ShowAsContext();
         }
 

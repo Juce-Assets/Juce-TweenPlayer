@@ -10,7 +10,7 @@ namespace Juce.TweenPlayer.Drawers
     {
         public static void Draw(TweenPlayerEditor editor)
         {
-            if (editor.BindingPlayerComponentsProperty.arraySize == 0)
+            if (editor.ComponentsProperty.arraySize == 0)
             {
                 EditorGUILayout.LabelField("No components added. Press Add Component to add a new " +
                     "twening component", EditorStyles.wordWrappedLabel);
@@ -21,22 +21,22 @@ namespace Juce.TweenPlayer.Drawers
                 {
                     EditorGUILayout.LabelField("Components");
 
-                    if (editor.ActualTarget.BindingPlayerComponents.Count > 0)
+                    if (editor.ActualTarget.Components.Count > 0)
                     {
                         if (GUILayout.Button("Copy All"))
                         {
-                            CopyPasteComponentHelper.Copy(editor.ActualTarget.BindingPlayerComponents);
+                            CopyPasteComponentHelper.Copy(editor.ActualTarget.Components);
                         }
                     }
                 }
                 EditorGUILayout.EndHorizontal();
             }
 
-            for (int i = 0; i < editor.BindingPlayerComponentsProperty.arraySize; ++i)
+            for (int i = 0; i < editor.ComponentsProperty.arraySize; ++i)
             {
-                TweenPlayerComponent component = editor.ActualTarget.BindingPlayerComponents[i];
+                TweenPlayerComponent component = editor.ActualTarget.Components[i];
 
-                SerializedProperty componentSerializedProperty = editor.BindingPlayerComponentsProperty.GetArrayElementAtIndex(i);
+                SerializedProperty componentSerializedProperty = editor.ComponentsProperty.GetArrayElementAtIndex(i);
 
                 if(component == null)
                 {

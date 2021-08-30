@@ -8,7 +8,7 @@ namespace Juce.TweenPlayer.Drawers
     {
         public static void Draw(TweenPlayerEditor editor)
         {
-            if (editor.ActualTarget.BindingPlayerComponents.Count == 0)
+            if (editor.ActualTarget.Components.Count == 0)
             {
                 if (CopyPasteComponentHelper.HasCopiedComponents)
                 {

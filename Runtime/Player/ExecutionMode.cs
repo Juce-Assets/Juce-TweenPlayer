@@ -4,6 +4,7 @@
     {
         Manual,
         Awake,
+        Start,
         OnEnable
     }
 }

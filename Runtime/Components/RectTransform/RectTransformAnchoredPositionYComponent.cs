@@ -6,12 +6,12 @@ using UnityEngine;
 
 namespace Juce.TweenPlayer.Components
 {
-    [TweenPlayerComponent("RectTransform Anchored Position X", "RectTransform/Anchored Position X")]
+    [TweenPlayerComponent("RectTransform Anchored Position Y", "RectTransform/Anchored Position Y")]
     [TweenPlayerComponentColor(0.19f, 0.81f, 0.34f)]
-    [TweenPlayerComponentDocumentation("The position X of the pivot of a RectTransform " +
+    [TweenPlayerComponentDocumentation("The position Y of the pivot of a RectTransform " +
         "relative to the anchor reference point.")]
     [System.Serializable]
-    public class RectTransformAnchoredPositionXComponent : AnimationTweenPlayerComponent
+    public class RectTransformAnchoredPositionYComponent : AnimationTweenPlayerComponent
     {
         [SerializeField] private RectTransformBinding target = new RectTransformBinding();
         [SerializeField] private FloatBinding value = new FloatBinding();
@@ -35,16 +35,22 @@ namespace Juce.TweenPlayer.Components
 
         protected override ComponentExecutionResult OnExecute(ISequenceTween sequenceTween)
         {
-            if (target.GetValue() == null)
+            RectTransform targetValue = target.GetValue();
+
+            if (targetValue == null)
             {
                 return ComponentExecutionResult.Empty;
             }
 
+            float valueValue = value.GetValue();
+            float durationValue = duration.GetValue();
+            AnimationCurve easingValue = easing.GetValue();
+
             ITween delayTween = DelayUtils.Apply(sequenceTween, delay);
 
-            ITween progressTween = target.GetValue().TweenAnchoredPositionX(value.GetValue(), duration.GetValue());
+            ITween progressTween = targetValue.TweenAnchoredPositionY(valueValue, durationValue);
 
-            progressTween.SetEase(easing.GetValue());
+            progressTween.SetEase(easingValue);
 
             sequenceTween.Append(progressTween);
 

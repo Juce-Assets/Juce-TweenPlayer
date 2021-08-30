@@ -92,6 +92,22 @@ namespace Juce.TweenPlayer.Drawers
                     componentIndex
                     );
 
+                if(editor.DocumentationEnabled)
+                {
+                    bool hasDocumentation = !string.IsNullOrEmpty(editorPlayerComponent.Documentation);
+
+                    if (hasDocumentation)
+                    {
+                        EditorGUILayout.Space();
+
+                        using (new EditorGUILayout.VerticalScope(EditorStyles.helpBox))
+                        {
+                            GUILayout.Label("Documentation:", EditorStyles.boldLabel);
+                            GUILayout.Label(editorPlayerComponent.Documentation, EditorStyles.wordWrappedLabel);
+                        }
+                    }
+                }
+
                 ValidationBuilder validationBuilder = new ValidationBuilder();
 
                 ValidateComponentEditorBindings(

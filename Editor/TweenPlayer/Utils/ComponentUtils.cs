@@ -8,7 +8,7 @@ namespace Juce.TweenPlayer.Utils
     {
         public static void CollapseAll(TweenPlayerEditor editor)
         {
-            foreach(TweenPlayerComponent component in editor.ActualTarget.BindingPlayerComponents)
+            foreach(TweenPlayerComponent component in editor.ActualTarget.Components)
             {
                 component.Folded = true;
             }
@@ -16,7 +16,7 @@ namespace Juce.TweenPlayer.Utils
 
         public static void ExpandAll(TweenPlayerEditor editor)
         {
-            foreach (TweenPlayerComponent component in editor.ActualTarget.BindingPlayerComponents)
+            foreach (TweenPlayerComponent component in editor.ActualTarget.Components)
             {
                 component.Folded = false;
             }
@@ -29,18 +29,18 @@ namespace Juce.TweenPlayer.Utils
                 return;
             }
 
-            if (componentIndex < 0 || componentIndex >= editor.ActualTarget.BindingPlayerComponents.Count)
+            if (componentIndex < 0 || componentIndex >= editor.ActualTarget.Components.Count)
             {
                 return;
             }
 
-            newComponentIndex = Math.Min(newComponentIndex, editor.ActualTarget.BindingPlayerComponents.Count - 1);
+            newComponentIndex = Math.Min(newComponentIndex, editor.ActualTarget.Components.Count - 1);
             newComponentIndex = Math.Max(newComponentIndex, 0);
 
-            TweenPlayerComponent component = editor.ActualTarget.BindingPlayerComponents[componentIndex];
+            TweenPlayerComponent component = editor.ActualTarget.Components[componentIndex];
 
-            editor.ActualTarget.BindingPlayerComponents.RemoveAt(componentIndex);
-            editor.ActualTarget.BindingPlayerComponents.Insert(newComponentIndex, component);
+            editor.ActualTarget.Components.RemoveAt(componentIndex);
+            editor.ActualTarget.Components.Insert(newComponentIndex, component);
         }
     }
 }
