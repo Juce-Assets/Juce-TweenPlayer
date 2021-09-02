@@ -77,13 +77,20 @@ namespace Juce.TweenPlayer.PropertyDrawers.ReflectionComponents
                     }
                 }
 
-                selectedPropertyIndex = EditorGUI.Popup(unitRect, selectedPropertyIndex, propertiesNames);
+                if (combined.Length > 0)
+                {
+                    selectedPropertyIndex = EditorGUI.Popup(unitRect, selectedPropertyIndex, combined);
+                }
+                else
+                {
+                    EditorGUI.LabelField(unitRect, $"No avaliable fields or properties of type {objectType.Name}");
+                }
 
-                bool outOfBounds = selectedPropertyIndex < 0 || selectedPropertyIndex > propertiesNames.Length - 1;
+                bool outOfBounds = selectedPropertyIndex < 0 || selectedPropertyIndex > combined.Length - 1;
 
                 if (!outOfBounds)
                 {
-                    propertyNameProperty.stringValue = propertiesNames[selectedPropertyIndex];
+                    propertyNameProperty.stringValue = combined[selectedPropertyIndex];
                 }
                 else
                 {
