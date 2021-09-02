@@ -1,4 +1,4 @@
-﻿using Juce.Tween;
+﻿using Juce.Tweening;
 
 namespace Juce.TweenPlayer.Components
 {

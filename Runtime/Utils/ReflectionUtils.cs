@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Reflection;
 
-namespace Juce.TweenPlayer.Reflection
+namespace Juce.TweenPlayer.Utils
 {
     public static class ReflectionUtils
     {
@@ -40,6 +40,30 @@ namespace Juce.TweenPlayer.Reflection
             return ret;
         }
 
+        public static List<FieldInfo> GetFields(Type whereType, bool includeAbstractsAndInterfaces = false)
+        {
+            List<FieldInfo> ret = new List<FieldInfo>();
+
+            FieldInfo[] fields = whereType.GetFields(
+                BindingFlags.Public |
+                BindingFlags.NonPublic |
+                BindingFlags.Instance |
+                BindingFlags.GetProperty
+                );
+
+            foreach (FieldInfo field in fields)
+            {
+                if (!includeAbstractsAndInterfaces && (field.FieldType.IsAbstract || field.FieldType.IsInterface))
+                {
+                    continue;
+                }
+
+                ret.Add(field);
+            }
+
+            return ret;
+        }
+
         public static List<FieldInfo> GetFields(Type whereType, Type fieldType, bool includeAbstractsAndInterfaces = false)
         {
             List<FieldInfo> ret = new List<FieldInfo>();
@@ -64,6 +88,33 @@ namespace Juce.TweenPlayer.Reflection
                 }
 
                 ret.Add(field);
+            }
+
+            return ret;
+        }
+
+        public static List<PropertyInfo> GetProperties(
+            Type whereType, 
+            bool includeAbstractsAndInterfaces = false
+            )
+        {
+            List<PropertyInfo> ret = new List<PropertyInfo>();
+
+            PropertyInfo[] properties = whereType.GetProperties(
+                BindingFlags.Public |
+                BindingFlags.NonPublic |
+                BindingFlags.Instance |
+                BindingFlags.GetProperty
+                );
+
+            foreach (PropertyInfo property in properties)
+            {
+                if (!includeAbstractsAndInterfaces && (property.PropertyType.IsAbstract || property.PropertyType.IsInterface))
+                {
+                    continue;
+                }
+
+                ret.Add(property);
             }
 
             return ret;

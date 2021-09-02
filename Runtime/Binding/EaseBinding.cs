@@ -1,4 +1,4 @@
-﻿using Juce.Tween;
+﻿using Juce.Tweening;
 using Juce.TweenPlayer.Utils;
 using System;
 using UnityEngine;

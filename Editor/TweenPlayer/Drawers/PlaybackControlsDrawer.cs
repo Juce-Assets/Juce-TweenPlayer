@@ -26,6 +26,11 @@ namespace Juce.TweenPlayer.Drawers
                         editor.ActualTarget.Kill();
                     }
 
+                    if (GUILayout.Button("Reset"))
+                    {
+                        editor.ActualTarget.Reset();
+                    }
+
                     if (GUILayout.Button("Replay"))
                     {
                         editor.ActualTarget.Replay();

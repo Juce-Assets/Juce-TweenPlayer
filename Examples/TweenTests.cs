@@ -1,4 +1,4 @@
-using Juce.Tween;
+using Juce.Tweening;
 using UnityEngine;
 
 public class TweenTests : MonoBehaviour

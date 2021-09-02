@@ -1,4 +1,4 @@
-﻿using Juce.Tween;
+﻿using Juce.Tweening;
 using Juce.TweenPlayer.Bindings;
 using Juce.TweenPlayer.Utils;
 using Juce.TweenPlayer.Validation;
@@ -53,7 +53,7 @@ namespace Juce.TweenPlayer.Components
 
             int currentValue = startValueValue;
 
-            ITween progressTween = Tween.Tween.To(
+            ITween progressTween = Tweening.Tween.To(
                 () => currentValue,
                 x =>
                 {

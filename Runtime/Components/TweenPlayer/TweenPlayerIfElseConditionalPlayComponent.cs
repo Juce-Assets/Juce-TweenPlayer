@@ -1,4 +1,4 @@
-﻿using Juce.Tween;
+﻿using Juce.Tweening;
 using Juce.TweenPlayer.BindableData;
 using Juce.TweenPlayer.Bindings;
 using Juce.TweenPlayer.Utils;

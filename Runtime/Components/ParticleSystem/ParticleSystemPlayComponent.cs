@@ -1,4 +1,4 @@
-﻿using Juce.Tween;
+﻿using Juce.Tweening;
 using Juce.TweenPlayer.Bindings;
 using Juce.TweenPlayer.Utils;
 using Juce.TweenPlayer.Validation;
@@ -14,8 +14,6 @@ namespace Juce.TweenPlayer.Components
         [SerializeField] private ParticleSystemBinding target = new ParticleSystemBinding();
         [SerializeField] private BoolBinding withChildren = new BoolBinding();
         [SerializeField] private FloatBinding delay = new FloatBinding();
-
-        private bool lastActiveState;
 
         public override void Validate(ValidationBuilder validationBuilder)
         {

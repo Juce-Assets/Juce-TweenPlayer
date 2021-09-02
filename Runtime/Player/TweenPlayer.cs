@@ -1,4 +1,4 @@
-﻿using Juce.Tween;
+﻿using Juce.Tweening;
 using Juce.TweenPlayer.BindableData;
 using Juce.TweenPlayer.Components;
 using Juce.TweenPlayer.Flow;
@@ -217,8 +217,18 @@ namespace Juce.TweenPlayer
             {
                 return;
             }
-;
+
             currMainSequence.Kill();
+        }
+
+        public void Reset()
+        {
+            if (currMainSequence == null)
+            {
+                return;
+            }
+;
+            currMainSequence.Reset(kill: true);
         }
 
         public void Replay()
