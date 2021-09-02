@@ -20,7 +20,7 @@ namespace Juce.TweenPlayer.Bindings
 
         public TMPro.TextMeshProUGUI GetValue()
         {
-            return BindingUtils.TrGetValue(this, bindedValue, FallbackValue);
+            return BindingUtils.TryGetValue(this, bindedValue, FallbackValue);
         }
 
         public override string ToString()

@@ -592,7 +592,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53ef6096a7669654489b5445d8387734, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  executionMode: 1
+  executionMode: 0
   loopMode: 0
   loopResetMode: 0
   loops: 0
@@ -600,82 +600,31 @@ MonoBehaviour:
   - id: 0
   bindingEnabled: 0
   bindableDataUid: 
-  <TimeScale>k__BackingField: 1
   references:
     version: 1
     00000000:
-      type: {class: ReflectionFloat, ns: Juce.TweenPlayer.Components, asm: Juce.TweenPlayer.Runtime}
+      type: {class: GameObjectNameComponent, ns: Juce.TweenPlayer.Components, asm: Juce.TweenPlayer.Runtime}
       data:
         folded: 0
         enabled: 1
-        <ExecutionResult>k__BackingField: {}
         target:
           bindingEnabled: 0
           wantsToBeBinded: 0
           binded: 0
           bindedVariableName: 
-          FallbackValue: {component: {fileID: 1410551451}, propertyName: fillAmount}
-          bindedValue: {component: {fileID: 0}, propertyName: }
+          FallbackValue: {fileID: 116773030}
         value:
           bindingEnabled: 0
           wantsToBeBinded: 0
           binded: 0
           bindedVariableName: 
-          FallbackValue: 0
-          bindedValue: 0
+          FallbackValue: MainCamera
         delay:
           bindingEnabled: 0
           wantsToBeBinded: 0
           binded: 0
           bindedVariableName: 
-          FallbackValue: 3
-          bindedValue: 0
-        duration:
-          bindingEnabled: 0
-          wantsToBeBinded: 0
-          binded: 0
-          bindedVariableName: 
-          FallbackValue: 0.5
-          bindedValue: 0
-        easing:
-          bindingEnabled: 0
-          wantsToBeBinded: 0
-          binded: 0
-          bindedVariableName: 
-          FallbackValue:
-            m_Curve:
-            - time: 0
-              value: 0
-              inSlope: 2
-              outSlope: 2
-              tangentMode: 34
-              weightedMode: 0
-              inWeight: 0
-              outWeight: 0.33333334
-            - time: 0.5
-              value: 1
-              inSlope: 0
-              outSlope: 0
-              tangentMode: 34
-              weightedMode: 0
-              inWeight: 0.33333334
-              outWeight: 0.33333334
-            - time: 1
-              value: 0
-              inSlope: -2
-              outSlope: -2
-              tangentMode: 34
-              weightedMode: 0
-              inWeight: 0.33333334
-              outWeight: 0
-            m_PreInfinity: 2
-            m_PostInfinity: 2
-            m_RotationOrder: 4
-          bindedValue:
-            m_Curve: []
-            m_PreInfinity: 2
-            m_PostInfinity: 2
-            m_RotationOrder: 4
+          FallbackValue: 0
 --- !u!1 &829262453
 GameObject:
   m_ObjectHideFlags: 0

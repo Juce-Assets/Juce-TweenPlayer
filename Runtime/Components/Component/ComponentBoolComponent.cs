@@ -27,6 +27,11 @@ namespace Juce.TweenPlayer.Components
 
         public override string GenerateTitle()
         {
+            if (target.WantsToBeBinded && !target.Binded)
+            {
+                return string.Empty;
+            }
+
             return target.GetValue().ToString();
         }
 

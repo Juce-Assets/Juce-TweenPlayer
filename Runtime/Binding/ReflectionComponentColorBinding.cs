@@ -12,7 +12,7 @@ namespace Juce.TweenPlayer.Bindings
         public ReflectionComponentColor FallbackValue
             = new ReflectionComponentColor();
 
-        private ReflectionComponentColor bindedValue;
+        private ReflectionComponentColor bindedValue = new ReflectionComponentColor();
 
         public override Type BindingType => typeof(ReflectionComponentColor);
 
@@ -23,7 +23,7 @@ namespace Juce.TweenPlayer.Bindings
 
         public ReflectionComponentColor GetValue()
         {
-            return BindingUtils.TrGetValue(this, bindedValue, FallbackValue);
+            return BindingUtils.TryGetValue(this, bindedValue, FallbackValue);
         }
 
         public override string ToString()

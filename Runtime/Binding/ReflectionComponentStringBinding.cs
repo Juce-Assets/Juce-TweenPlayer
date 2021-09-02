@@ -12,7 +12,7 @@ namespace Juce.TweenPlayer.Bindings
         public ReflectionComponentString FallbackValue
             = new ReflectionComponentString();
 
-        private ReflectionComponentString bindedValue;
+        private ReflectionComponentString bindedValue = new ReflectionComponentString();
 
         public override Type BindingType => typeof(ReflectionComponentString);
 
@@ -23,7 +23,7 @@ namespace Juce.TweenPlayer.Bindings
 
         public ReflectionComponentString GetValue()
         {
-            return BindingUtils.TrGetValue(this, bindedValue, FallbackValue);
+            return BindingUtils.TryGetValue(this, bindedValue, FallbackValue);
         }
 
         public override string ToString()

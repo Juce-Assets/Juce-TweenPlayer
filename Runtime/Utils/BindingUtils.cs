@@ -25,7 +25,7 @@ namespace Juce.TweenPlayer.Utils
             bindedValue = (T)objectValue;
         }
 
-        public static T TrGetValue<T>(Binding binding, T bindedValue, T fallbackValue)
+        public static T TryGetValue<T>(Binding binding, T bindedValue, T fallbackValue)
         {
             if (binding.BindingEnabled && binding.WantsToBeBinded && binding.Binded)
             {

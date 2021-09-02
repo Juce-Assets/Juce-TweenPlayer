@@ -11,7 +11,7 @@ namespace Juce.TweenPlayer.Bindings
         [SerializeField] public ReflectionComponentFloat FallbackValue 
             = new ReflectionComponentFloat();
 
-        private ReflectionComponentFloat bindedValue;
+        private ReflectionComponentFloat bindedValue = new ReflectionComponentFloat();
 
         public override Type BindingType => typeof(ReflectionComponentFloat);
 
@@ -22,7 +22,7 @@ namespace Juce.TweenPlayer.Bindings
 
         public ReflectionComponentFloat GetValue()
         {
-            return BindingUtils.TrGetValue(this, bindedValue, FallbackValue);
+            return BindingUtils.TryGetValue(this, bindedValue, FallbackValue);
         }
 
         public override string ToString()
