@@ -6,8 +6,6 @@ namespace Juce.TweenPlayer.Drawers
 {
     public static class ComponentHeaderDrawer
     {
-        public static GUIStyle SmallTickbox { get; } = new GUIStyle("ShurikenToggle");
-
         public static void Draw(
             string title,
             string extraTitle,
@@ -18,8 +16,6 @@ namespace Juce.TweenPlayer.Drawers
             out Rect secondaryInteractionRect
             )
         {
-            Color color = Color.white;
-
             Event e = Event.current;
 
             Rect backgroundRect = GUILayoutUtility.GetRect(4f, 17f);
@@ -72,14 +68,15 @@ namespace Juce.TweenPlayer.Drawers
             }
 
             // Active checkbox
-            enabled = GUI.Toggle(toggleRect, enabled, GUIContent.none, SmallTickbox);
+            enabled = GUI.Toggle(toggleRect, enabled, GUIContent.none);
 
             for (int i = 0; i < 3; i++)
             {
-                Rect r = reorderInteractionRect;
-                r.height = 1;
-                r.y = reorderInteractionRect.y + reorderInteractionRect.height * (i / 3.0f);
-                EditorGUI.DrawRect(r, TweenPlayerEditorStyles.ReorderColor);
+                Rect reorderInteractionRectCopy = reorderInteractionRect;
+                reorderInteractionRectCopy.height = 1;
+                reorderInteractionRectCopy.y = reorderInteractionRect.y + reorderInteractionRect.height * (i / 3.0f);
+
+                EditorGUI.DrawRect(reorderInteractionRectCopy, TweenPlayerEditorStyles.ReorderColor);
             }
 
             EditorGUI.LabelField(extraTitleRect, extraTitle);

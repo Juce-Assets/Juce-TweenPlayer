@@ -62,7 +62,7 @@ namespace Juce.TweenPlayer.Drawers
 
                 if (!string.IsNullOrEmpty(extraTitle))
                 {
-                    extraTitle = $"[{extraTitle}]";
+                    extraTitle = $"| {extraTitle}";
                 }
 
                 ComponentHeaderDrawer.Draw(

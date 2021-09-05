@@ -44,9 +44,18 @@ namespace Juce.TweenPlayer
 
             if (CopyPasteComponentHelper.HasCopiedComponents)
             {
-                menu.AddItem(new GUIContent("Paste as new"), false, () =>
+                menu.AddItem(new GUIContent("Paste As New"), false, () =>
                 {
                     CopyPasteComponentHelper.PasteAsNew(editor.ActualTarget, component);
+
+                    EditorUtility.SetDirty(editor.target);
+
+                    Event.current?.Use();
+                });
+
+                menu.AddItem(new GUIContent("Paste As New (on top)"), false, () =>
+                {
+                    CopyPasteComponentHelper.PasteAsNew(editor.ActualTarget, component, destinationOffset: -1);
 
                     EditorUtility.SetDirty(editor.target);
 
@@ -55,12 +64,13 @@ namespace Juce.TweenPlayer
             }
             else
             {
-                menu.AddDisabledItem(new GUIContent("Paste as new"), false);
+                menu.AddDisabledItem(new GUIContent("Paste As New"), false);
+                menu.AddDisabledItem(new GUIContent("Paste As New (on top)"), false);
             }
 
             if (CopyPasteComponentHelper.HasCopiedComponents && CopyPasteComponentHelper.CanPasteValues(component))
             {
-                menu.AddItem(new GUIContent("Paste values"), false, () =>
+                menu.AddItem(new GUIContent("Paste Values"), false, () =>
                 {
                     CopyPasteComponentHelper.PasteValues(component);
 
@@ -71,7 +81,7 @@ namespace Juce.TweenPlayer
             }
             else
             {
-                menu.AddDisabledItem(new GUIContent("Paste values"), false);
+                menu.AddDisabledItem(new GUIContent("Paste Values"), false);
             }
 
             menu.AddSeparator("");

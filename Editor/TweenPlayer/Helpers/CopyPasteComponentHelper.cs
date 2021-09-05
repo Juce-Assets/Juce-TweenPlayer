@@ -38,7 +38,7 @@ namespace Juce.TweenPlayer.Helpers
             Copy(new TweenPlayerComponent[] { component });
         }
 
-        public static void PasteAsNew(TweenPlayer tweenPlayer, TweenPlayerComponent destination)
+        public static void PasteAsNew(TweenPlayer tweenPlayer, TweenPlayerComponent destination, int destinationOffset = 0)
         {
             if (copiedComponents.Count == 0)
             { 
@@ -57,6 +57,8 @@ namespace Juce.TweenPlayer.Helpers
                     break;
                 }
             }
+
+            index += destinationOffset;
 
             for(int i = 0; i < copiedComponents.Count; ++i)
             {
