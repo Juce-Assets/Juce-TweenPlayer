@@ -13,33 +13,25 @@ namespace Juce.TweenPlayer
 {
     public class TweenPlayer : MonoBehaviour
     {
-        [SerializeField]
-        [HideInInspector]
+        [SerializeField] [HideInInspector]
         private ExecutionMode executionMode = ExecutionMode.Manual;
 
-        [SerializeField]
-        [HideInInspector]
+        [SerializeField] [HideInInspector]
         private LoopMode loopMode = LoopMode.Disabled;
 
-        [SerializeField]
-        [HideInInspector]
+        [SerializeField] [HideInInspector]
         private ResetMode loopResetMode = ResetMode.InitialValues;
 
-        [SerializeField]
-        [HideInInspector]
+        [SerializeField] [HideInInspector] 
         private int loops = default;
 
-        [SerializeField] 
-        [HideInInspector] 
-        [SerializeReference] 
+        [SerializeField] [HideInInspector] [SerializeReference] 
         public List<TweenPlayerComponent> Components = new List<TweenPlayerComponent>();
 
-        [SerializeField]
-        [HideInInspector]
+        [SerializeField] [HideInInspector]
         private bool bindingEnabled = default;
 
-        [SerializeField] 
-        [HideInInspector] 
+        [SerializeField] [HideInInspector] 
         private string bindableDataUid = default;
 
         private ISequenceTween currMainSequence;
@@ -318,12 +310,12 @@ namespace Juce.TweenPlayer
 
         public void SetTimeScale(float timeScale)
         {
-            if(currMainSequence == null)
+            TimeScale = timeScale;
+
+            if (currMainSequence == null)
             {
                 return;
             }
-
-            TimeScale = timeScale;
 
             currMainSequence.SetTimeScale(TimeScale);
         }

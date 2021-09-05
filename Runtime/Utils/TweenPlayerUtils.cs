@@ -1,6 +1,7 @@
 ﻿using Juce.TweenPlayer.BindableData;
 using Juce.TweenPlayer.Bindings;
 using Juce.TweenPlayer.Components;
+using System;
 using System.Collections.Generic;
 using System.Reflection;
 
@@ -30,7 +31,9 @@ namespace Juce.TweenPlayer.Utils
                 return false;
             }
 
-            bool found = ReflectionUtils.TryGetAttribute(bindableData.GetType(), out BindableDataAttribute attribute);
+            Type bindableDataType = bindableData.GetType();
+
+            bool found = ReflectionUtils.TryGetAttribute(bindableDataType, out BindableDataAttribute attribute);
 
             if (!found)
             {
@@ -46,13 +49,8 @@ namespace Juce.TweenPlayer.Utils
                 return false;
             }
 
-            FieldInfo[] bindableDataFields = bindableData.GetType().GetFields(
-                BindingFlags.Public 
-                | BindingFlags.NonPublic 
-                | BindingFlags.Instance
-                );
-
-            PropertyInfo[] bindableDataProperties = bindableData.GetType().GetProperties();
+            List<FieldInfo> bindableDataFields = ReflectionUtils.GetFields(bindableDataType);
+            List<PropertyInfo> bindableDataProperties = ReflectionUtils.GetProperties(bindableDataType);
 
             foreach (TweenPlayerComponent component in tweenPlayer.Components)
             {
@@ -83,8 +81,8 @@ namespace Juce.TweenPlayer.Utils
             TweenPlayer tweenPlayer,
             TweenPlayerComponent component,
             IBindableData bindableData,
-            FieldInfo[] bindableDataFields,
-            PropertyInfo[] bindableDataProperties
+            IReadOnlyList<FieldInfo> bindableDataFields,
+            IReadOnlyList<PropertyInfo> bindableDataProperties
             )
         {
             List<FieldInfo> thisFields = ReflectionUtils.GetFields(component.GetType(), typeof(Binding));
