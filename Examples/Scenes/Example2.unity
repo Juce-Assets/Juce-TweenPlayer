@@ -883,7 +883,7 @@ MonoBehaviour:
     00000000:
       type: {class: TransformLocalScaleComponent, ns: Juce.TweenPlayer.Components, asm: Juce.TweenPlayer.Runtime}
       data:
-        folded: 0
+        folded: 1
         enabled: 1
         target:
           bindingEnabled: 0
@@ -977,7 +977,7 @@ MonoBehaviour:
     00000001:
       type: {class: WaitAllAboveComponent, ns: Juce.TweenPlayer.Components, asm: Juce.TweenPlayer.Runtime}
       data:
-        folded: 0
+        folded: 1
         enabled: 1
         delay:
           bindingEnabled: 0
@@ -988,7 +988,7 @@ MonoBehaviour:
     00000002:
       type: {class: TransformLocalScaleComponent, ns: Juce.TweenPlayer.Components, asm: Juce.TweenPlayer.Runtime}
       data:
-        folded: 0
+        folded: 1
         enabled: 1
         target:
           bindingEnabled: 0
@@ -1055,7 +1055,7 @@ MonoBehaviour:
     00000003:
       type: {class: TransformLocalScaleComponent, ns: Juce.TweenPlayer.Components, asm: Juce.TweenPlayer.Runtime}
       data:
-        folded: 0
+        folded: 1
         enabled: 1
         target:
           bindingEnabled: 0
@@ -1122,7 +1122,7 @@ MonoBehaviour:
     00000004:
       type: {class: TransformPositionComponent, ns: Juce.TweenPlayer.Components, asm: Juce.TweenPlayer.Runtime}
       data:
-        folded: 0
+        folded: 1
         enabled: 1
         target:
           bindingEnabled: 0
@@ -1234,7 +1234,7 @@ MonoBehaviour:
     00000005:
       type: {class: TransformLocalScaleComponent, ns: Juce.TweenPlayer.Components, asm: Juce.TweenPlayer.Runtime}
       data:
-        folded: 0
+        folded: 1
         enabled: 1
         target:
           bindingEnabled: 0
@@ -1292,7 +1292,7 @@ MonoBehaviour:
     00000006:
       type: {class: TransformLocalScaleComponent, ns: Juce.TweenPlayer.Components, asm: Juce.TweenPlayer.Runtime}
       data:
-        folded: 0
+        folded: 1
         enabled: 1
         target:
           bindingEnabled: 0
@@ -1350,7 +1350,7 @@ MonoBehaviour:
     00000007:
       type: {class: TransformLocalScaleComponent, ns: Juce.TweenPlayer.Components, asm: Juce.TweenPlayer.Runtime}
       data:
-        folded: 0
+        folded: 1
         enabled: 1
         target:
           bindingEnabled: 0
@@ -1417,7 +1417,7 @@ MonoBehaviour:
     00000008:
       type: {class: WaitAllAboveComponent, ns: Juce.TweenPlayer.Components, asm: Juce.TweenPlayer.Runtime}
       data:
-        folded: 0
+        folded: 1
         enabled: 1
         delay:
           bindingEnabled: 0
@@ -1428,7 +1428,7 @@ MonoBehaviour:
     00000009:
       type: {class: TransformLocalScaleComponent, ns: Juce.TweenPlayer.Components, asm: Juce.TweenPlayer.Runtime}
       data:
-        folded: 0
+        folded: 1
         enabled: 1
         target:
           bindingEnabled: 0
@@ -1490,8 +1490,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1683056820}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.514292, y: 5.5531616, z: -6.9467964}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1077384872}

@@ -16,8 +16,7 @@ namespace Juce.TweenPlayer.Utils
 
             SerializedProperty copySerializedProperty = serializedProperty.Copy();
 
-            // Move into the first child of aProp
-            bool next =  copySerializedProperty.NextVisible(true);
+            bool next = copySerializedProperty.NextVisible(true);
 
             while(next && copySerializedProperty.depth > startingDepth)
             {
@@ -27,7 +26,12 @@ namespace Juce.TweenPlayer.Utils
                 }
                 else
                 {
-                    EditorGUILayout.PropertyField(copySerializedProperty, new GUIContent(""), true, GUILayout.ExpandWidth(false));
+                    EditorGUILayout.PropertyField(
+                        copySerializedProperty, 
+                        new GUIContent(""), 
+                        true, 
+                        GUILayout.ExpandWidth(false)
+                        );
                 }
 
                 next = copySerializedProperty.NextVisible(false);
