@@ -3,6 +3,7 @@ using Juce.TweenPlayer.Bindings;
 using Juce.TweenPlayer.Utils;
 using Juce.TweenPlayer.Validation;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Juce.TweenPlayer.Components
 {
@@ -33,23 +34,37 @@ namespace Juce.TweenPlayer.Components
 
         protected override ComponentExecutionResult OnExecute(ISequenceTween sequenceTween)
         {
-            if (target.GetValue() == null)
+            Image targetValue = target.GetValue();
+
+            if (targetValue == null)
             {
                 return ComponentExecutionResult.Empty;
             }
+
+            Sprite valueValue = value.GetValue();
 
             ITween delayTween = DelayUtils.Apply(sequenceTween, delay);
 
             sequenceTween.AppendResetableCallback(
                 () =>
                 {
-                    lastSpriteState = target.GetValue().sprite;
+                    if(targetValue == null)
+                    {
+                        return;
+                    }
 
-                    target.GetValue().sprite = value.GetValue();
+                    lastSpriteState = targetValue.sprite;
+
+                    targetValue.sprite = value.GetValue();
                 },
                 () =>
                 {
-                    target.GetValue().sprite = lastSpriteState;
+                    if (targetValue == null)
+                    {
+                        return;
+                    }
+
+                    targetValue.sprite = lastSpriteState;
                 }
                 );
 

@@ -7,6 +7,7 @@ using UnityEngine;
 namespace Juce.TweenPlayer.Components
 {
     [TweenPlayerComponent("TextMeshPro Int Animation", "TextMeshPro/Int Animation")]
+    [TweenPlayerComponentColor(0.5f, 0.468f, 0.266f)]
     [System.Serializable]
     public class TextMeshProIntAnimationComponent : AnimationTweenPlayerComponent
     {

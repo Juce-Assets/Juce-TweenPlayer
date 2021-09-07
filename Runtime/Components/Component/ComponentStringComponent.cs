@@ -1,5 +1,6 @@
 ﻿using Juce.Tweening;
 using Juce.TweenPlayer.Bindings;
+using Juce.TweenPlayer.ReflectionComponents;
 using Juce.TweenPlayer.Utils;
 using Juce.TweenPlayer.Validation;
 using System.Reflection;
@@ -15,8 +16,6 @@ namespace Juce.TweenPlayer.Components
         [SerializeField] private ReflectionComponentStringBinding target = new ReflectionComponentStringBinding();
         [SerializeField] private StringBinding value = new StringBinding();
         [SerializeField] private FloatBinding delay = new FloatBinding();
-        [SerializeField] private FloatBinding duration = new FloatBinding();
-        [SerializeField] private AnimationCurveBinding easing = new AnimationCurveBinding();
 
         public override void Validate(ValidationBuilder validationBuilder)
         {
@@ -39,14 +38,16 @@ namespace Juce.TweenPlayer.Components
 
         protected override ComponentExecutionResult OnExecute(ISequenceTween sequenceTween)
         {
-            if (target.GetValue().Component == null)
+            ReflectionComponentString targetValue = target.GetValue();
+
+            if (targetValue.Component == null)
             {
                 return ComponentExecutionResult.Empty;
             }
 
             bool found = ReflectionComponentUtils.TryFind(
-                target.GetValue().Component.GetType(),
-                target.GetValue().PropertyName,
+                targetValue.Component.GetType(),
+                targetValue.PropertyName,
                 typeof(string),
                 out FieldInfo fieldInfo,
                 out PropertyInfo propertyInfo
@@ -57,6 +58,8 @@ namespace Juce.TweenPlayer.Components
                 return ComponentExecutionResult.Empty;
             }
 
+            string valueValue = value.GetValue();
+
             ITween delayTween = DelayUtils.Apply(sequenceTween, delay);
 
             sequenceTween.AppendCallback(() =>
@@ -64,8 +67,8 @@ namespace Juce.TweenPlayer.Components
                 ReflectionComponentUtils.SetValue(
                     fieldInfo,
                     propertyInfo,
-                    target.GetValue().Component,
-                    value.GetValue()
+                    targetValue.Component,
+                    valueValue
                     );
             });
 

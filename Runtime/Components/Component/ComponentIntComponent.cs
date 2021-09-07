@@ -1,5 +1,6 @@
 ﻿using Juce.Tweening;
 using Juce.TweenPlayer.Bindings;
+using Juce.TweenPlayer.ReflectionComponents;
 using Juce.TweenPlayer.Utils;
 using Juce.TweenPlayer.Validation;
 using System.Reflection;
@@ -39,7 +40,9 @@ namespace Juce.TweenPlayer.Components
 
         protected override ComponentExecutionResult OnExecute(ISequenceTween sequenceTween)
         {
-            if (target.GetValue().Component == null)
+            ReflectionComponentInt targetValue = target.GetValue();
+
+            if (targetValue.Component == null)
             {
                 return ComponentExecutionResult.Empty;
             }
@@ -57,17 +60,21 @@ namespace Juce.TweenPlayer.Components
                 return ComponentExecutionResult.Empty;
             }
 
+            int valueValue = value.GetValue();
+            float durationValue = duration.GetValue();
+            AnimationCurve easingValue = easing.GetValue();
+
             ITween delayTween = DelayUtils.Apply(sequenceTween, delay);
 
             ITween progressTween = Tween.To(
-                () => ReflectionComponentUtils.GetValue<int>(fieldInfo, propertyInfo, target.GetValue().Component),
-                x => ReflectionComponentUtils.SetValue(fieldInfo, propertyInfo, target.GetValue().Component, x),
-                () => value.GetValue(),
-                duration.GetValue(),
-                () => target.GetValue() != null
+                () => ReflectionComponentUtils.GetValue<int>(fieldInfo, propertyInfo, targetValue.Component),
+                x => ReflectionComponentUtils.SetValue(fieldInfo, propertyInfo, targetValue.Component, x),
+                () => valueValue,
+                durationValue,
+                () => targetValue.Component != null
                 );
 
-            progressTween.SetEase(easing.GetValue());
+            progressTween.SetEase(easingValue);
 
             sequenceTween.Append(progressTween);
 

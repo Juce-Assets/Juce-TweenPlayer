@@ -15,6 +15,8 @@ namespace Juce.TweenPlayer.Components
         [SerializeField] private BoolBinding withChildren = new BoolBinding();
         [SerializeField] private FloatBinding delay = new FloatBinding();
 
+        private bool lastPlayingState;
+
         public override void Validate(ValidationBuilder validationBuilder)
         {
             if (!target.WantsToBeBinded && target.GetValue() == null)
@@ -31,26 +33,45 @@ namespace Juce.TweenPlayer.Components
 
         protected override ComponentExecutionResult OnExecute(ISequenceTween sequenceTween)
         {
-            ParticleSystem particleSystemValue = target.GetValue();
-            bool withChildrenValue = withChildren.GetValue();
+            ParticleSystem targetValue = target.GetValue();
 
-            if (particleSystemValue == null)
+            if (targetValue == null)
             {
                 return ComponentExecutionResult.Empty;
             }
+
+            bool withChildrenValue = withChildren.GetValue();
 
             ITween delayTween = DelayUtils.Apply(sequenceTween, delay);
 
             sequenceTween.AppendResetableCallback(
                 () =>
                 {
-                    particleSystemValue.Play(withChildrenValue);
+                    if(targetValue == null)
+                    {
+                        return;
+                    }
+
+                    lastPlayingState = targetValue.isPlaying;
+
+                    targetValue.Play(withChildrenValue);
                 },
                 () =>
                 {
-                    particleSystemValue.Stop(withChildrenValue);
-                }
-                );
+                    if (targetValue == null)
+                    {
+                        return;
+                    }
+
+                    if (lastPlayingState)
+                    {
+                        targetValue.Play(withChildrenValue);
+                    }
+                    else
+                    {
+                        targetValue.Stop(withChildrenValue, ParticleSystemStopBehavior.StopEmittingAndClear);
+                    }
+                });
 
             return new ComponentExecutionResult(delayTween);
         }

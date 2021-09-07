@@ -1,5 +1,6 @@
 ﻿using Juce.Tweening;
 using Juce.TweenPlayer.Bindings;
+using Juce.TweenPlayer.ReflectionComponents;
 using Juce.TweenPlayer.Utils;
 using Juce.TweenPlayer.Validation;
 using System.Reflection;
@@ -37,14 +38,16 @@ namespace Juce.TweenPlayer.Components
 
         protected override ComponentExecutionResult OnExecute(ISequenceTween sequenceTween)
         {
-            if (target.GetValue().Component == null)
+            ReflectionComponentBool targetValue = target.GetValue();
+
+            if (targetValue.Component == null)
             {
                 return ComponentExecutionResult.Empty;
             }
 
             bool found = ReflectionComponentUtils.TryFind(
-                target.GetValue().Component.GetType(),
-                target.GetValue().PropertyName,
+                targetValue.Component.GetType(),
+                targetValue.PropertyName,
                 typeof(bool),
                 out FieldInfo fieldInfo,
                 out PropertyInfo propertyInfo

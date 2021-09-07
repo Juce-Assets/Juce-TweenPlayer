@@ -16,6 +16,8 @@ namespace Juce.TweenPlayer.Components
         [SerializeField] private ParticleSystemStopBehaviorBinding stopBehavior = new ParticleSystemStopBehaviorBinding();
         [SerializeField] private FloatBinding delay = new FloatBinding();
 
+        private bool lastPlayingState;
+
         public override void Validate(ValidationBuilder validationBuilder)
         {
             if (!target.WantsToBeBinded && target.GetValue() == null)
@@ -32,9 +34,9 @@ namespace Juce.TweenPlayer.Components
 
         protected override ComponentExecutionResult OnExecute(ISequenceTween sequenceTween)
         {
-            ParticleSystem particleSystemValue = target.GetValue();
+            ParticleSystem targetValue = target.GetValue();
 
-            if (particleSystemValue == null)
+            if (targetValue == null)
             {
                 return ComponentExecutionResult.Empty;
             }
@@ -44,11 +46,34 @@ namespace Juce.TweenPlayer.Components
 
             ITween delayTween = DelayUtils.Apply(sequenceTween, delay);
 
-            sequenceTween.AppendCallback(
-                () =>
-                {
-                    particleSystemValue.Stop(withChildrenValue, stopBehaviorValue);
-                });
+            sequenceTween.AppendResetableCallback(
+               () =>
+               {
+                   if (targetValue == null)
+                   {
+                       return;
+                   }
+
+                   lastPlayingState = targetValue.isPlaying;
+
+                   targetValue.Stop(withChildrenValue, stopBehaviorValue);
+               },
+               () =>
+               {
+                   if (targetValue == null)
+                   {
+                       return;
+                   }
+
+                   if (lastPlayingState)
+                   {
+                       targetValue.Play(withChildrenValue);
+                   }
+                   else
+                   {
+                       targetValue.Stop(withChildrenValue, ParticleSystemStopBehavior.StopEmittingAndClear);
+                   }
+               });
 
             return new ComponentExecutionResult(delayTween);
         }

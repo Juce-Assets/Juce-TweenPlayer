@@ -17,6 +17,8 @@ namespace Juce.TweenPlayer.Components
         [SerializeField] private BoolBinding restart = new BoolBinding();
         [SerializeField] private FloatBinding delay = new FloatBinding();
 
+        private float lastSimulationTimeState;
+
         public override void Validate(ValidationBuilder validationBuilder)
         {
             if (!target.WantsToBeBinded && target.GetValue() == null)
@@ -33,9 +35,9 @@ namespace Juce.TweenPlayer.Components
 
         protected override ComponentExecutionResult OnExecute(ISequenceTween sequenceTween)
         {
-            ParticleSystem particleSystemValue = target.GetValue();
+            ParticleSystem targetValue = target.GetValue();
 
-            if (particleSystemValue == null)
+            if (targetValue == null)
             {
                 return ComponentExecutionResult.Empty;
             }
@@ -46,10 +48,26 @@ namespace Juce.TweenPlayer.Components
 
             ITween delayTween = DelayUtils.Apply(sequenceTween, delay);
 
-            sequenceTween.AppendCallback(
+            sequenceTween.AppendResetableCallback(
                 () =>
                 {
-                    particleSystemValue.Simulate(simulatedTimeValue, withChildrenValue, restartValue);
+                    if(targetValue == null)
+                    {
+                        return;
+                    }
+
+                    lastSimulationTimeState = targetValue.time;
+
+                    targetValue.Simulate(simulatedTimeValue, withChildrenValue, restartValue);
+                },
+                () =>
+                {
+                    if (targetValue == null)
+                    {
+                        return;
+                    }
+
+                    targetValue.Simulate(lastSimulationTimeState, withChildrenValue, restart: true);
                 });
 
             return new ComponentExecutionResult(delayTween);

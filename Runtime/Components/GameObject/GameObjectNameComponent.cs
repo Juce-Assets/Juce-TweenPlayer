@@ -33,25 +33,38 @@ namespace Juce.TweenPlayer.Components
 
         protected override ComponentExecutionResult OnExecute(ISequenceTween sequenceTween)
         {
-            if (target.GetValue() == null)
+            GameObject targetValue = target.GetValue();
+
+            if (targetValue == null)
             {
                 return ComponentExecutionResult.Empty;
             }
+
+            string valueValue = value.GetValue();
 
             ITween delayTween = DelayUtils.Apply(sequenceTween, delay);
 
             sequenceTween.AppendResetableCallback(
                 () =>
                 {
-                    lastNameState = target.GetValue().name;
+                    if(targetValue == null)
+                    {
+                        return;
+                    }
 
-                    target.GetValue().name = value.GetValue();
+                    lastNameState = targetValue.name;
+
+                    targetValue.name = valueValue;
                 },
                 () =>
                 {
-                    target.GetValue().name = lastNameState;
-                }
-                );
+                    if (targetValue == null)
+                    {
+                        return;
+                    }
+
+                    targetValue.name = lastNameState;
+                });
 
             return new ComponentExecutionResult(delayTween);
         }

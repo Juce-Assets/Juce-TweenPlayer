@@ -34,19 +34,20 @@ namespace Juce.TweenPlayer.Components
 
         protected override ComponentExecutionResult OnExecute(ISequenceTween sequenceTween)
         {
-            Image imageValue = target.GetValue();
-            Color colorValue = value.GetValue();
-            float durationValue = duration.GetValue();
-            AnimationCurve easingValue = easing.GetValue();
+            Image targetValue = target.GetValue();
 
-            if (imageValue == null)
+            if (targetValue == null)
             {
                 return ComponentExecutionResult.Empty;
             }
 
+            Color colorValue = value.GetValue();
+            float durationValue = duration.GetValue();
+            AnimationCurve easingValue = easing.GetValue();
+
             ITween delayTween = DelayUtils.Apply(sequenceTween, delay);
 
-            ITween progressTween = imageValue.TweenColor(colorValue, durationValue);
+            ITween progressTween = targetValue.TweenColor(colorValue, durationValue);
 
             progressTween.SetEase(easingValue);
 

@@ -14,7 +14,7 @@ namespace Juce.TweenPlayer.Components
         [SerializeField] private RendererBinding target = new RendererBinding();
         [SerializeField] private UIntBinding materialIndex = new UIntBinding();
         [SerializeField] private StringBinding materialProperty = new StringBinding();
-        [SerializeField] private ColorBinding color = new ColorBinding();
+        [SerializeField] private ColorBinding value = new ColorBinding();
         [SerializeField] private FloatBinding delay = new FloatBinding();
         [SerializeField] private FloatBinding duration = new FloatBinding();
         [SerializeField] private AnimationCurveBinding easing = new AnimationCurveBinding();
@@ -64,25 +64,25 @@ namespace Juce.TweenPlayer.Components
 
         protected override ComponentExecutionResult OnExecute(ISequenceTween sequenceTween)
         {
-            Renderer rendererValue = target.GetValue();
+            Renderer targetValue = target.GetValue();
+
+            if (targetValue == null)
+            {
+                return ComponentExecutionResult.Empty;
+            }
+
             int materialIndexValue = materialIndex.GetValue();
             string materialPropertyValue = materialProperty.GetValue();
-            Color colorValue = color.GetValue();
-            float delayValue = delay.GetValue();
+            Color valueValue = value.GetValue();
             float durationValue = duration.GetValue();
             AnimationCurve easingValue = easing.GetValue();
 
-            if (rendererValue == null)
+            if (targetValue.materials.Length <= materialIndexValue)
             {
                 return ComponentExecutionResult.Empty;
             }
 
-            if(rendererValue.materials.Length <= materialIndexValue)
-            {
-                return ComponentExecutionResult.Empty;
-            }
-
-            Material material = rendererValue.materials[materialIndexValue];
+            Material material = targetValue.materials[materialIndexValue];
 
             if(material == null)
             {
@@ -98,9 +98,9 @@ namespace Juce.TweenPlayer.Components
 
             ITween delayTween = DelayUtils.Apply(sequenceTween, delay);
 
-            ITween progressTween = material.TweenColor(colorValue, durationValue);
+            ITween progressTween = material.TweenColor(valueValue, durationValue);
 
-            progressTween.SetEase(easing.GetValue());
+            progressTween.SetEase(easingValue);
 
             sequenceTween.Append(progressTween);
 
