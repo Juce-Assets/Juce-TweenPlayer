@@ -82,7 +82,7 @@ namespace Juce.TweenPlayer.Drawers
                     EditorGUI.DrawRect(colorRect, editorPlayerComponent.Color);
                 }
 
-                ComponentProgressBarDrawer.Draw(component);
+                ComponentProgressBarDrawer.Draw(editor, component);
 
                 editor.ComponentsDragHelper.CheckDraggingItem(
                     Event.current,

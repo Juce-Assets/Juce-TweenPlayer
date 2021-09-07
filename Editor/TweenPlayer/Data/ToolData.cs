@@ -19,6 +19,8 @@ namespace Juce.TweenPlayer.Data
         public EditorBindableData SelectedEditorBindableData { get; set; } = null;
         public bool ShowBindedDataProperties { get; set; } = false;
         public Vector2 ShowBindedDataPropertiesScrollViewPosition { get; set; } = Vector2.zero;
+
         public bool DocumentationEnabled { get; set; } = false;
+        public bool ProgressBarsEnabled { get; set; } = false;
     }
 }

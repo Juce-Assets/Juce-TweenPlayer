@@ -5,8 +5,16 @@ namespace Juce.TweenPlayer.Drawers
 {
     public static class ComponentProgressBarDrawer
     {
-        public static void Draw(TweenPlayerComponent component)
+        public static void Draw(
+            TweenPlayerEditor editor,
+            TweenPlayerComponent component
+            )
         {
+            if(!editor.ToolData.ProgressBarsEnabled)
+            {
+                return;
+            }
+
             if (component.ExecutionResult == ComponentExecutionResult.Empty)
             {
                 return;

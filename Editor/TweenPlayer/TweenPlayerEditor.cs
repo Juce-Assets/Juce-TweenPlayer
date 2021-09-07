@@ -61,7 +61,7 @@ namespace Juce.TweenPlayer
 
             ActuallyRemoveComponents();
 
-            if (Application.isPlaying)
+            if (ToolData.ProgressBarsEnabled && Application.isPlaying)
             {
                 Repaint();
             }

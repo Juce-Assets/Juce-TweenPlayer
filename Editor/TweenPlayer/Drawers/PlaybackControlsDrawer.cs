@@ -8,33 +8,46 @@ namespace Juce.TweenPlayer.Drawers
         public static void Draw(TweenPlayerEditor editor)
         {
             EditorGUI.BeginDisabledGroup(!Application.isPlaying);
-            {
-                using (new EditorGUILayout.HorizontalScope(EditorStyles.helpBox))
+            {                                
+                using (new EditorGUILayout.VerticalScope(EditorStyles.helpBox))
                 {
-                    if (GUILayout.Button("Play"))
+                    EditorGUILayout.BeginHorizontal();
                     {
-                        editor.ActualTarget.Play();
+                        GUILayout.Label("Show Progress Bars (can slow down editor)");
+                        editor.ToolData.ProgressBarsEnabled = EditorGUILayout.Toggle(
+                            editor.ToolData.ProgressBarsEnabled);
                     }
+                    GUILayout.FlexibleSpace();
+                    EditorGUILayout.EndHorizontal();
 
-                    if (GUILayout.Button("Complete"))
+                    EditorGUILayout.BeginHorizontal();
                     {
-                        editor.ActualTarget.Complete();
-                    }
+                        if (GUILayout.Button("Play"))
+                        {
+                            editor.ActualTarget.Play();
+                        }
 
-                    if (GUILayout.Button("Kill"))
-                    {
-                        editor.ActualTarget.Kill();
-                    }
+                        if (GUILayout.Button("Complete"))
+                        {
+                            editor.ActualTarget.Complete();
+                        }
 
-                    if (GUILayout.Button("Reset"))
-                    {
-                        editor.ActualTarget.Reset();
-                    }
+                        if (GUILayout.Button("Kill"))
+                        {
+                            editor.ActualTarget.Kill();
+                        }
 
-                    if (GUILayout.Button("Replay"))
-                    {
-                        editor.ActualTarget.Replay();
+                        if (GUILayout.Button("Reset"))
+                        {
+                            editor.ActualTarget.Reset();
+                        }
+
+                        if (GUILayout.Button("Replay"))
+                        {
+                            editor.ActualTarget.Replay();
+                        }
                     }
+                    EditorGUILayout.EndHorizontal();
                 }
             }
             EditorGUI.EndDisabledGroup();
