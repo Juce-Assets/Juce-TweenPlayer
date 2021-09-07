@@ -10,7 +10,7 @@ namespace Juce.TweenPlayer.Drawers
     {
         public static void Draw(TweenPlayerEditor editor)
         {
-            if (editor.ComponentsProperty.arraySize == 0)
+            if (editor.SerializedPropertiesData.ComponentsProperty.arraySize == 0)
             {
                 EditorGUILayout.LabelField("No components added. Press Add Component to add a new " +
                     "twening component", EditorStyles.wordWrappedLabel);
@@ -32,11 +32,11 @@ namespace Juce.TweenPlayer.Drawers
                 EditorGUILayout.EndHorizontal();
             }
 
-            for (int i = 0; i < editor.ComponentsProperty.arraySize; ++i)
+            for (int i = 0; i < editor.SerializedPropertiesData.ComponentsProperty.arraySize; ++i)
             {
                 TweenPlayerComponent component = editor.ActualTarget.Components[i];
 
-                SerializedProperty componentSerializedProperty = editor.ComponentsProperty.GetArrayElementAtIndex(i);
+                SerializedProperty componentSerializedProperty = editor.SerializedPropertiesData.ComponentsProperty.GetArrayElementAtIndex(i);
 
                 if(component == null)
                 {
@@ -57,7 +57,7 @@ namespace Juce.TweenPlayer.Drawers
             // Finish dragging
             int startIndex;
             int endIndex;
-            bool dragged = editor.ComponentsDraggable.ResolveDragging(e, out startIndex, out endIndex);
+            bool dragged = editor.ComponentsDragHelper.ResolveDragging(e, out startIndex, out endIndex);
 
             if (dragged)
             {

@@ -106,11 +106,11 @@ namespace Juce.TweenPlayer
 
             menu.AddSeparator("");
 
-            if (!editor.DocumentationEnabled)
+            if (!editor.ToolData.DocumentationEnabled)
             {
                 menu.AddItem(new GUIContent("Show Documentation"), false, () =>
                 {
-                    editor.DocumentationEnabled = true;
+                    editor.ToolData.DocumentationEnabled = true;
 
                     Event.current?.Use();
                 });
@@ -119,7 +119,7 @@ namespace Juce.TweenPlayer
             {
                 menu.AddItem(new GUIContent("Hide Documentation"), false, () =>
                 {
-                    editor.DocumentationEnabled = false;
+                    editor.ToolData.DocumentationEnabled = false;
 
                     Event.current?.Use();
                 });

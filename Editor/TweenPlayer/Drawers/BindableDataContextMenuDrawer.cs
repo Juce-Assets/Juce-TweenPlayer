@@ -3,7 +3,7 @@ using UnityEditor;
 using UnityEngine;
 using static UnityEditor.GenericMenu;
 
-namespace Juce.TweenPlayer
+namespace Juce.TweenPlayer.Drawers
 {
     public static class BindableDataContextMenuDrawer
     {
@@ -14,11 +14,11 @@ namespace Juce.TweenPlayer
 
             GenericMenu menu = new GenericMenu();
 
-            foreach (EditorBindableData bindableDatas in editor.EditorBindableDatas)
+            foreach (EditorBindableData bindableDatas in editor.ToolData.EditorBindableDatas)
             {
                 MenuFunction selectedAction = () =>
                 {
-                    editor.BindableDataUidProperty.stringValue = bindableDatas.Uid;
+                    editor.SerializedPropertiesData.BindableDataUidProperty.stringValue = bindableDatas.Uid;
                     editor.serializedObject.ApplyModifiedProperties();
                 };
 

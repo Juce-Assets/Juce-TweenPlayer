@@ -8,7 +8,7 @@ namespace Juce.TweenPlayer.Drawers
     {
         public static void Draw(TweenPlayerEditor editor)
         {
-            LoopMode loopMode = (LoopMode)editor.LoopModeProperty.enumValueIndex;
+            LoopMode loopMode = (LoopMode)editor.SerializedPropertiesData.LoopModeProperty.enumValueIndex;
 
             bool loopingEnabled = loopMode == LoopMode.UntilManuallyStopped || loopMode == LoopMode.XTimes;
             bool needsLoopsCount = loopMode == LoopMode.XTimes;
@@ -20,7 +20,7 @@ namespace Juce.TweenPlayer.Drawers
                     GUILayout.Label($"Loop mode:");
 
                     LoopMode newLoopMode = (LoopMode)EditorGUILayout.EnumPopup("", loopMode);
-                    editor.LoopModeProperty.enumValueIndex = (int)newLoopMode;
+                    editor.SerializedPropertiesData.LoopModeProperty.enumValueIndex = (int)newLoopMode;
 
                     loopingEnabled = newLoopMode == LoopMode.UntilManuallyStopped || newLoopMode == LoopMode.XTimes;
                     needsLoopsCount = newLoopMode == LoopMode.XTimes;
@@ -34,9 +34,9 @@ namespace Juce.TweenPlayer.Drawers
                     {
                         GUILayout.Label($"Loop reset mode:");
 
-                        ResetMode resetMode = (ResetMode)editor.LoopResetModeProperty.enumValueIndex;
+                        ResetMode resetMode = (ResetMode)editor.SerializedPropertiesData.LoopResetModeProperty.enumValueIndex;
                         ResetMode newResetMode = (ResetMode)EditorGUILayout.EnumPopup("", resetMode);
-                        editor.LoopResetModeProperty.enumValueIndex = (int)newResetMode;
+                        editor.SerializedPropertiesData.LoopResetModeProperty.enumValueIndex = (int)newResetMode;
                     }
                     GUILayout.FlexibleSpace();
                     EditorGUILayout.EndHorizontal();
@@ -48,9 +48,9 @@ namespace Juce.TweenPlayer.Drawers
                     {
                         GUILayout.Label($"Loops:");
 
-                        int loops = editor.LoopsProperty.intValue;
-                        int newLoops = (int)EditorGUILayout.IntField("", loops);
-                        editor.LoopsProperty.intValue = newLoops;
+                        int loops = editor.SerializedPropertiesData.LoopsProperty.intValue;
+                        int newLoops = EditorGUILayout.IntField("", loops);
+                        editor.SerializedPropertiesData.LoopsProperty.intValue = newLoops;
                     }
                     GUILayout.FlexibleSpace();
                     EditorGUILayout.EndHorizontal();

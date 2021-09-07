@@ -1,15 +1,16 @@
 ﻿using Juce.TweenPlayer.Components;
+using Juce.TweenPlayer.Utils;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Juce.TweenPlayer.Utils
+namespace Juce.TweenPlayer.Logic
 {
-    public static class EditorComponentUtils
+    public static class GatherEditorBindingPlayerComponentsLogic
     {
-        public static List<EditorTweenPlayerComponent> GatherEditorComponents()
+        public static void Execute(TweenPlayerEditor editor)
         {
-            List<EditorTweenPlayerComponent> ret = new List<EditorTweenPlayerComponent>();
+            editor.ToolData.EditorPlayerComponents.Clear();
 
             List<Type> types = ReflectionUtils.GetInheritedTypes(typeof(TweenPlayerComponent));
 
@@ -43,12 +44,12 @@ namespace Juce.TweenPlayer.Utils
 
                 string documentation = string.Empty;
 
-                if(documentationFound)
+                if (documentationFound)
                 {
                     documentation = documentationAttribute.Documentation;
                 }
 
-                ret.Add(new EditorTweenPlayerComponent(
+                editor.ToolData.EditorPlayerComponents.Add(new EditorTweenPlayerComponent(
                     type,
                     attribute.Name,
                     attribute.MenuPath,
@@ -57,39 +58,6 @@ namespace Juce.TweenPlayer.Utils
                     documentation
                     ));
             }
-
-            return ret;
-        }
-
-        public static bool TryGetCachedEditorPlayerComponent(
-            TweenPlayerEditor editor,
-            Type componentType, 
-            out EditorTweenPlayerComponent editorPlayerComponent
-            )
-        {
-            bool found = editor.ToolData.CachedEditorPlayerComponents.TryGetValue(
-                componentType, 
-                out editorPlayerComponent
-                );
-
-            if (found)
-            {
-                return true;
-            }
-
-            foreach (EditorTweenPlayerComponent component in editor.ToolData.EditorPlayerComponents)
-            {
-                if (componentType == component.Type)
-                {
-                    editor.ToolData.CachedEditorPlayerComponents.Add(componentType, component);
-
-                    editorPlayerComponent = component;
-                    return true;
-                }
-            }
-
-            editorPlayerComponent = null;
-            return false;
         }
     }
 }

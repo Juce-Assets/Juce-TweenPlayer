@@ -13,25 +13,29 @@ namespace Juce.TweenPlayer.Drawers
                 EditorGUILayout.BeginHorizontal();
                 {
                     GUILayout.Label($"Bindings enabled");
-                    EditorGUILayout.PropertyField(editor.BindingEnabledProperty, new GUIContent(""));
+                    EditorGUILayout.PropertyField(editor.SerializedPropertiesData.BindingEnabledProperty, new GUIContent(""));
                 }
                 GUILayout.FlexibleSpace();
                 EditorGUILayout.EndHorizontal();
 
-                if (!editor.BindingEnabledProperty.boolValue)
+                if (!editor.SerializedPropertiesData.BindingEnabledProperty.boolValue)
                 {
                     return;
                 }
 
-                if (editor.EditorBindableDatas.Count == 0)
+                if (editor.ToolData.EditorBindableDatas.Count == 0)
                 {
                     EditorGUILayout.HelpBox($"There is no avaliable {nameof(IBindableData)} on the project. Please," +
                         $"create a class that inherits from {nameof(IBindableData)}.", MessageType.Warning);
                     return;
                 }
 
-                EditorBindableData editorBindableData = GetEditorBindableData(editor, editor.BindableDataUidProperty.stringValue);
-                editor.SelectedEditorBindableData = editorBindableData;
+                EditorBindableData editorBindableData = GetEditorBindableData(
+                    editor, 
+                    editor.SerializedPropertiesData.BindableDataUidProperty.stringValue
+                    );
+
+                editor.ToolData.SelectedEditorBindableData = editorBindableData;
 
                 EditorGUILayout.BeginHorizontal();
                 {
@@ -50,7 +54,7 @@ namespace Juce.TweenPlayer.Drawers
                     {
                         if (GUILayout.Button("X"))
                         {
-                            editor.BindableDataUidProperty.stringValue = string.Empty;
+                            editor.SerializedPropertiesData.BindableDataUidProperty.stringValue = string.Empty;
                         }
                     }
                 }
@@ -59,23 +63,23 @@ namespace Juce.TweenPlayer.Drawers
 
                 if (editorBindableData != null)
                 {
-                    if (!editor.ShowBindedDataProperties)
+                    if (!editor.ToolData.ShowBindedDataProperties)
                     {
                         if (GUILayout.Button("Show properties"))
                         {
-                            editor.ShowBindedDataProperties = true;
+                            editor.ToolData.ShowBindedDataProperties = true;
                         }
                     }
                     else
                     {
                         if (GUILayout.Button("Hide properties"))
                         {
-                            editor.ShowBindedDataProperties = false;
+                            editor.ToolData.ShowBindedDataProperties = false;
                         }
                     }
                 }
 
-                if (editor.ShowBindedDataProperties)
+                if (editor.ToolData.ShowBindedDataProperties)
                 {
                     DrawBindableDataProperties(editor, editorBindableData);
                 }
@@ -94,8 +98,8 @@ namespace Juce.TweenPlayer.Drawers
 
             EditorGUILayout.LabelField("Properties:");
 
-            bindingPlayerEditor.ShowBindedDataPropertiesScrollViewPosition = EditorGUILayout.BeginScrollView(
-                    bindingPlayerEditor.ShowBindedDataPropertiesScrollViewPosition
+            bindingPlayerEditor.ToolData.ShowBindedDataPropertiesScrollViewPosition = EditorGUILayout.BeginScrollView(
+                    bindingPlayerEditor.ToolData.ShowBindedDataPropertiesScrollViewPosition
                     );
             {
                 foreach (EditorBindableDataField field in editorBindableData.Fields)
@@ -116,9 +120,9 @@ namespace Juce.TweenPlayer.Drawers
             string bindableDataUid
             )
         {
-            for (int i = 0; i < bindingPlayerEditor.EditorBindableDatas.Count; ++i)
+            for (int i = 0; i < bindingPlayerEditor.ToolData.EditorBindableDatas.Count; ++i)
             {
-                EditorBindableData editorBindableData = bindingPlayerEditor.EditorBindableDatas[i];
+                EditorBindableData editorBindableData = bindingPlayerEditor.ToolData.EditorBindableDatas[i];
 
                 if (string.Equals(bindableDataUid, editorBindableData.Uid))
                 {

@@ -1,5 +1,6 @@
 ﻿using Juce.TweenPlayer.Bindings;
 using Juce.TweenPlayer.Components;
+using Juce.TweenPlayer.Style;
 using Juce.TweenPlayer.Utils;
 using Juce.TweenPlayer.Validation;
 using System.Collections.Generic;
@@ -83,7 +84,7 @@ namespace Juce.TweenPlayer.Drawers
 
                 ComponentProgressBarDrawer.Draw(component);
 
-                editor.ComponentsDraggable.CheckDraggingItem(
+                editor.ComponentsDragHelper.CheckDraggingItem(
                     Event.current,
                     reorderInteractionRect,
                     reorderColorRect,
@@ -91,7 +92,7 @@ namespace Juce.TweenPlayer.Drawers
                     componentIndex
                     );
 
-                if(editor.DocumentationEnabled)
+                if(editor.ToolData.DocumentationEnabled)
                 {
                     bool hasDocumentation = !string.IsNullOrEmpty(editorPlayerComponent.Documentation);
 
@@ -110,7 +111,7 @@ namespace Juce.TweenPlayer.Drawers
                 ValidationBuilder validationBuilder = new ValidationBuilder();
 
                 ValidateComponentEditorBindings(
-                    editor.BindingEnabledProperty.boolValue,
+                    editor.SerializedPropertiesData.BindingEnabledProperty.boolValue,
                     componentEditorBindings,
                     validationBuilder
                     );

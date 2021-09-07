@@ -1,7 +1,7 @@
 ﻿using UnityEditor;
 using UnityEngine;
 
-namespace Juce.TweenPlayer
+namespace Juce.TweenPlayer.Style
 {
     public static class TweenPlayerEditorStyles
     {

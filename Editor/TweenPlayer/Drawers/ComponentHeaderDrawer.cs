@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Juce.TweenPlayer.Style;
+using System;
 using UnityEditor;
 using UnityEngine;
 

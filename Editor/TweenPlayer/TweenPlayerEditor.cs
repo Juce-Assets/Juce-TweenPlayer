@@ -1,11 +1,9 @@
-using Juce.TweenPlayer.BindableData;
 using Juce.TweenPlayer.Components;
+using Juce.TweenPlayer.Data;
 using Juce.TweenPlayer.Drawers;
 using Juce.TweenPlayer.Helpers;
-using Juce.TweenPlayer.Utils;
-using System;
+using Juce.TweenPlayer.Logic;
 
-using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
@@ -14,51 +12,19 @@ namespace Juce.TweenPlayer
     [CustomEditor(typeof(TweenPlayer))]
     public class TweenPlayerEditor : Editor
     {
-        private List<EditorTweenPlayerComponent> editorPlayerComponents = new List<EditorTweenPlayerComponent>();
-        private readonly Dictionary<Type, EditorTweenPlayerComponent> cachedEditorPlayerComponents = new Dictionary<Type, EditorTweenPlayerComponent>();
-
-        private List<EditorBindableData> editorBindableDatas = new List<EditorBindableData>();
-
-        private readonly List<TweenPlayerComponent> componentsToRemove = new List<TweenPlayerComponent>();
-        private readonly List<int> componentsIndexToRemove = new List<int>();
-
-        private SerializedProperty executionModeProperty;
-        private SerializedProperty loopModeProperty;
-        private SerializedProperty loopResetModeProperty;
-        private SerializedProperty loopsProperty;
-        private SerializedProperty componentsProperty;
-        private SerializedProperty bindingEnabledProperty;
-        private SerializedProperty bindableDataUidProperty;
-
-        public IReadOnlyList<EditorTweenPlayerComponent> EditorPlayerComponents => editorPlayerComponents;
-        public Dictionary<Type, EditorTweenPlayerComponent> CachedEditorPlayerComponents => cachedEditorPlayerComponents;
-        public IReadOnlyList<EditorBindableData> EditorBindableDatas => editorBindableDatas;
-
         public TweenPlayer ActualTarget { get; private set; }
 
-        public DragHelper ComponentsDraggable { get; } = new DragHelper();
-
-        public SerializedProperty ExecutionModeProperty => executionModeProperty;
-        public SerializedProperty LoopModeProperty => loopModeProperty;
-        public SerializedProperty LoopResetModeProperty => loopResetModeProperty;
-        public SerializedProperty LoopsProperty => loopsProperty;
-        public SerializedProperty ComponentsProperty => componentsProperty;
-        public SerializedProperty BindingEnabledProperty => bindingEnabledProperty;
-        public SerializedProperty BindableDataUidProperty => bindableDataUidProperty;
-
-        public EditorBindableData SelectedEditorBindableData { get; set; }
-        public bool ShowBindedDataProperties { get; set; }
-        public Vector2 ShowBindedDataPropertiesScrollViewPosition { get; set; }
-        public bool DocumentationEnabled { get; set; } 
+        public ToolData ToolData { get; } = new ToolData();
+        public SerializedPropertiesData SerializedPropertiesData { get; } = new SerializedPropertiesData();
+        public DragHelper ComponentsDragHelper { get; } = new DragHelper();
 
         private void OnEnable()
         {
             ActualTarget = (TweenPlayer)target;
 
-            GatherProperties();
-
-            GatherEditorBindingPlayerComponents();
-            GatherEditorBindableData();
+            GatherSerializedPropertiesLogic.Execute(this);
+            GatherEditorBindingPlayerComponentsLogic.Execute(this);
+            GatherEditorBindableDataLogic.Execute(this);
         }
 
         public override void OnInspectorGUI()
@@ -108,51 +74,30 @@ namespace Juce.TweenPlayer
             serializedObject.ApplyModifiedProperties();
         }
 
-        private void GatherProperties()
-        {
-            executionModeProperty = serializedObject.FindProperty("executionMode");
-            loopModeProperty = serializedObject.FindProperty("loopMode");
-            loopResetModeProperty = serializedObject.FindProperty("loopResetMode");
-            loopsProperty = serializedObject.FindProperty("loops");
-            componentsProperty = serializedObject.FindProperty("Components");
-            bindingEnabledProperty = serializedObject.FindProperty("bindingEnabled");
-            bindableDataUidProperty = serializedObject.FindProperty("bindableDataUid");
-        }
-
-        private void GatherEditorBindingPlayerComponents()
-        {
-            editorPlayerComponents = EditorComponentUtils.GatherEditorComponents();
-        }
-
-        private void GatherEditorBindableData()
-        {
-            editorBindableDatas = EditorBindableDataUtils.GatherEditorBindableData();
-        }
-
         public void RemoveComponent(TweenPlayerComponent component) 
         {
-            componentsToRemove.Add(component);
+            ToolData.ComponentsToRemove.Add(component);
         }
 
         public void RemoveComponent(int index)
         {
-            componentsIndexToRemove.Add(index);
+            ToolData.ComponentsIndexToRemove.Add(index);
         }
 
         private void ActuallyRemoveComponents()
         {
-            foreach (int componentIndex in componentsIndexToRemove)
+            foreach (int componentIndex in ToolData.ComponentsIndexToRemove)
             {
                 ActualTarget.Components.RemoveAt(componentIndex);
             }
 
-            foreach (TweenPlayerComponent component in componentsToRemove)
+            foreach (TweenPlayerComponent component in ToolData.ComponentsToRemove)
             {
                 ActualTarget.Components.Remove(component);
             }
 
-            componentsIndexToRemove.Clear();
-            componentsToRemove.Clear();
+            ToolData.ComponentsIndexToRemove.Clear();
+            ToolData.ComponentsToRemove.Clear();
         }
     }
 }

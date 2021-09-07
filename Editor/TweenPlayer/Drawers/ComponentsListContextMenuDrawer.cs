@@ -9,7 +9,7 @@ namespace Juce.TweenPlayer.Drawers
         {
             GenericMenu menu = new GenericMenu();
 
-            foreach (EditorTweenPlayerComponent component in editor.EditorPlayerComponents)
+            foreach (EditorTweenPlayerComponent component in editor.ToolData.EditorPlayerComponents)
             {
                 menu.AddItem(new GUIContent($"{component.MenuPath}"),
                 false, () => editor.ActualTarget.AddTweenPlayerComponent(component.Type));

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Juce.TweenPlayer.Style;
+using UnityEngine;
 
 namespace Juce.TweenPlayer.Drawers
 {

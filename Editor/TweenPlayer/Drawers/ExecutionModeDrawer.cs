@@ -11,12 +11,12 @@ namespace Juce.TweenPlayer.Drawers
             {
                 GUILayout.Label($"Execution mode:");
 
-                ExecutionMode executionMode = (ExecutionMode)editor.ExecutionModeProperty.enumValueIndex;
+                ExecutionMode executionMode = (ExecutionMode)editor.SerializedPropertiesData.ExecutionModeProperty.enumValueIndex;
                 ExecutionMode newExecutionMode = (ExecutionMode)EditorGUILayout.EnumPopup("", executionMode);
 
                 if (executionMode != newExecutionMode)
                 {
-                    editor.ExecutionModeProperty.enumValueIndex = (int)newExecutionMode;
+                    editor.SerializedPropertiesData.ExecutionModeProperty.enumValueIndex = (int)newExecutionMode;
 
                     editor.serializedObject.ApplyModifiedProperties();
                 }

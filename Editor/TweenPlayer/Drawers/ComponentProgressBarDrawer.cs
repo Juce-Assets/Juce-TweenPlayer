@@ -1,4 +1,5 @@
 ﻿using Juce.TweenPlayer.Components;
+using Juce.TweenPlayer.Style;
 
 namespace Juce.TweenPlayer.Drawers
 {
