@@ -27,7 +27,7 @@ namespace Juce.TweenPlayer.Drawers
             {
                 if (component.ExecutionResult.DelayTween.IsPlaying)
                 {
-                    float normalizedProgress = component.ExecutionResult.ProgressTween.GetNormalizedProgress();
+                    float normalizedProgress = component.ExecutionResult.DelayTween.GetNormalizedProgress();
 
                     ProgressBarDrawer.Draw(
                         normalizedProgress,

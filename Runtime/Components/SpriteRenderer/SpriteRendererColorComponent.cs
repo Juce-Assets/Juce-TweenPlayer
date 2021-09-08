@@ -46,7 +46,7 @@ namespace Juce.TweenPlayer.Components
 
             sequenceTween.Append(progressTween);
 
-            return new ComponentExecutionResult(progressTween, delayTween);
+            return new ComponentExecutionResult(delayTween, progressTween);
         }
     }
 }

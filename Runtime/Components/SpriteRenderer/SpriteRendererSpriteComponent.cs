@@ -7,12 +7,12 @@ using UnityEngine.UI;
 
 namespace Juce.TweenPlayer.Components
 {
-    [TweenPlayerComponent("Image Sprite", "Image/Sprite")]
-    [TweenPlayerComponentColor(0.964f, 0.505f, 0.505f)]
+    [TweenPlayerComponent("SpriteRenderer Sprite", "SpriteRenderer/Sprite")]
+    [TweenPlayerComponentColor(0.588f, 0.780f, 0.301f)]
     [System.Serializable]
-    public class ImageSpriteComponent : AnimationTweenPlayerComponent
+    public class SpriteRendererSpriteComponent : AnimationTweenPlayerComponent
     {
-        [SerializeField] private ImageBinding target = new ImageBinding();
+        [SerializeField] private SpriteRendererBinding target = new SpriteRendererBinding();
         [SerializeField] private SpriteBinding value = new SpriteBinding();
         [SerializeField] private FloatBinding delay = new FloatBinding();
 
@@ -34,7 +34,7 @@ namespace Juce.TweenPlayer.Components
 
         protected override ComponentExecutionResult OnExecute(ISequenceTween sequenceTween)
         {
-            Image targetValue = target.GetValue();
+            SpriteRenderer targetValue = target.GetValue();
 
             if (targetValue == null)
             {
@@ -48,7 +48,7 @@ namespace Juce.TweenPlayer.Components
             sequenceTween.AppendResetableCallback(
                 () =>
                 {
-                    if(targetValue == null)
+                    if (targetValue == null)
                     {
                         return;
                     }

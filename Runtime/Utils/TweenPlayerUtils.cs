@@ -27,7 +27,8 @@ namespace Juce.TweenPlayer.Utils
 
             if(bindableData == null)
             {
-                UnityEngine.Debug.LogError($"Bindable data is null", tweenPlayer);
+                UnityEngine.Debug.LogError($"Bindable data is null, at {nameof(TweenPlayer)} " +
+                    $"{tweenPlayer.gameObject.name}", tweenPlayer);
                 return false;
             }
 
@@ -38,14 +39,16 @@ namespace Juce.TweenPlayer.Utils
             if (!found)
             {
                 UnityEngine.Debug.LogError($"Bindable data {bindableData.GetType().Name} " +
-                    $"does not have a {nameof(BindableDataAttribute)}", tweenPlayer);
+                    $"does not have a {nameof(BindableDataAttribute)}, at {nameof(TweenPlayer)} " +
+                    $"{tweenPlayer.gameObject.name}", tweenPlayer);
                 return false;
             }
 
             if (!string.Equals(tweenPlayer.BindableDataUid, attribute.Uid))
             {
                 UnityEngine.Debug.LogError($"Bindable data {bindableData.GetType().FullName} does " +
-                    $"not match referenced bindable data {bindableData}", tweenPlayer);
+                    $"not match referenced bindable data {bindableData}, at {nameof(TweenPlayer)} " +
+                    $"{tweenPlayer.gameObject.name}", tweenPlayer);
                 return false;
             }
 
@@ -81,22 +84,27 @@ namespace Juce.TweenPlayer.Utils
             TweenPlayer tweenPlayer,
             TweenPlayerComponent component,
             IBindableData bindableData,
-            IReadOnlyList<FieldInfo> bindableDataFields,
-            IReadOnlyList<PropertyInfo> bindableDataProperties
+            IReadOnlyList<FieldInfo> bindableFieldsInfo,
+            IReadOnlyList<PropertyInfo> bindablePropertiesInfo
             )
         {
-            List<FieldInfo> thisFields = ReflectionUtils.GetFields(component.GetType(), typeof(Binding));
+            List<FieldInfo> componentFields = ReflectionUtils.GetFields(component.GetType(), typeof(Binding));
 
-            foreach (FieldInfo fieldInfo in thisFields)
+            foreach (FieldInfo componentFieldInfo in componentFields)
             {
-                Binding binding = (Binding)fieldInfo.GetValue(component);
+                Binding binding = componentFieldInfo.GetValue(component) as Binding;
+
+                if(binding == null)
+                {
+                    continue;
+                }
 
                 if (!binding.WantsToBeBinded)
                 {
                     continue;
                 }
 
-                foreach (FieldInfo fields in bindableDataFields)
+                foreach (FieldInfo fields in bindableFieldsInfo)
                 {
                     if (binding.BindingType != fields.FieldType)
                     {
@@ -115,7 +123,7 @@ namespace Juce.TweenPlayer.Utils
                     return;
                 }
 
-                foreach (PropertyInfo property in bindableDataProperties)
+                foreach (PropertyInfo property in bindablePropertiesInfo)
                 {
                     if (binding.BindingType != property.PropertyType)
                     {
@@ -134,7 +142,9 @@ namespace Juce.TweenPlayer.Utils
                     return;
                 }
 
-                UnityEngine.Debug.LogError($"Field {fieldInfo.Name} could not be binded to '{binding.BindedVariableName}'", tweenPlayer);
+                UnityEngine.Debug.LogError($"Field {componentFieldInfo.Name} could " +
+                    $"not be binded to '{binding.BindedVariableName}', at {nameof(TweenPlayer)} " +
+                    $"{tweenPlayer.gameObject.name}", tweenPlayer);
             }
         }
     }

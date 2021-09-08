@@ -48,7 +48,7 @@ namespace Juce.TweenPlayer.Utils
             {
                 if (fieldInfo.FieldType == fieldType)
                 {
-                    if (fieldInfo.Name == fieldName)
+                    if (string.Equals(fieldInfo.Name, fieldName))
                     {
                         foundFieldInfo = fieldInfo;
                         return true;

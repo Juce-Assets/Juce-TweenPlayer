@@ -6,13 +6,13 @@ using UnityEngine;
 
 namespace Juce.TweenPlayer.Components
 {
-    [TweenPlayerComponent("AudioSource Pitch", "AudioSource/Pitch")]
-    [TweenPlayerComponentColor(0.988f, 0.752f, 0.027f)]
+    [TweenPlayerComponent("Light Color", "Light/Color")]
+    [TweenPlayerComponentColor(0.658f, 0.517f, 0.952f)]
     [System.Serializable]
-    public class AudioSourcePitchComponent : AnimationTweenPlayerComponent
+    public class LightColorComponent : AnimationTweenPlayerComponent
     {
-        [SerializeField] private AudioSourceBinding target = new AudioSourceBinding();
-        [SerializeField] private FloatBinding value = new FloatBinding();
+        [SerializeField] private LightBinding target = new LightBinding();
+        [SerializeField] private ColorBinding value = new ColorBinding();
         [SerializeField] private FloatBinding delay = new FloatBinding();
         [SerializeField] private FloatBinding duration = new FloatBinding();
         [SerializeField] private AnimationCurveBinding easing = new AnimationCurveBinding();
@@ -33,20 +33,20 @@ namespace Juce.TweenPlayer.Components
 
         protected override ComponentExecutionResult OnExecute(ISequenceTween sequenceTween)
         {
-            AudioSource targetValue = target.GetValue();
+            Light targetValue = target.GetValue();
 
             if (targetValue == null)
             {
                 return ComponentExecutionResult.Empty;
             }
 
-            float valueValue = value.GetValue();
+            Color valueValue = value.GetValue();
             float durationValue = duration.GetValue();
             AnimationCurve easingValue = easing.GetValue();
 
             ITween delayTween = DelayUtils.Apply(sequenceTween, delay);
 
-            ITween progressTween = targetValue.TweenPitch(valueValue, durationValue);
+            ITween progressTween = targetValue.TweenColor(valueValue, durationValue);
 
             progressTween.SetEase(easingValue);
 
