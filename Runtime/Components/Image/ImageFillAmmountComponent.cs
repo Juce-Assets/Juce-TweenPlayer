@@ -7,13 +7,13 @@ using UnityEngine.UI;
 
 namespace Juce.TweenPlayer.Components
 {
-    [TweenPlayerComponent("Image Color", "Image/Color")]
+    [TweenPlayerComponent("Image Fill Ammount", "Image/FillAmmount")]
     [TweenPlayerComponentColor(0.964f, 0.505f, 0.505f)]
     [System.Serializable]
-    public class ImageColorComponent : AnimationTweenPlayerComponent
+    public class ImageFillAmmountComponent : AnimationTweenPlayerComponent
     {
         [SerializeField] private ImageBinding target = new ImageBinding();
-        [SerializeField] private ColorBinding value = new ColorBinding();
+        [SerializeField] private UnitFloatBinding value = new UnitFloatBinding();
         [SerializeField] private FloatBinding delay = new FloatBinding();
         [SerializeField] private FloatBinding duration = new FloatBinding();
         [SerializeField] private AnimationCurveBinding easing = new AnimationCurveBinding();
@@ -41,13 +41,13 @@ namespace Juce.TweenPlayer.Components
                 return ComponentExecutionResult.Empty;
             }
 
-            Color valueValue = value.GetValue();
+            float valueValue = value.GetValue();
             float durationValue = duration.GetValue();
             AnimationCurve easingValue = easing.GetValue();
 
             ITween delayTween = DelayUtils.Apply(sequenceTween, delay);
 
-            ITween progressTween = targetValue.TweenColor(valueValue, durationValue);
+            ITween progressTween = targetValue.TweenFillAmount(valueValue, durationValue);
 
             progressTween.SetEase(easingValue);
 
