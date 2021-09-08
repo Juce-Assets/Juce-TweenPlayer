@@ -21,8 +21,6 @@ namespace Juce.TweenPlayer
                     editor.RemoveComponent(component);
 
                     EditorUtility.SetDirty(editor.target);
-
-                    Event.current?.Use();
                 });
 
             menu.AddSeparator("");
@@ -34,8 +32,6 @@ namespace Juce.TweenPlayer
                     CopyPasteComponentHelper.PasteAsNew(editor.ActualTarget, component);
 
                     EditorUtility.SetDirty(editor.target);
-
-                    Event.current?.Use();
                 });
 
             menu.AddSeparator("");
@@ -49,8 +45,6 @@ namespace Juce.TweenPlayer
                     CopyPasteComponentHelper.PasteAsNew(editor.ActualTarget, component);
 
                     EditorUtility.SetDirty(editor.target);
-
-                    Event.current?.Use();
                 });
 
                 menu.AddItem(new GUIContent("Paste As New (on top)"), false, () =>
@@ -58,8 +52,6 @@ namespace Juce.TweenPlayer
                     CopyPasteComponentHelper.PasteAsNew(editor.ActualTarget, component, destinationOffset: -1);
 
                     EditorUtility.SetDirty(editor.target);
-
-                    Event.current?.Use();
                 });
             }
             else
@@ -75,8 +67,6 @@ namespace Juce.TweenPlayer
                     CopyPasteComponentHelper.PasteValues(component);
 
                     EditorUtility.SetDirty(editor.target);
-
-                    Event.current?.Use();
                 });
             }
             else
@@ -91,8 +81,6 @@ namespace Juce.TweenPlayer
                 ComponentUtils.CollapseAll(editor);
 
                 EditorUtility.SetDirty(editor.target);
-
-                Event.current?.Use();
             });
 
             menu.AddItem(new GUIContent("Expand All"), false, () =>
@@ -100,8 +88,6 @@ namespace Juce.TweenPlayer
                 ComponentUtils.ExpandAll(editor);
 
                 EditorUtility.SetDirty(editor.target);
-
-                Event.current?.Use();
             });
 
             menu.AddSeparator("");
@@ -111,8 +97,6 @@ namespace Juce.TweenPlayer
                 menu.AddItem(new GUIContent("Show Documentation"), false, () =>
                 {
                     editor.ToolData.DocumentationEnabled = true;
-
-                    Event.current?.Use();
                 });
             }
             else
@@ -120,8 +104,6 @@ namespace Juce.TweenPlayer
                 menu.AddItem(new GUIContent("Hide Documentation"), false, () =>
                 {
                     editor.ToolData.DocumentationEnabled = false;
-
-                    Event.current?.Use();
                 });
             }
 

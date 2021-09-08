@@ -6,16 +6,13 @@ using UnityEngine;
 
 namespace Juce.TweenPlayer.Components
 {
-    [TweenPlayerComponent("SpriteRenderer Color", "SpriteRenderer/Color")]
-    [TweenPlayerComponentColor(0.588f, 0.780f, 0.301f)]
+    [TweenPlayerComponent("AudioSource Play", "AudioSource/Play")]
+    [TweenPlayerComponentColor(0.988f, 0.752f, 0.027f)]
     [System.Serializable]
-    public class SpriteRendererColorComponent : AnimationTweenPlayerComponent
+    public class AudioSourcePlayComponent : AnimationTweenPlayerComponent
     {
-        [SerializeField] private SpriteRendererBinding target = new SpriteRendererBinding();
-        [SerializeField] private ColorBinding value = new ColorBinding();
+        [SerializeField] private AudioSourceBinding target = new AudioSourceBinding();
         [SerializeField] private FloatBinding delay = new FloatBinding();
-        [SerializeField] private FloatBinding duration = new FloatBinding();
-        [SerializeField] private AnimationCurveBinding easing = new AnimationCurveBinding();
 
         public override void Validate(ValidationBuilder validationBuilder)
         {
@@ -33,20 +30,27 @@ namespace Juce.TweenPlayer.Components
 
         protected override ComponentExecutionResult OnExecute(ISequenceTween sequenceTween)
         {
-            if (target.GetValue() == null)
+            AudioSource targetValue = target.GetValue();
+
+            if (targetValue == null)
             {
                 return ComponentExecutionResult.Empty;
             }
 
             ITween delayTween = DelayUtils.Apply(sequenceTween, delay);
 
-            ITween progressTween = target.GetValue().TweenColor(value.GetValue(), duration.GetValue());
+            sequenceTween.AppendCallback(
+                () =>
+                {
+                    if (targetValue == null)
+                    {
+                        return;
+                    }
 
-            progressTween.SetEase(easing.GetValue());
+                    targetValue.Play();
+                });
 
-            sequenceTween.Append(progressTween);
-
-            return new ComponentExecutionResult(progressTween, delayTween);
+            return new ComponentExecutionResult(delayTween);
         }
     }
 }

@@ -6,13 +6,13 @@ using UnityEngine;
 
 namespace Juce.TweenPlayer.Components
 {
-    [TweenPlayerComponent("SpriteRenderer Color", "SpriteRenderer/Color")]
-    [TweenPlayerComponentColor(0.588f, 0.780f, 0.301f)]
+    [TweenPlayerComponent("AudioSource Volume", "AudioSource/Volume")]
+    [TweenPlayerComponentColor(0.988f, 0.752f, 0.027f)]
     [System.Serializable]
-    public class SpriteRendererColorComponent : AnimationTweenPlayerComponent
+    public class AudioSourceVolumeComponent : AnimationTweenPlayerComponent
     {
-        [SerializeField] private SpriteRendererBinding target = new SpriteRendererBinding();
-        [SerializeField] private ColorBinding value = new ColorBinding();
+        [SerializeField] private AudioSourceBinding target = new AudioSourceBinding();
+        [SerializeField] private FloatBinding value = new FloatBinding();
         [SerializeField] private FloatBinding delay = new FloatBinding();
         [SerializeField] private FloatBinding duration = new FloatBinding();
         [SerializeField] private AnimationCurveBinding easing = new AnimationCurveBinding();
@@ -33,16 +33,22 @@ namespace Juce.TweenPlayer.Components
 
         protected override ComponentExecutionResult OnExecute(ISequenceTween sequenceTween)
         {
-            if (target.GetValue() == null)
+            AudioSource targetValue = target.GetValue();
+
+            if (targetValue == null)
             {
                 return ComponentExecutionResult.Empty;
             }
 
+            float valueValue = value.GetValue();
+            float durationValue = duration.GetValue();
+            AnimationCurve easingValue = easing.GetValue();
+
             ITween delayTween = DelayUtils.Apply(sequenceTween, delay);
 
-            ITween progressTween = target.GetValue().TweenColor(value.GetValue(), duration.GetValue());
+            ITween progressTween = targetValue.TweenVolume(valueValue, durationValue);
 
-            progressTween.SetEase(easing.GetValue());
+            progressTween.SetEase(easingValue);
 
             sequenceTween.Append(progressTween);
 
