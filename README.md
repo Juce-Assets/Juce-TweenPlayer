@@ -1,11 +1,17 @@
----
+# Welcome to Tween Component
 
+![Logo](https://github.com/Juce-Assets/Juce-TweenPlayer/blob/develop/Misc/Logo.png?raw=true)
 
----
+**Welcome to Tween Component:** an interpolation animation tool aimed to increase your productivity. It allows you to easily create complex tween sequences directly from the editor. No boilerplate, no coding, just plain fun!
 
-<h1 id="welcome-to-tween-component">Welcome to Tween Component</h1>
-<p><img src="https://github.com/Juce-Assets/Juce-TweenPlayer/blob/develop/Misc/Logo.png" alt="Logo"></p>
-<p>Hi! I’m your first Markdown file in <strong>StackEdit</strong>. If you want to learn about StackEdit, you can read me. If you want to play with Markdown, you can edit me. Once you have finished with me, you can create new files by opening the <strong>file explorer</strong> on the left corner of the navigation bar.</p>
-<h1 id="welcome-to-tween-component2">Welcome to Tween Component2</h1>
-<p>Hi! I’m your first Markdown file in <strong>StackEdit</strong>. If you want to learn about StackEdit, you can read me. If you want to play with Markdown, you can edit me. Once you have finished with me, you can create new files by opening the <strong>file explorer</strong> on the left corner of the navigation bar.</p>
+- **Easy to use**: just add the Tween Player component to any GameObject, and start animating properties!
 
+- **Artists ready**: allow your artists to easily create animations directly from the Unity editor, with an intuitive UI and simple controls. Using reflection, they can even animate properties from custom scripts without the help of a coder.
+
+- **Flexible**: nest as many Tween Components as you want to create complex animations.
+
+- **Extendible**: Easily create neew Tween Components, with any custom behaviour imaginable.  
+
+- **Powerful**: Custom Tweening engine that performs blazingly fast.
+
+- **Coders friendly**: we take a lot of effort making sure the underlying structure is clean and easy to extend. Code is robust and well weitten.
