@@ -16,8 +16,8 @@ namespace Juce.TweenPlayer.Components
         [SerializeField] private BoolBinding blocksRaycast = new BoolBinding();
         [SerializeField] private FloatBinding delay = new FloatBinding();
 
-        private bool lastInteractable;
-        private bool lastBlocksRaycast;
+        private bool lastInteractableState;
+        private bool lastBlocksRaycastState;
 
         public override void Validate(ValidationBuilder validationBuilder)
         {
@@ -35,39 +35,38 @@ namespace Juce.TweenPlayer.Components
 
         protected override ComponentExecutionResult OnExecute(ISequenceTween sequenceTween)
         {
-            if (target.GetValue() == null)
+            GameObject targetValue = target.GetValue();
+
+            if (targetValue == null)
             {
                 return ComponentExecutionResult.Empty;
             }
 
-            CanvasGroup canvasGroup = target.GetValue().GetComponent<CanvasGroup>();
+            CanvasGroup canvasGroup = targetValue.GetComponent<CanvasGroup>();
 
             if (canvasGroup == null)
             {
-                canvasGroup = target.GetValue().AddComponent<CanvasGroup>();
+                canvasGroup = targetValue.AddComponent<CanvasGroup>();
             }
 
             ITween delayTween = DelayUtils.Apply(sequenceTween, delay);
 
-            ITween progressTween = new ResetableCallbackTween(
+            sequenceTween.AppendResetableCallback(
                 () =>
                 {
-                    lastInteractable = canvasGroup.interactable;
-                    lastBlocksRaycast = canvasGroup.blocksRaycasts;
+                    lastInteractableState = canvasGroup.interactable;
+                    lastBlocksRaycastState = canvasGroup.blocksRaycasts;
 
                     canvasGroup.interactable = interactable.GetValue();
                     canvasGroup.blocksRaycasts = blocksRaycast.GetValue();
                 },
                 () =>
                 {
-                    canvasGroup.interactable = lastInteractable;
-                    canvasGroup.blocksRaycasts = lastBlocksRaycast;
-                }
-                );
+                    canvasGroup.interactable = lastInteractableState;
+                    canvasGroup.blocksRaycasts = lastBlocksRaycastState;
+                });
 
-            sequenceTween.Append(progressTween);
-
-            return new ComponentExecutionResult(progressTween, delayTween);
+            return new ComponentExecutionResult(delayTween);
         }
     }
 }

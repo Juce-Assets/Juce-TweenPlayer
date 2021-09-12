@@ -8,11 +8,14 @@ namespace Juce.TweenPlayer.Components
 {
     [TweenPlayerComponent("AudioSource Volume", "AudioSource/Volume")]
     [TweenPlayerComponentColor(0.988f, 0.752f, 0.027f)]
+    [TweenPlayerComponentDocumentation("Animates the AudioSource's volume to a certain value. " +
+        "The AudioSource’s volume property controls the level of sound coming from " +
+        "an AudioClip. The highest volume level is 1 and the lowest is 0 where no sound is heard.")]
     [System.Serializable]
     public class AudioSourceVolumeComponent : AnimationTweenPlayerComponent
     {
         [SerializeField] private AudioSourceBinding target = new AudioSourceBinding();
-        [SerializeField] private FloatBinding value = new FloatBinding();
+        [SerializeField] private UnitFloatBinding value = new UnitFloatBinding();
         [SerializeField] private FloatBinding delay = new FloatBinding();
         [SerializeField] private FloatBinding duration = new FloatBinding();
         [SerializeField] private AnimationCurveBinding easing = new AnimationCurveBinding();

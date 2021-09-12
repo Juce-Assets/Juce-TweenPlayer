@@ -58,10 +58,13 @@ namespace Juce.TweenPlayer.Utils
                 return string.Empty;
             }
 
-            UnityEngine.Object fallbackValueObject = fallbackValue as UnityEngine.Object;
-
-            if (fallbackValueObject != null)
+            if(fallbackValue is UnityEngine.Object fallbackValueObject)
             {
+                if (fallbackValueObject == null)
+                {
+                    return string.Empty;
+                }
+
                 return fallbackValueObject.name;
             }
 

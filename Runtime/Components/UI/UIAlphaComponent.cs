@@ -33,23 +33,29 @@ namespace Juce.TweenPlayer.Components
 
         protected override ComponentExecutionResult OnExecute(ISequenceTween sequenceTween)
         {
-            if (target.GetValue() == null)
+            GameObject targetValue = target.GetValue();
+
+            if (targetValue == null)
             {
                 return ComponentExecutionResult.Empty;
             }
 
-            CanvasGroup canvasGroup = target.GetValue().GetComponent<CanvasGroup>();
+            CanvasGroup canvasGroup = targetValue.GetComponent<CanvasGroup>();
 
             if (canvasGroup == null)
             {
-                canvasGroup = target.GetValue().AddComponent<CanvasGroup>();
+                canvasGroup = targetValue.AddComponent<CanvasGroup>();
             }
+
+            float valueValue = value.GetValue();
+            float durationValue = duration.GetValue();
+            AnimationCurve easingValue = easing.GetValue();
 
             ITween delayTween = DelayUtils.Apply(sequenceTween, delay);
 
-            ITween progressTween = canvasGroup.TweenAlpha(value.GetValue(), duration.GetValue());
+            ITween progressTween = canvasGroup.TweenAlpha(valueValue, durationValue);
 
-            progressTween.SetEase(easing.GetValue());
+            progressTween.SetEase(easingValue);
 
             sequenceTween.Append(progressTween);
 

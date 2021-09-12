@@ -23,7 +23,7 @@ namespace Juce.TweenPlayer.Drawers
             float offsetX = 0;
             float offsetY = 0;
 
-            if (component.ExecutionResult.DelayTween != null)
+            if (component.ExecutionResult.HasDelayTween)
             {
                 if (component.ExecutionResult.DelayTween.IsPlaying)
                 {
@@ -38,7 +38,7 @@ namespace Juce.TweenPlayer.Drawers
                     return;
                 }
 
-                if (component.ExecutionResult.ProgressTween == null &&
+                if (!component.ExecutionResult.HasProgressTween &&
                     component.ExecutionResult.DelayTween.IsCompleted)
                 {
                     ProgressBarDrawer.Draw(
@@ -52,7 +52,7 @@ namespace Juce.TweenPlayer.Drawers
                 }
             }
 
-            if (component.ExecutionResult.ProgressTween != null)
+            if (component.ExecutionResult.HasProgressTween)
             {
                 if (component.ExecutionResult.ProgressTween.IsPlaying)
                 {

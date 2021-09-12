@@ -47,7 +47,7 @@ namespace Juce.TweenPlayer.Components
                 return ComponentExecutionResult.Empty;
             }
 
-            bool found = ReflectionComponentUtils.TryFind(
+            bool found = ReflectionComponentUtils.TryFindFieldOrProperty(
                 target.GetValue().Component.GetType(),
                 target.GetValue().PropertyName,
                 typeof(int),

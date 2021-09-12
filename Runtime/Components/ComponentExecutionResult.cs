@@ -10,6 +10,9 @@ namespace Juce.TweenPlayer.Components
         public ITween DelayTween { get; }
         public ITween ProgressTween { get; }
 
+        public bool HasDelayTween => DelayTween != null;
+        public bool HasProgressTween => ProgressTween != null;
+
         public ComponentExecutionResult(ITween delayTween, ITween progressTween)
         {
             DelayTween = delayTween;
@@ -20,6 +23,5 @@ namespace Juce.TweenPlayer.Components
         {
             DelayTween = delayTween;
         }
-
     }
 }

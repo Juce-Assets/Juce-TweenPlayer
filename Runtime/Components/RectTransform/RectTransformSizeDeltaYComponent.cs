@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Juce.TweenPlayer.Components
 {
-    [TweenPlayerComponent("RectTransform Size Delta Y", "RectTransform/Size Delta Y")]
+    [TweenPlayerComponent("RectTransform Size Delta Y", "RectTransform/Size Delta X Y/Y")]
     [TweenPlayerComponentColor(0.19f, 0.81f, 0.34f)]
     [System.Serializable]
     public class RectTransformSizeDeltaYComponent : AnimationTweenPlayerComponent

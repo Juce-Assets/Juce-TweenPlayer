@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Juce.TweenPlayer.Components
 {
-    [TweenPlayerComponent("RectTransform Anchor Max Y", "RectTransform/Anchor Max Y")]
+    [TweenPlayerComponent("RectTransform Anchor Max Y", "RectTransform/Anchor Max X Y/Y")]
     [TweenPlayerComponentColor(0.19f, 0.81f, 0.34f)]
     [System.Serializable]
     public class RectTransformAnchorMaxYComponent : AnimationTweenPlayerComponent

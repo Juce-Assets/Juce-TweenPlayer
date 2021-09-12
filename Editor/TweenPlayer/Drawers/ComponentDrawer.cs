@@ -1,5 +1,6 @@
 ﻿using Juce.TweenPlayer.Bindings;
 using Juce.TweenPlayer.Components;
+using Juce.TweenPlayer.Logic;
 using Juce.TweenPlayer.Style;
 using Juce.TweenPlayer.Utils;
 using Juce.TweenPlayer.Validation;
@@ -130,7 +131,7 @@ namespace Juce.TweenPlayer.Drawers
 
                 foreach (EditorBinding editorBinding in componentEditorBindings)
                 {
-                    BindingDrawer.UpdateBindingData(
+                    UpdateBindingDataLogic.Execute(
                         editor,
                         editorBinding
                         );

@@ -6,16 +6,18 @@ using UnityEngine;
 
 namespace Juce.TweenPlayer.Components
 {
-    [TweenPlayerComponent("SpriteRenderer Flip X", "SpriteRenderer/FlipX")]
-    [TweenPlayerComponentColor(0.588f, 0.780f, 0.301f)]
+    [TweenPlayerComponent("MonoBehaviour Enabled", "MonoBehaviour/Enabled")]
+    [TweenPlayerComponentColor(0.85f, 0.89f, 0.85f)]
+    [TweenPlayerComponentDocumentation("Enables/Disables the MonoBehaviour, " +
+        "depending on the given true or false value.")]
     [System.Serializable]
-    public class SpriteRendererFlipX : AnimationTweenPlayerComponent
+    public class MonoBehaviourActiveComponent : AnimationTweenPlayerComponent
     {
-        [SerializeField] private SpriteRendererBinding target = new SpriteRendererBinding();
+        [SerializeField] private MonoBehaviourBinding target = new MonoBehaviourBinding();
         [SerializeField] private BoolBinding value = new BoolBinding();
         [SerializeField] private FloatBinding delay = new FloatBinding();
 
-        private bool lastFlipState;
+        private bool lastEnabledState;
 
         public override void Validate(ValidationBuilder validationBuilder)
         {
@@ -33,7 +35,7 @@ namespace Juce.TweenPlayer.Components
 
         protected override ComponentExecutionResult OnExecute(ISequenceTween sequenceTween)
         {
-            SpriteRenderer targetValue = target.GetValue();
+            MonoBehaviour targetValue = target.GetValue();
 
             if (targetValue == null)
             {
@@ -52,9 +54,9 @@ namespace Juce.TweenPlayer.Components
                         return;
                     }
 
-                    lastFlipState = targetValue.sprite;
+                    lastEnabledState = targetValue.enabled;
 
-                    targetValue.flipX = valueValue;
+                    targetValue.enabled = valueValue;
                 },
                 () =>
                 {
@@ -63,9 +65,8 @@ namespace Juce.TweenPlayer.Components
                         return;
                     }
 
-                    targetValue.flipX = lastFlipState;
-                }
-                );
+                    targetValue.enabled = lastEnabledState;
+                });
 
             return new ComponentExecutionResult(delayTween);
         }

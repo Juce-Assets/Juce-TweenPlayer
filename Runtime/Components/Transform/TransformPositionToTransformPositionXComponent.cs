@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Juce.TweenPlayer.Components
 {
-    [TweenPlayerComponent("Transform Position To Transform Position X", "Transform/Position To Transform Position X")]
+    [TweenPlayerComponent("Transform Position To Transform Position", "Transform/Position To Transform Position X Y Z/X")]
     [TweenPlayerComponentColor(1f, 0.368f, 0.066f)]
     [System.Serializable]
     public class TransformPositionToTransformPositionXComponent : AnimationTweenPlayerComponent
@@ -39,16 +39,28 @@ namespace Juce.TweenPlayer.Components
 
         protected override ComponentExecutionResult OnExecute(ISequenceTween sequenceTween)
         {
-            if (target.GetValue() == null)
+            Transform targetValue = target.GetValue();
+
+            if (targetValue == null)
             {
                 return ComponentExecutionResult.Empty;
             }
 
+            Transform valueValue = value.GetValue();
+
+            if (valueValue == null)
+            {
+                return ComponentExecutionResult.Empty;
+            }
+
+            float durationValue = duration.GetValue();
+            AnimationCurve easingValue = easing.GetValue();
+
             ITween delayTween = DelayUtils.Apply(sequenceTween, delay);
 
-            ITween progressTween = target.GetValue().TweenPositionX(value.GetValue().position.x, duration.GetValue());
+            ITween progressTween = targetValue.TweenPositionX(valueValue.position.x, durationValue);
 
-            progressTween.SetEase(easing.GetValue());
+            progressTween.SetEase(easingValue);
 
             sequenceTween.Append(progressTween);
 

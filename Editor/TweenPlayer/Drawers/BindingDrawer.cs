@@ -1,7 +1,6 @@
 ﻿using Juce.TweenPlayer.Bindings;
+using Juce.TweenPlayer.Logic;
 using Juce.TweenPlayer.Utils;
-using System;
-using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
@@ -17,7 +16,10 @@ namespace Juce.TweenPlayer.Drawers
         {
             editorBinding.Binding.BindingEnabled = bindingPlayerEditor.SerializedPropertiesData.BindingEnabledProperty.boolValue;
 
-            if (!editorBinding.Binding.WantsToBeBinded || !bindingPlayerEditor.SerializedPropertiesData.BindingEnabledProperty.boolValue)
+            bool bindingIsDisabled = !editorBinding.Binding.WantsToBeBinded
+                || !bindingPlayerEditor.SerializedPropertiesData.BindingEnabledProperty.boolValue;
+
+            if (bindingIsDisabled)
             {
                 DrawBindingDisabledBinding(
                     bindingPlayerEditor,
@@ -26,85 +28,14 @@ namespace Juce.TweenPlayer.Drawers
                     );
 
                 EditorGUILayout.Space(3);
-            }
-            else
-            {
-                DrawBindingEnabledBinding(
-                    bindingPlayerEditor,
-                    editorBinding
-                    );
-            }
-        }
 
-        public static void UpdateBindingData(
-            TweenPlayerEditor bindingPlayerEditor,
-            EditorBinding editorBinding
-            )
-        {
-            editorBinding.BindableFields = Array.Empty<string>();
-
-            editorBinding.Binding.BindingEnabled = bindingPlayerEditor.SerializedPropertiesData.BindingEnabledProperty.boolValue;
-
-            bool bindingEnabled = editorBinding.Binding.WantsToBeBinded && bindingPlayerEditor.SerializedPropertiesData.BindingEnabledProperty.boolValue;
-
-            if (!bindingEnabled)
-            {
-                editorBinding.Binding.Binded = false;
-            }
-            else
-            {
-                bool hasBindableData = bindingPlayerEditor.ToolData.SelectedEditorBindableData != null;
-
-                if(!hasBindableData)
-                {
-                    editorBinding.Binding.Binded = false;
-                }
-                else
-                {
-                    string[] fieldsNames = bindingPlayerEditor.ToolData.SelectedEditorBindableData.Fields.
-                        Where(i => editorBinding.Type.IsAssignableFrom(i.Type)).Select(i => i.Name).ToArray();
-
-                    string[] propertiesNames = bindingPlayerEditor.ToolData.SelectedEditorBindableData.Properties.
-                        Where(i => editorBinding.Type.IsAssignableFrom(i.Type)).Select(i => i.Name).ToArray();
-
-                    editorBinding.BindableFields = new string[fieldsNames.Length + propertiesNames.Length];
-                    Array.Copy(fieldsNames, editorBinding.BindableFields, fieldsNames.Length);
-                    Array.Copy(propertiesNames, 0, editorBinding.BindableFields, fieldsNames.Length, propertiesNames.Length);
-
-                    bool hasBindableProperties = editorBinding.BindableFields.Length > 0;
-
-                    if(!hasBindableProperties)
-                    {
-                        editorBinding.Binding.Binded = false;
-                    }
-                    else
-                    {
-                        bool found = TryGetBindedVariableIndex(editorBinding, out int index);
-
-                        if (found)
-                        {
-                            editorBinding.Binding.BindedVariableName = editorBinding.BindableFields[index];
-                        }
-
-                        editorBinding.Binding.Binded = found;
-                    }
-                }
-            }
-        }
-
-        private static bool TryGetBindedVariableIndex(EditorBinding editorBinding, out int index)
-        {
-            for (int i = 0; i < editorBinding.BindableFields.Length; ++i)
-            {
-                if (string.Equals(editorBinding.Binding.BindedVariableName, editorBinding.BindableFields[i]))
-                {
-                    index = i;
-                    return true;
-                }
+                return;
             }
 
-            index = 0;
-            return false;
+            DrawBindingEnabledBinding(
+                bindingPlayerEditor,
+                editorBinding
+                );
         }
 
         private static void DrawBindingDisabledBinding(
@@ -121,7 +52,10 @@ namespace Juce.TweenPlayer.Drawers
             {
                 if (bindingPlayerEditor.SerializedPropertiesData.BindingEnabledProperty.boolValue)
                 {
-                    editorBinding.Binding.WantsToBeBinded = EditorGUILayout.Toggle(editorBinding.Binding.WantsToBeBinded, GUILayout.Width(25));
+                    editorBinding.Binding.WantsToBeBinded = EditorGUILayout.Toggle(
+                        editorBinding.Binding.WantsToBeBinded, 
+                        GUILayout.Width(25)
+                        );
                 }
 
                 GUILayout.Label(editorBinding.FormatedName);
@@ -141,7 +75,10 @@ namespace Juce.TweenPlayer.Drawers
         {
             EditorGUILayout.BeginHorizontal(GUILayout.ExpandWidth(false));
             {
-                editorBinding.Binding.WantsToBeBinded = EditorGUILayout.Toggle(editorBinding.Binding.WantsToBeBinded, GUILayout.Width(25));
+                editorBinding.Binding.WantsToBeBinded = EditorGUILayout.Toggle(
+                    editorBinding.Binding.WantsToBeBinded, 
+                    GUILayout.Width(25)
+                    );
 
                 bool bindableDataFound = bindingPlayerEditor.ToolData.SelectedEditorBindableData != null;
 
@@ -164,7 +101,10 @@ namespace Juce.TweenPlayer.Drawers
                 else
                 {
 
-                    GUILayout.Label($"[{editorBinding.Type.Name}] {editorBinding.Name} binded to", GUILayout.ExpandWidth(false));
+                    GUILayout.Label(
+                        $"[{editorBinding.Type.Name}] {editorBinding.Name} binded to", 
+                        GUILayout.ExpandWidth(false)
+                        );
 
                     if (bindingPlayerEditor.ToolData.SelectedEditorBindableData == null)
                     {
@@ -173,7 +113,7 @@ namespace Juce.TweenPlayer.Drawers
                         return;
                     }
 
-                    bool found = TryGetBindedVariableIndex(editorBinding, out int index);
+                    bool found = TryGetBindedVariableIndexLogic.Execute(editorBinding, out int index);
 
                     if(!found)
                     {

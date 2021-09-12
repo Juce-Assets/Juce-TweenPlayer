@@ -8,6 +8,7 @@ namespace Juce.TweenPlayer.Components
 {
     [TweenPlayerComponent("AudioSource Stop", "AudioSource/Stop")]
     [TweenPlayerComponentColor(0.988f, 0.752f, 0.027f)]
+    [TweenPlayerComponentDocumentation("Stops the currently AudioSource's set AudioClip.")] 
     [System.Serializable]
     public class AudioSourceStopComponent : AnimationTweenPlayerComponent
     {

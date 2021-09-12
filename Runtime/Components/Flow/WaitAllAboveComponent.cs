@@ -8,6 +8,9 @@ namespace Juce.TweenPlayer.Components
 {
     [TweenPlayerComponent("Wait All Above", "Flow/WaitAllAbove")]
     [TweenPlayerComponentColor(0f, 0.792f, 0.721f, useAsBackground: true)]
+    [TweenPlayerComponentDocumentation("Waits until all above TweenComponents are finished, before " +
+        "playing the TweenComponents below. A delay can be set to wait for the execution of the TweenComponents " +
+        "below.")]
     public class WaitAllAboveComponent : FlowComponent
     {
         [SerializeField] private FloatBinding delay = new FloatBinding();

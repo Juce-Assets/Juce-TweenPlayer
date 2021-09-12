@@ -8,6 +8,8 @@ namespace Juce.TweenPlayer.Components
 {
     [TweenPlayerComponent("GameObject Active", "GameObject/Active")]
     [TweenPlayerComponentColor(0.85f, 0.89f, 0.85f)]
+    [TweenPlayerComponentDocumentation("Activates/Deactivates the GameObject, " +
+        "depending on the given true or false value.")]
     [System.Serializable]
     public class GameObjectActiveComponent : AnimationTweenPlayerComponent
     {

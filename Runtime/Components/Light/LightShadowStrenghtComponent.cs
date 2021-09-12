@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Juce.TweenPlayer.Components
 {
-    [TweenPlayerComponent("Light Shadow Strenght", "Light/ShadowStrenght")]
+    [TweenPlayerComponent("Light Shadow Strenght", "Light/Shadow Strenght")]
     [TweenPlayerComponentColor(0.658f, 0.517f, 0.952f)]
     [System.Serializable]
     public class LightShadowStrenghtComponent : AnimationTweenPlayerComponent

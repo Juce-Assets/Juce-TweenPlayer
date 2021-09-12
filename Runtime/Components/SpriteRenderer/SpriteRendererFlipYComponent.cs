@@ -6,10 +6,10 @@ using UnityEngine;
 
 namespace Juce.TweenPlayer.Components
 {
-    [TweenPlayerComponent("SpriteRenderer Flip Y", "SpriteRenderer/FlipY")]
+    [TweenPlayerComponent("SpriteRenderer Flip Y", "SpriteRenderer/Flip Y")]
     [TweenPlayerComponentColor(0.588f, 0.780f, 0.301f)]
     [System.Serializable]
-    public class SpriteRendererFlipY : AnimationTweenPlayerComponent
+    public class SpriteRendererFlipYComponent : AnimationTweenPlayerComponent
     {
         [SerializeField] private SpriteRendererBinding target = new SpriteRendererBinding();
         [SerializeField] private BoolBinding value = new BoolBinding();

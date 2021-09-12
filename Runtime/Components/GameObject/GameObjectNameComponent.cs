@@ -8,6 +8,7 @@ namespace Juce.TweenPlayer.Components
 {
     [TweenPlayerComponent("GameObject Name", "GameObject/Name")]
     [TweenPlayerComponentColor(0.85f, 0.89f, 0.85f)]
+    [TweenPlayerComponentDocumentation("Sets the name of the GameObject.")]
     [System.Serializable]
     public class GameObjectNameComponent : AnimationTweenPlayerComponent
     {

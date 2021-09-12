@@ -60,7 +60,7 @@ namespace Juce.TweenPlayer.Utils
             return false;
         }
 
-        public static bool TryFind(
+        public static bool TryFindFieldOrProperty(
            Type componentType,
            string name,
            Type type,

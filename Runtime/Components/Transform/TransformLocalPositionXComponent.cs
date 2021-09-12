@@ -6,7 +6,7 @@ using Juce.TweenPlayer.Validation;
 
 namespace Juce.TweenPlayer.Components
 {
-    [TweenPlayerComponent("Transform Local Position X", "Transform/Local Position X")]
+    [TweenPlayerComponent("Transform Local Position X", "Transform/Local Position X Y Z /X")]
     [TweenPlayerComponentColor(1f, 0.368f, 0.066f)]
     [System.Serializable]
     public class TransformLocalPositionXComponent : AnimationTweenPlayerComponent
@@ -33,16 +33,22 @@ namespace Juce.TweenPlayer.Components
 
         protected override ComponentExecutionResult OnExecute(ISequenceTween sequenceTween)
         {
-            if (target.GetValue() == null)
+            Transform targetValue = target.GetValue();
+
+            if (targetValue == null)
             {
                 return ComponentExecutionResult.Empty;
             }
 
+            float valueValue = value.GetValue();
+            float durationValue = duration.GetValue();
+            AnimationCurve easingValue = easing.GetValue();
+
             ITween delayTween = DelayUtils.Apply(sequenceTween, delay);
 
-            ITween progressTween = target.GetValue().TweenLocalPositionX(value.GetValue(), duration.GetValue());
+            ITween progressTween = targetValue.TweenLocalPositionZ(valueValue, durationValue);
 
-            progressTween.SetEase(easing.GetValue());
+            progressTween.SetEase(easingValue);
 
             sequenceTween.Append(progressTween);
 

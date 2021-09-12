@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Juce.TweenPlayer.Components
 {
-    [TweenPlayerComponent("RectTransform Size X With Current Anchors", "RectTransform/Size X With Current Anchors")]
+    [TweenPlayerComponent("RectTransform Size X With Current Anchors", "RectTransform/Size With Current Anchors X Y/X")]
     [TweenPlayerComponentColor(0.19f, 0.81f, 0.34f)]
     [System.Serializable]
     public class RectTransformSizeXWithCurrentAnchorsComponent : AnimationTweenPlayerComponent

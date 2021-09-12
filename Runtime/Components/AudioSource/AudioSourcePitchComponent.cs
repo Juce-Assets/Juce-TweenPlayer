@@ -8,6 +8,11 @@ namespace Juce.TweenPlayer.Components
 {
     [TweenPlayerComponent("AudioSource Pitch", "AudioSource/Pitch")]
     [TweenPlayerComponentColor(0.988f, 0.752f, 0.027f)]
+    [TweenPlayerComponentDocumentation("Animates AudioSource's pitch to a certain value. " +
+        "Pitch is a quality that makes a melody go higher or lower. " +
+        "As an example imagine playing an audio clip with pitch set to one. " +
+        "Increasing the pitch as the clip plays will make the clip sound like it is higher. " +
+        "Similarly decreasing the pitch less than one makes the clip sound lower.")]
     [System.Serializable]
     public class AudioSourcePitchComponent : AnimationTweenPlayerComponent
     {

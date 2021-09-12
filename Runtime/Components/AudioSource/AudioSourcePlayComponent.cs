@@ -8,6 +8,7 @@ namespace Juce.TweenPlayer.Components
 {
     [TweenPlayerComponent("AudioSource Play", "AudioSource/Play")]
     [TweenPlayerComponentColor(0.988f, 0.752f, 0.027f)]
+    [TweenPlayerComponentDocumentation("Plays the AudioSource's current clip.")]
     [System.Serializable]
     public class AudioSourcePlayComponent : AnimationTweenPlayerComponent
     {

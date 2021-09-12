@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Juce.TweenPlayer.Components
 {
-    [TweenPlayerComponent("RectTransform Anchored Position Y", "RectTransform/Anchored Position Y")]
+    [TweenPlayerComponent("RectTransform Anchored Position Y", "RectTransform/Anchored Position X Y/Y")]
     [TweenPlayerComponentColor(0.19f, 0.81f, 0.34f)]
     [TweenPlayerComponentDocumentation("The position Y of the pivot of a RectTransform " +
         "relative to the anchor reference point.")]

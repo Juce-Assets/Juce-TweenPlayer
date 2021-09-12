@@ -14,7 +14,7 @@ namespace Juce.TweenPlayer.Utils
                 return null;
             }
 
-            ITween delayTween = new WaitTimeTween(delay.GetValue());
+            ITween delayTween = new WaitTimeTween(delayValue);
             sequenceTween.Append(delayTween);
 
             return delayTween;

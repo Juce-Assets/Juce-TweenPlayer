@@ -6,7 +6,7 @@ using Juce.TweenPlayer.Validation;
 
 namespace Juce.TweenPlayer.Components
 {
-    [TweenPlayerComponent("Transform Local Position Y", "Transform/Local Position Y")]
+    [TweenPlayerComponent("Transform Local Position Y", "Transform/Local Position X Y Z /Y")]
     [TweenPlayerComponentColor(1f, 0.368f, 0.066f)]
     [System.Serializable]
     public class TransformLocalPositionYComponent : AnimationTweenPlayerComponent

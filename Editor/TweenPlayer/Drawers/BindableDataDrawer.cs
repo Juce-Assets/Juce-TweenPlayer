@@ -1,4 +1,5 @@
 ﻿using Juce.TweenPlayer.BindableData;
+using Juce.TweenPlayer.Logic;
 using UnityEditor;
 using UnityEngine;
 
@@ -30,12 +31,20 @@ namespace Juce.TweenPlayer.Drawers
                     return;
                 }
 
-                EditorBindableData editorBindableData = GetEditorBindableData(
-                    editor, 
-                    editor.SerializedPropertiesData.BindableDataUidProperty.stringValue
+                bool found = TryGetEditorBindableDataLogic.Execute(
+                    editor,
+                    editor.SerializedPropertiesData.BindableDataUidProperty.stringValue,
+                    out EditorBindableData editorBindableData
                     );
 
-                editor.ToolData.SelectedEditorBindableData = editorBindableData;
+                if(found)
+                {
+                    editor.ToolData.SelectedEditorBindableData = editorBindableData;
+                }
+                else
+                {
+                    editor.ToolData.SelectedEditorBindableData = null;
+                }
 
                 EditorGUILayout.BeginHorizontal();
                 {
@@ -113,24 +122,6 @@ namespace Juce.TweenPlayer.Drawers
                 }
             }
             EditorGUILayout.EndScrollView();
-        }
-
-        private static EditorBindableData GetEditorBindableData(
-            TweenPlayerEditor bindingPlayerEditor, 
-            string bindableDataUid
-            )
-        {
-            for (int i = 0; i < bindingPlayerEditor.ToolData.EditorBindableDatas.Count; ++i)
-            {
-                EditorBindableData editorBindableData = bindingPlayerEditor.ToolData.EditorBindableDatas[i];
-
-                if (string.Equals(bindableDataUid, editorBindableData.Uid))
-                {
-                    return editorBindableData;
-                }
-            }
-
-            return null;
         }
     }
 }

@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 namespace Juce.TweenPlayer.Components
 {
-    [TweenPlayerComponent("Image Fill Ammount", "Image/FillAmmount")]
+    [TweenPlayerComponent("Image Fill Ammount", "Image/Fill Ammount")]
     [TweenPlayerComponentColor(0.964f, 0.505f, 0.505f)]
     [System.Serializable]
     public class ImageFillAmmountComponent : AnimationTweenPlayerComponent
