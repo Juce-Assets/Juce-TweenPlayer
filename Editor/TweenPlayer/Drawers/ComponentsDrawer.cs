@@ -1,5 +1,6 @@
 ﻿using Juce.TweenPlayer.Components;
 using Juce.TweenPlayer.Helpers;
+using Juce.TweenPlayer.Logic;
 using Juce.TweenPlayer.Utils;
 using UnityEditor;
 using UnityEngine;
@@ -67,7 +68,7 @@ namespace Juce.TweenPlayer.Drawers
             }
         }
 
-        private static void DrawNullComponent(TweenPlayerEditor bindingPlayerEditor, int componentIndex)
+        private static void DrawNullComponent(TweenPlayerEditor editor, int componentIndex)
         {
             EditorGUILayout.BeginHorizontal();
             {
@@ -75,7 +76,7 @@ namespace Juce.TweenPlayer.Drawers
 
                 if(GUILayout.Button("Remove"))
                 {
-                    bindingPlayerEditor.RemoveComponent(componentIndex);
+                    RemoveComponentLogic.Execute(editor, componentIndex);
                 }
             }
             GUILayout.FlexibleSpace();

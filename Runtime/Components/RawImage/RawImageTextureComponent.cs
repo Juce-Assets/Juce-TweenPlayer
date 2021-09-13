@@ -3,21 +3,20 @@ using Juce.TweenPlayer.Bindings;
 using Juce.TweenPlayer.Utils;
 using Juce.TweenPlayer.Validation;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Juce.TweenPlayer.Components
 {
-    [TweenPlayerComponent("UI Interactable", "UI/Interactable")]
-    [TweenPlayerComponentColor(0.976f, 0.760f, 0.168f)]
+    [TweenPlayerComponent("RawImage Texture", "RawImage/Texture")]
+    [TweenPlayerComponentColor(0.364f, 0.505f, 0.505f)]
     [System.Serializable]
-    public class UIInteractableComponent : AnimationTweenPlayerComponent
+    public class RawImageTextureComponent : AnimationTweenPlayerComponent
     {
-        [SerializeField] private GameObjectBinding target = new GameObjectBinding();
-        [SerializeField] private BoolBinding interactable = new BoolBinding();
-        [SerializeField] private BoolBinding blocksRaycast = new BoolBinding();
+        [SerializeField] private RawImageBinding target = new RawImageBinding();
+        [SerializeField] private TextureBinding value = new TextureBinding();
         [SerializeField] private FloatBinding delay = new FloatBinding();
 
-        private bool lastInteractableState;
-        private bool lastBlocksRaycastState;
+        private Texture lastTextureState;
 
         public override void Validate(ValidationBuilder validationBuilder)
         {
@@ -35,46 +34,39 @@ namespace Juce.TweenPlayer.Components
 
         protected override ComponentExecutionResult OnExecute(ISequenceTween sequenceTween)
         {
-            GameObject targetValue = target.GetValue();
+            RawImage targetValue = target.GetValue();
 
             if (targetValue == null)
             {
                 return ComponentExecutionResult.Empty;
             }
 
-            CanvasGroup canvasGroup = targetValue.GetComponent<CanvasGroup>();
-
-            if (canvasGroup == null)
-            {
-                canvasGroup = targetValue.AddComponent<CanvasGroup>();
-            }
+            Texture valueValue = value.GetValue();
 
             ITween delayTween = DelayUtils.Apply(sequenceTween, delay);
 
             sequenceTween.AppendResetableCallback(
                 () =>
                 {
-                    if (canvasGroup == null)
+                    if (targetValue == null)
                     {
                         return;
                     }
 
-                    lastInteractableState = canvasGroup.interactable;
-                    lastBlocksRaycastState = canvasGroup.blocksRaycasts;
+                    lastTextureState = targetValue.texture;
 
-                    canvasGroup.interactable = interactable.GetValue();
-                    canvasGroup.blocksRaycasts = blocksRaycast.GetValue();
+                    targetValue.texture = valueValue;
                 },
                 () =>
                 {
-                    if (canvasGroup == null)
+                    if (targetValue == null)
                     {
                         return;
                     }
 
-                    canvasGroup.interactable = lastInteractableState;
-                    canvasGroup.blocksRaycasts = lastBlocksRaycastState;
-                });
+                    targetValue.texture = lastTextureState;
+                }
+                );
 
             return new ComponentExecutionResult(delayTween);
         }

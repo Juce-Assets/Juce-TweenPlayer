@@ -19,8 +19,6 @@ namespace Juce.TweenPlayer.Components
         [SerializeField] private FloatBinding duration = new FloatBinding();
         [SerializeField] private AnimationCurveBinding easing = new AnimationCurveBinding();
 
-        private string lastTextState;
-
         public override void Validate(ValidationBuilder validationBuilder)
         {
             if (!target.WantsToBeBinded && target.GetValue() == null)

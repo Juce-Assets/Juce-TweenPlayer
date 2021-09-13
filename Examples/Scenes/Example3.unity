@@ -673,6 +673,70 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 610543678}
   m_CullTransparentMesh: 1
+--- !u!1 &829747437
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 829747439}
+  - component: {fileID: 829747438}
+  m_Layer: 0
+  m_Name: Test
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &829747438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 829747437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53ef6096a7669654489b5445d8387734, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  executionMode: 0
+  loopMode: 0
+  loopResetMode: 0
+  loops: 0
+  Components:
+  - id: 0
+  bindingEnabled: 0
+  bindableDataUid: 
+  references:
+    version: 1
+    00000000:
+      type: {class: DebugCommentComponent, ns: Juce.TweenPlayer.Components, asm: Juce.TweenPlayer.Runtime}
+      data:
+        folded: 1
+        enabled: 1
+        comment:
+          bindingEnabled: 0
+          wantsToBeBinded: 0
+          binded: 0
+          bindedVariableName: 
+          FallbackValue: Move left to right
+--- !u!4 &829747439
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 829747437}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &885190708
 GameObject:
   m_ObjectHideFlags: 0
@@ -719,7 +783,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 936064472}
+  - component: {fileID: 936064474}
   - component: {fileID: 936064471}
   m_Layer: 0
   m_Name: TweenPlayer
@@ -748,8 +812,8 @@ MonoBehaviour:
   - id: 0
   - id: 1
   - id: 2
-  bindingEnabled: 0
-  bindableDataUid: 
+  bindingEnabled: 1
+  bindableDataUid: a4b718b0-9e3b-11eb-a8b3-0242ac130003
   references:
     version: 1
     00000000:
@@ -758,7 +822,7 @@ MonoBehaviour:
         folded: 0
         enabled: 1
         delay:
-          bindingEnabled: 0
+          bindingEnabled: 1
           wantsToBeBinded: 0
           binded: 0
           bindedVariableName: 
@@ -769,31 +833,31 @@ MonoBehaviour:
         folded: 0
         enabled: 1
         target:
-          bindingEnabled: 0
+          bindingEnabled: 1
           wantsToBeBinded: 0
           binded: 0
           bindedVariableName: 
           FallbackValue: {fileID: 126539268}
         value:
-          bindingEnabled: 0
+          bindingEnabled: 1
           wantsToBeBinded: 0
           binded: 0
           bindedVariableName: 
           FallbackValue: {fileID: 1166840381}
         delay:
-          bindingEnabled: 0
+          bindingEnabled: 1
           wantsToBeBinded: 0
           binded: 0
           bindedVariableName: 
           FallbackValue: 0
         duration:
-          bindingEnabled: 0
+          bindingEnabled: 1
           wantsToBeBinded: 0
           binded: 0
           bindedVariableName: 
           FallbackValue: 0.3
         easing:
-          bindingEnabled: 0
+          bindingEnabled: 1
           wantsToBeBinded: 0
           binded: 0
           bindedVariableName: 
@@ -810,13 +874,22 @@ MonoBehaviour:
               inWeight: 0
               outWeight: 0
             - serializedVersion: 3
+              time: 0.6052486
+              value: 1.0373969
+              inSlope: 0.14124393
+              outSlope: 0.14124393
+              tangentMode: 0
+              weightedMode: 0
+              inWeight: 0.33333334
+              outWeight: 0.33333334
+            - serializedVersion: 3
               time: 1
               value: 1
               inSlope: 0
               outSlope: 0
               tangentMode: 0
               weightedMode: 0
-              inWeight: 0
+              inWeight: 0.068090856
               outWeight: 0
             m_PreInfinity: 2
             m_PostInfinity: 2
@@ -827,13 +900,13 @@ MonoBehaviour:
         folded: 0
         enabled: 1
         delay:
-          bindingEnabled: 0
+          bindingEnabled: 1
           wantsToBeBinded: 0
           binded: 0
           bindedVariableName: 
           FallbackValue: 2
---- !u!4 &936064472
-Transform:
+--- !u!224 &936064474
+RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -846,6 +919,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1007481390
 GameObject:
   m_ObjectHideFlags: 0

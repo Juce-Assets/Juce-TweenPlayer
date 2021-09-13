@@ -1,5 +1,6 @@
 ﻿using Juce.TweenPlayer.Components;
 using Juce.TweenPlayer.Helpers;
+using Juce.TweenPlayer.Logic;
 using Juce.TweenPlayer.Utils;
 using UnityEditor;
 using UnityEngine;
@@ -18,7 +19,7 @@ namespace Juce.TweenPlayer
             menu.AddItem(new GUIContent("Remove"), false,
                 () =>
                 {
-                    editor.RemoveComponent(component);
+                    RemoveComponentLogic.Execute(editor, component);
 
                     EditorUtility.SetDirty(editor.target);
                 });

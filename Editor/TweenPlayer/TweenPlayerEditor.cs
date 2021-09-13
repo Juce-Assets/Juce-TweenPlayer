@@ -59,7 +59,10 @@ namespace Juce.TweenPlayer
 
             PlaybackControlsDrawer.Draw(this);
 
-            ActuallyRemoveComponents();
+            if (Event.current.type != EventType.Layout)
+            {
+                ActuallyRemoveComponentsLogic.Execute(this);
+            }
 
             if (ToolData.ProgressBarsEnabled && Application.isPlaying)
             {
@@ -72,32 +75,6 @@ namespace Juce.TweenPlayer
             }
 
             serializedObject.ApplyModifiedProperties();
-        }
-
-        public void RemoveComponent(TweenPlayerComponent component) 
-        {
-            ToolData.ComponentsToRemove.Add(component);
-        }
-
-        public void RemoveComponent(int index)
-        {
-            ToolData.ComponentsIndexToRemove.Add(index);
-        }
-
-        private void ActuallyRemoveComponents()
-        {
-            foreach (int componentIndex in ToolData.ComponentsIndexToRemove)
-            {
-                ActualTarget.Components.RemoveAt(componentIndex);
-            }
-
-            foreach (TweenPlayerComponent component in ToolData.ComponentsToRemove)
-            {
-                ActualTarget.Components.Remove(component);
-            }
-
-            ToolData.ComponentsIndexToRemove.Clear();
-            ToolData.ComponentsToRemove.Clear();
         }
     }
 }
