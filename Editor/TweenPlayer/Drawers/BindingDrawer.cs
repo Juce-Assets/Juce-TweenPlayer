@@ -102,7 +102,7 @@ namespace Juce.TweenPlayer.Drawers
                 {
 
                     GUILayout.Label(
-                        $"[{editorBinding.Type.Name}] {editorBinding.Name} binded to", 
+                        $"{editorBinding.FormatedName}", 
                         GUILayout.ExpandWidth(false)
                         );
 
@@ -126,6 +126,11 @@ namespace Juce.TweenPlayer.Drawers
                     {
                         editorBinding.Binding.BindedVariableName = editorBinding.BindableFields[newIndex];
                     }
+
+                    GUILayout.Label(
+                        $"[{editorBinding.Type.Name}]",
+                        GUILayout.ExpandWidth(false)
+                        );
 
                     editorBinding.Binding.Binded = newIndex >= 0;
                 }

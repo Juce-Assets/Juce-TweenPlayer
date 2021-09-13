@@ -46,7 +46,7 @@ namespace Juce.TweenPlayer.Components
 
             ITween delayTween = DelayUtils.Apply(sequenceTween, delay);
 
-            ITween progressTween = targetValue.TweenLocalPositionZ(valueValue, durationValue);
+            ITween progressTween = targetValue.TweenLocalPositionX(valueValue, durationValue);
 
             progressTween.SetEase(easingValue);
 

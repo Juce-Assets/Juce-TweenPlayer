@@ -239,7 +239,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -38.3, y: -38.3}
+  m_AnchoredPosition: {x: -38.30005, y: -38.299988}
   m_SizeDelta: {x: 50.5234, y: 48.2651}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &231623347
@@ -329,7 +329,7 @@ MonoBehaviour:
           wantsToBeBinded: 0
           binded: 0
           bindedVariableName: 
-          FallbackValue: 1
+          FallbackValue: 0.5
         easing:
           bindingEnabled: 0
           wantsToBeBinded: 0
@@ -393,7 +393,7 @@ MonoBehaviour:
           wantsToBeBinded: 0
           binded: 0
           bindedVariableName: 
-          FallbackValue: 1
+          FallbackValue: 0.5
         easing:
           bindingEnabled: 0
           wantsToBeBinded: 0
@@ -2299,7 +2299,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0.24725342, y: 149.75}
+  m_AnchoredPosition: {x: 0.24731445, y: 149.75}
   m_SizeDelta: {x: 0.4945, y: 100.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1144886744
@@ -3378,7 +3378,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0.24725342, y: 49.5}
+  m_AnchoredPosition: {x: 0.24731445, y: 49.5}
   m_SizeDelta: {x: 0.49451, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1983060666

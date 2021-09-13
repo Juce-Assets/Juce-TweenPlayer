@@ -439,7 +439,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53ef6096a7669654489b5445d8387734, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bindings: []
   executionMode: 1
   loopMode: 0
   loopResetMode: 2
@@ -705,7 +704,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53ef6096a7669654489b5445d8387734, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bindings: []
   executionMode: 1
   loopMode: 0
   loopResetMode: 0
@@ -726,7 +724,7 @@ MonoBehaviour:
           wantsToBeBinded: 0
           binded: 0
           bindedVariableName: 
-          FallbackValue: {fileID: 126539268}
+          FallbackValue: {fileID: 135071035}
         value:
           bindingEnabled: 1
           wantsToBeBinded: 0
@@ -800,7 +798,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54190ae7cd71799428582a91ce8f4a56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  iterations: 9999
+  iterations: 9
   tweenPlayer: {fileID: 829747438}
 --- !u!320 &829747441
 PlayableDirector:
@@ -886,7 +884,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53ef6096a7669654489b5445d8387734, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bindings: []
   executionMode: 1
   loopMode: 2
   loopResetMode: 0
@@ -895,7 +892,7 @@ MonoBehaviour:
   - id: 0
   - id: 1
   - id: 2
-  bindingEnabled: 1
+  bindingEnabled: 0
   bindableDataUid: a4b718b0-9e3b-11eb-a8b3-0242ac130003
   references:
     version: 1
@@ -905,7 +902,7 @@ MonoBehaviour:
         folded: 0
         enabled: 1
         delay:
-          bindingEnabled: 1
+          bindingEnabled: 0
           wantsToBeBinded: 0
           binded: 0
           bindedVariableName: 
@@ -916,31 +913,31 @@ MonoBehaviour:
         folded: 0
         enabled: 1
         target:
-          bindingEnabled: 1
+          bindingEnabled: 0
           wantsToBeBinded: 0
           binded: 0
           bindedVariableName: 
           FallbackValue: {fileID: 126539268}
         value:
-          bindingEnabled: 1
+          bindingEnabled: 0
           wantsToBeBinded: 0
           binded: 0
           bindedVariableName: 
           FallbackValue: {fileID: 1166840381}
         delay:
-          bindingEnabled: 1
+          bindingEnabled: 0
           wantsToBeBinded: 0
           binded: 0
           bindedVariableName: 
           FallbackValue: 0
         duration:
-          bindingEnabled: 1
+          bindingEnabled: 0
           wantsToBeBinded: 0
           binded: 0
           bindedVariableName: 
           FallbackValue: 0.3
         easing:
-          bindingEnabled: 1
+          bindingEnabled: 0
           wantsToBeBinded: 0
           binded: 0
           bindedVariableName: 
@@ -983,7 +980,7 @@ MonoBehaviour:
         folded: 0
         enabled: 1
         delay:
-          bindingEnabled: 1
+          bindingEnabled: 0
           wantsToBeBinded: 0
           binded: 0
           bindedVariableName: 
