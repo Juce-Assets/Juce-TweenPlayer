@@ -131,12 +131,7 @@ namespace Juce.TweenPlayer.Utils
         {
             attribute = baseType.GetCustomAttribute<T>();
 
-            if(attribute == null)
-            {
-                return false;
-            }
-
-            return true;
+            return attribute != null;
         }
     }
 }

@@ -2,9 +2,9 @@
 {
     public enum ExecutionMode
     {
-        Manual,
-        Awake,
-        Start,
-        OnEnable
+        Manual = 0,
+        Awake = 1,
+        Start = 2,
+        OnEnable = 3,
     }
 }

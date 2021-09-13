@@ -1,5 +1,6 @@
 ﻿using Juce.Tweening;
 using Juce.TweenPlayer.BindableData;
+using Juce.TweenPlayer.Bindings;
 using Juce.TweenPlayer.Components;
 using Juce.TweenPlayer.Flow;
 using Juce.TweenPlayer.Utils;
@@ -13,26 +14,28 @@ namespace Juce.TweenPlayer
 {
     public class TweenPlayer : MonoBehaviour
     {
-        [SerializeField] [HideInInspector]
+        [SerializeField, HideInInspector]
         private ExecutionMode executionMode = ExecutionMode.Manual;
 
-        [SerializeField] [HideInInspector]
+        [SerializeField, HideInInspector]
         private LoopMode loopMode = LoopMode.Disabled;
 
-        [SerializeField] [HideInInspector]
+        [SerializeField, HideInInspector]
         private ResetMode loopResetMode = ResetMode.InitialValues;
 
-        [SerializeField] [HideInInspector] 
+        [SerializeField, HideInInspector] 
         private int loops = default;
 
-        [SerializeField] [HideInInspector] [SerializeReference] 
+        [SerializeField, HideInInspector, SerializeReference]
         public List<TweenPlayerComponent> Components = new List<TweenPlayerComponent>();
 
-        [SerializeField] [HideInInspector]
+        [SerializeField, HideInInspector]
         private bool bindingEnabled = default;
 
-        [SerializeField] [HideInInspector] 
+        [SerializeField, HideInInspector] 
         private string bindableDataUid = default;
+
+        private TweenPlayerCache tweenPlayerCache = new TweenPlayerCache();
 
         private ISequenceTween currMainSequence;
 
@@ -75,6 +78,8 @@ namespace Juce.TweenPlayer
 
             Components.Insert(index, instance);
 
+            tweenPlayerCache.Clear();
+
             return instance;
         }
 
@@ -102,7 +107,7 @@ namespace Juce.TweenPlayer
 
         public void Bind(IBindableData bindableData)
         {
-            bool couldBind = TweenPlayerUtils.TryBindData(this, bindableData);
+            bool couldBind = TweenPlayerUtils.TryBindData(this, tweenPlayerCache, bindableData);
 
             if(!couldBind)
             {

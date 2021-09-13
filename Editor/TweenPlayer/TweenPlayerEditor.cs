@@ -1,3 +1,4 @@
+using Juce.TweenPlayer.Bindings;
 using Juce.TweenPlayer.Components;
 using Juce.TweenPlayer.Data;
 using Juce.TweenPlayer.Drawers;

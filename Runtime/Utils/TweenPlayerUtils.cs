@@ -11,17 +11,21 @@ namespace Juce.TweenPlayer.Utils
     {
         public static bool TryBindData(
             TweenPlayer tweenPlayer,
+            TweenPlayerCache tweenPlayerCache,
             IBindableData bindableData
             )
         {
             if(tweenPlayer == null) 
             {
-                UnityEngine.Debug.LogError($"{nameof(TweenPlayerUtils)} is null", tweenPlayer);
+                UnityEngine.Debug.LogError($"{nameof(TweenPlayerUtils)} is null, " +
+                    $"at {nameof(TweenPlayer)} {tweenPlayer.gameObject.name}", tweenPlayer);
                 return false;
             }
 
             if (!tweenPlayer.BindingEnabled)
             {
+                UnityEngine.Debug.LogError($"Tried to bind data, but bindings are disabled, at {nameof(TweenPlayer)} " +
+                $"{tweenPlayer.gameObject.name}", tweenPlayer);
                 return false;
             }
 
@@ -38,28 +42,42 @@ namespace Juce.TweenPlayer.Utils
 
             if (!found)
             {
-                UnityEngine.Debug.LogError($"Bindable data {bindableData.GetType().Name} " +
+                UnityEngine.Debug.LogError($"Bindable data {bindableDataType.Name} " +
                     $"does not have a {nameof(BindableDataAttribute)}, at {nameof(TweenPlayer)} " +
                     $"{tweenPlayer.gameObject.name}", tweenPlayer);
                 return false;
             }
 
-            if (!string.Equals(tweenPlayer.BindableDataUid, attribute.Uid))
+            bool bindableDataIdsEqual = string.Equals(tweenPlayer.BindableDataUid, attribute.Uid);
+
+            if (!bindableDataIdsEqual)
             {
-                UnityEngine.Debug.LogError($"Bindable data {bindableData.GetType().FullName} does " +
-                    $"not match referenced bindable data {bindableData}, at {nameof(TweenPlayer)} " +
+                UnityEngine.Debug.LogError($"Bindable data {bindableDataType.Name} with id {attribute.Uid} does " +
+                    $"not match referenced bindable data with id {tweenPlayer.BindableDataUid}, at {nameof(TweenPlayer)} " +
                     $"{tweenPlayer.gameObject.name}", tweenPlayer);
                 return false;
             }
 
-            List<FieldInfo> bindableDataFields = ReflectionUtils.GetFields(bindableDataType);
-            List<PropertyInfo> bindableDataProperties = ReflectionUtils.GetProperties(bindableDataType);
+            if (!tweenPlayerCache.HasBindableData)
+            {
+                List<FieldInfo> bindableDataFields = ReflectionUtils.GetFields(bindableDataType);
+                List<PropertyInfo> bindableDataProperties = ReflectionUtils.GetProperties(bindableDataType);
+
+                tweenPlayerCache.BindableDataFields.Clear();
+                tweenPlayerCache.BindableDataProperties.Clear();
+
+                tweenPlayerCache.BindableDataFields.AddRange(bindableDataFields);
+                tweenPlayerCache.BindableDataProperties.AddRange(bindableDataProperties);
+
+                tweenPlayerCache.HasBindableData = true;
+            }
 
             foreach (TweenPlayerComponent component in tweenPlayer.Components)
             {
                 if(component == null)
                 {
-                    UnityEngine.Debug.LogError($"Null component while trying to bind data");
+                    UnityEngine.Debug.LogError($"Null component while trying to bind data, at {nameof(TweenPlayer)} " +
+                    $"{tweenPlayer.gameObject.name}", tweenPlayer);
                     continue;
                 }
 
@@ -69,11 +87,12 @@ namespace Juce.TweenPlayer.Utils
                 }
 
                  BindComponent(
-                    tweenPlayer, 
+                    tweenPlayer,
+                    tweenPlayerCache,
                     component, 
                     bindableData,
-                    bindableDataFields,
-                    bindableDataProperties
+                    tweenPlayerCache.BindableDataFields,
+                    tweenPlayerCache.BindableDataProperties
                     );
             }
 
@@ -82,13 +101,22 @@ namespace Juce.TweenPlayer.Utils
 
         private static void BindComponent(
             TweenPlayer tweenPlayer,
+            TweenPlayerCache tweenPlayerCache,
             TweenPlayerComponent component,
             IBindableData bindableData,
             IReadOnlyList<FieldInfo> bindableFieldsInfo,
             IReadOnlyList<PropertyInfo> bindablePropertiesInfo
             )
         {
-            List<FieldInfo> componentFields = ReflectionUtils.GetFields(component.GetType(), typeof(Binding));
+            Type componentType = component.GetType();
+
+            bool found = tweenPlayerCache.ComponentFields.TryGetValue(component, out List<FieldInfo> componentFields);
+
+            if (!found)
+            {
+                componentFields = ReflectionUtils.GetFields(componentType, typeof(Binding));
+                tweenPlayerCache.ComponentFields.Add(component, componentFields);
+            }
 
             foreach (FieldInfo componentFieldInfo in componentFields)
             {

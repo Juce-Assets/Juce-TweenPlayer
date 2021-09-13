@@ -439,6 +439,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53ef6096a7669654489b5445d8387734, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bindings: []
   executionMode: 1
   loopMode: 0
   loopResetMode: 2
@@ -683,6 +684,8 @@ GameObject:
   m_Component:
   - component: {fileID: 829747439}
   - component: {fileID: 829747438}
+  - component: {fileID: 829747440}
+  - component: {fileID: 829747441}
   m_Layer: 0
   m_Name: Test
   m_TagString: Untagged
@@ -702,27 +705,75 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53ef6096a7669654489b5445d8387734, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  executionMode: 0
+  bindings: []
+  executionMode: 1
   loopMode: 0
   loopResetMode: 0
   loops: 0
   Components:
   - id: 0
-  bindingEnabled: 0
-  bindableDataUid: 
+  bindingEnabled: 1
+  bindableDataUid: a4b718b0-9e3b-11eb-a8b3-0242ac1300
   references:
     version: 1
     00000000:
-      type: {class: DebugCommentComponent, ns: Juce.TweenPlayer.Components, asm: Juce.TweenPlayer.Runtime}
+      type: {class: TransformLocalPositionComponent, ns: Juce.TweenPlayer.Components, asm: Juce.TweenPlayer.Runtime}
       data:
-        folded: 1
+        folded: 0
         enabled: 1
-        comment:
-          bindingEnabled: 0
+        target:
+          bindingEnabled: 1
           wantsToBeBinded: 0
           binded: 0
           bindedVariableName: 
-          FallbackValue: Move left to right
+          FallbackValue: {fileID: 126539268}
+        value:
+          bindingEnabled: 1
+          wantsToBeBinded: 0
+          binded: 0
+          bindedVariableName: 
+          FallbackValue: {x: 0, y: 0}
+        delay:
+          bindingEnabled: 1
+          wantsToBeBinded: 1
+          binded: 1
+          bindedVariableName: ShowDelay
+          FallbackValue: 0
+        duration:
+          bindingEnabled: 1
+          wantsToBeBinded: 1
+          binded: 1
+          bindedVariableName: ShowDelay
+          FallbackValue: 0
+        easing:
+          bindingEnabled: 1
+          wantsToBeBinded: 0
+          binded: 0
+          bindedVariableName: 
+          FallbackValue:
+            serializedVersion: 2
+            m_Curve:
+            - serializedVersion: 3
+              time: 0
+              value: 0
+              inSlope: 0
+              outSlope: 1
+              tangentMode: 0
+              weightedMode: 0
+              inWeight: 0
+              outWeight: 0
+            - serializedVersion: 3
+              time: 1
+              value: 1
+              inSlope: 1
+              outSlope: 0
+              tangentMode: 0
+              weightedMode: 0
+              inWeight: 0
+              outWeight: 0
+            m_PreInfinity: 2
+            m_PostInfinity: 2
+            m_RotationOrder: 4
 --- !u!4 &829747439
 Transform:
   m_ObjectHideFlags: 0
@@ -737,6 +788,37 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &829747440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 829747437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54190ae7cd71799428582a91ce8f4a56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  iterations: 9999
+  tweenPlayer: {fileID: 829747438}
+--- !u!320 &829747441
+PlayableDirector:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 829747437}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_PlayableAsset: {fileID: 0}
+  m_InitialState: 1
+  m_WrapMode: 2
+  m_DirectorUpdateMode: 1
+  m_InitialTime: 0
+  m_SceneBindings: []
+  m_ExposedReferences:
+    m_References: []
 --- !u!1 &885190708
 GameObject:
   m_ObjectHideFlags: 0
@@ -804,6 +886,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53ef6096a7669654489b5445d8387734, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bindings: []
   executionMode: 1
   loopMode: 2
   loopResetMode: 0
