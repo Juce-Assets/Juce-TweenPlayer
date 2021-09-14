@@ -26,7 +26,7 @@
 
 
 
-### Why?
+## Why?
 
 I wanted a tool that allowed teams to:
 
@@ -93,7 +93,7 @@ I wanted a tool that allowed teams to:
 
 ### 
 
-### Bindings
+## Bindings
 
 Sometimes, you may want to set dynamic values to certain properties of a Tween Component. This is done using Bindings. 
 
@@ -184,7 +184,7 @@ Sometimes, you may want to set dynamic values to certain properties of a Tween C
 
 
 
-### Want to contribute?
+## Want to contribute?
 
 **Please follow these steps to get your work merged in.**
 
@@ -198,6 +198,6 @@ Sometimes, you may want to set dynamic values to certain properties of a Tween C
 
 ### 
 
-### Contributors
+## Contributors
 
 - Guillem SC 
