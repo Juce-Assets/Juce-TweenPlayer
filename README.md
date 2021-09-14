@@ -49,23 +49,31 @@ I wanted a tool that allowed teams to:
 ### Usage
 
 1. Add the Tween Player Component to any GameObject. GameObjects can have more than one Tween Player.
+   
+   ![](https://github.com/Juce-Assets/Juce-TweenPlayer/blob/develop/Misc/Readme1.png?raw=true)
 
-<img src="https://github.com/Juce-Assets/Juce-TweenPlayer/blob/develop/Misc/Readme1.png?raw=true" title="" alt="" data-align="center">
+
 
 2. Add Tween Components with the Add Component button.
    
-   <img src="https://github.com/Juce-Assets/Juce-TweenPlayer/blob/develop/Misc/Readme2.png?raw=true" title="" alt="" data-align="left">
+   <img title="" src="https://github.com/Juce-Assets/Juce-TweenPlayer/blob/develop/Misc/Readme2.png?raw=true" alt="" data-align="inline">
    
    Add as many as you want until the desired animation is reached.
+   
+   ![](https://github.com/Juce-Assets/Juce-TweenPlayer/blob/develop/Misc/Readme3.png?raw=true)
 
-<img title="" src="https://github.com/Juce-Assets/Juce-TweenPlayer/blob/develop/Misc/Readme3.png?raw=true" alt="" data-align="center">
+
 
 4. Play!
    
-   - Directly from the editor:<img title="" src="https://github.com/Juce-Assets/Juce-TweenPlayer/blob/develop/Misc/Readme4.png?raw=true" alt="" data-align="center">
+   - Directly from the editor:
+     
+     ![](https://github.com/Juce-Assets/Juce-TweenPlayer/blob/develop/Misc/Readme4.png?raw=true)
+     
+     
    
    - Through script:
      
-     <img src="https://github.com/Juce-Assets/Juce-TweenPlayer/blob/develop/Misc/Readme5.png?raw=true" title="" alt="" data-align="center">
+     <img title="" src="https://github.com/Juce-Assets/Juce-TweenPlayer/blob/develop/Misc/Readme5.png?raw=true" alt="" data-align="inline">
      
      
