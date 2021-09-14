@@ -8,6 +8,10 @@ namespace Juce.TweenPlayer.Components
 {
     [TweenPlayerComponent("RectTransform Size X With Current Anchors", "RectTransform/Size With Current Anchors X Y/X")]
     [TweenPlayerComponentColor(0.19f, 0.81f, 0.34f)]
+    [TweenPlayerComponentDocumentation("Makes the RectTransform calculated rect be a given size on " +
+        "the horizontal axis. " +
+        "This produces the given size with the current anchoring. " +
+        "If the parent RectTransform changes size, the size of the rect may change.")]
     [System.Serializable]
     public class RectTransformSizeXWithCurrentAnchorsComponent : AnimationTweenPlayerComponent
     {
@@ -33,16 +37,22 @@ namespace Juce.TweenPlayer.Components
 
         protected override ComponentExecutionResult OnExecute(ISequenceTween sequenceTween)
         {
-            if (target.GetValue() == null)
+            RectTransform targetValue = target.GetValue();
+
+            if (targetValue == null)
             {
                 return ComponentExecutionResult.Empty;
             }
 
+            float valueValue = value.GetValue();
+            float durationValue = duration.GetValue();
+            AnimationCurve easingValue = easing.GetValue();
+
             ITween delayTween = DelayUtils.Apply(sequenceTween, delay);
 
-            ITween progressTween = target.GetValue().TweenSizeXWithCurrentAnchors(value.GetValue(), duration.GetValue());
+            ITween progressTween = targetValue.TweenSizeXWithCurrentAnchors(valueValue, durationValue);
 
-            progressTween.SetEase(easing.GetValue());
+            progressTween.SetEase(easingValue);
 
             sequenceTween.Append(progressTween);
 

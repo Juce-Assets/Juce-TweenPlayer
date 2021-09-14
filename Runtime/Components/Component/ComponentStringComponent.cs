@@ -10,6 +10,7 @@ namespace Juce.TweenPlayer.Components
 {
     [TweenPlayerComponent("Component String", "Component/String")]
     [TweenPlayerComponentColor(1f, 0.160f, 0.160f)]
+    [TweenPlayerComponentDocumentation("Sets a string property from another component.")]
     [System.Serializable]
     public class ComponentStringComponent : AnimationTweenPlayerComponent
     {
@@ -64,6 +65,11 @@ namespace Juce.TweenPlayer.Components
 
             sequenceTween.AppendCallback(() =>
             {
+                if (targetValue.Component == null)
+                {
+                    return;
+                }
+
                 ReflectionComponentUtils.SetValue(
                     fieldInfo,
                     propertyInfo,

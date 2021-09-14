@@ -487,11 +487,23 @@ MonoBehaviour:
   - id: 3
   - id: 4
   - id: 5
+  - id: 6
   bindingEnabled: 0
   bindableDataUid: 
   references:
     version: 1
     00000000:
+      type: {class: DebugCommentComponent, ns: Juce.TweenPlayer.Components, asm: Juce.TweenPlayer.Runtime}
+      data:
+        folded: 1
+        enabled: 1
+        comment:
+          bindingEnabled: 0
+          wantsToBeBinded: 0
+          binded: 0
+          bindedVariableName: 
+          FallbackValue: We use this component to coordinate all other tweens
+    00000001:
       type: {class: WaitAllAboveComponent, ns: Juce.TweenPlayer.Components, asm: Juce.TweenPlayer.Runtime}
       data:
         folded: 1
@@ -502,7 +514,7 @@ MonoBehaviour:
           binded: 0
           bindedVariableName: 
           FallbackValue: 4
-    00000001:
+    00000002:
       type: {class: TweenPlayerPlayComponent, ns: Juce.TweenPlayer.Components, asm: Juce.TweenPlayer.Runtime}
       data:
         folded: 1
@@ -531,7 +543,7 @@ MonoBehaviour:
           binded: 0
           bindedVariableName: 
           FallbackValue: 0
-    00000002:
+    00000003:
       type: {class: WaitAllAboveComponent, ns: Juce.TweenPlayer.Components, asm: Juce.TweenPlayer.Runtime}
       data:
         folded: 1
@@ -542,7 +554,7 @@ MonoBehaviour:
           binded: 0
           bindedVariableName: 
           FallbackValue: 0
-    00000003:
+    00000004:
       type: {class: TweenPlayerPlayComponent, ns: Juce.TweenPlayer.Components, asm: Juce.TweenPlayer.Runtime}
       data:
         folded: 1
@@ -571,7 +583,7 @@ MonoBehaviour:
           binded: 0
           bindedVariableName: 
           FallbackValue: 0
-    00000004:
+    00000005:
       type: {class: TweenPlayerPlayComponent, ns: Juce.TweenPlayer.Components, asm: Juce.TweenPlayer.Runtime}
       data:
         folded: 1
@@ -600,10 +612,10 @@ MonoBehaviour:
           binded: 0
           bindedVariableName: 
           FallbackValue: 0.3
-    00000005:
+    00000006:
       type: {class: TweenPlayerPlayComponent, ns: Juce.TweenPlayer.Components, asm: Juce.TweenPlayer.Runtime}
       data:
-        folded: 0
+        folded: 1
         enabled: 1
         target:
           bindingEnabled: 0

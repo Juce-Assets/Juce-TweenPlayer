@@ -8,6 +8,8 @@ namespace Juce.TweenPlayer.Components
 {
     [TweenPlayerComponent("RectTransform Offset Max X", "RectTransform/Offset Max X Y/X")]
     [TweenPlayerComponentColor(0.19f, 0.81f, 0.34f)]
+    [TweenPlayerComponentDocumentation("The offset X of the upper right corner of the " +
+        "rectangle relative to the upper right anchor.")]
     [System.Serializable]
     public class RectTransformOffsetMaxXComponent : AnimationTweenPlayerComponent
     {
@@ -33,16 +35,22 @@ namespace Juce.TweenPlayer.Components
 
         protected override ComponentExecutionResult OnExecute(ISequenceTween sequenceTween)
         {
-            if (target.GetValue() == null)
+            RectTransform targetValue = target.GetValue();
+
+            if (targetValue == null)
             {
                 return ComponentExecutionResult.Empty;
             }
 
+            float valueValue = value.GetValue();
+            float durationValue = duration.GetValue();
+            AnimationCurve easingValue = easing.GetValue();
+
             ITween delayTween = DelayUtils.Apply(sequenceTween, delay);
 
-            ITween progressTween = target.GetValue().TweenOffsetMaxX(value.GetValue(), duration.GetValue());
+            ITween progressTween = targetValue.TweenOffsetMaxX(valueValue, durationValue);
 
-            progressTween.SetEase(easing.GetValue());
+            progressTween.SetEase(easingValue);
 
             sequenceTween.Append(progressTween);
 

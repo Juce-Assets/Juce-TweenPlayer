@@ -8,6 +8,8 @@ namespace Juce.TweenPlayer.Components
 {
     [TweenPlayerComponent("ParticleSystem Play", "ParticleSystem/Play")]
     [TweenPlayerComponentColor(0.658f, 0.517f, 0.952f)]
+    [TweenPlayerComponentDocumentation("Starts the Particle System. Sets the Particle Systems into " +
+        "play mode and enables emitting (if it has been disabled).")]
     [System.Serializable]
     public class ParticleSystemPlayComponent : AnimationTweenPlayerComponent
     {

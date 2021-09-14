@@ -8,6 +8,7 @@ namespace Juce.TweenPlayer.Components
 {
     [TweenPlayerComponent("Light Shadow Strenght", "Light/Shadow Strenght")]
     [TweenPlayerComponentColor(0.658f, 0.517f, 0.952f)]
+    [TweenPlayerComponentDocumentation("Changes the strength of light's shadows.")]
     [System.Serializable]
     public class LightShadowStrenghtComponent : AnimationTweenPlayerComponent
     {

@@ -8,6 +8,8 @@ namespace Juce.TweenPlayer.Components
 {
     [TweenPlayerComponent("TextMeshPro Int Animation", "TextMeshPro/Int Animation")]
     [TweenPlayerComponentColor(0.5f, 0.468f, 0.266f)]
+    [TweenPlayerComponentDocumentation("Animates an int value, from a start value to an end value, and sets it " +
+        "to a TextMeshPro text.")]
     [System.Serializable]
     public class TextMeshProIntAnimationComponent : AnimationTweenPlayerComponent
     {

@@ -8,6 +8,8 @@ namespace Juce.TweenPlayer.Components
 {
     [TweenPlayerComponent("RectTransform Anchor Max Y", "RectTransform/Anchor Max X Y/Y")]
     [TweenPlayerComponentColor(0.19f, 0.81f, 0.34f)]
+    [TweenPlayerComponentDocumentation("The normalized position Y in the parent RectTransform that " +
+        "the upper right corner is anchored to.")]
     [System.Serializable]
     public class RectTransformAnchorMaxYComponent : AnimationTweenPlayerComponent
     {

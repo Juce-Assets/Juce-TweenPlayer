@@ -8,7 +8,7 @@ namespace Juce.TweenPlayer.Components
 {
     [TweenPlayerComponent("Animation Play", "Animation/Play")]
     [TweenPlayerComponentColor(0.988f, 0.752f, 0.027f)]
-    [TweenPlayerComponentDocumentation("")]
+    [TweenPlayerComponentDocumentation("Plays an Animation Component.")]
     [System.Serializable]
     public class AnimationPlayComponent : AnimationTweenPlayerComponent
     {

@@ -8,6 +8,9 @@ namespace Juce.TweenPlayer.Components
 {
     [TweenPlayerComponent("Light Intensity", "Light/Intensity")]
     [TweenPlayerComponentColor(0.658f, 0.517f, 0.952f)]
+    [TweenPlayerComponentDocumentation("Changes the intensity of a Light. " +
+        "The Intensity of a light is multiplied with the Light color. " +
+        "The value can be between 0 and 8. This allows you to create over bright lights.")]
     [System.Serializable]
     public class LightIntensityComponent : AnimationTweenPlayerComponent
     {

@@ -9,6 +9,7 @@ namespace Juce.TweenPlayer.Components
 {
     [TweenPlayerComponent("Image Color", "Image/Color")]
     [TweenPlayerComponentColor(0.964f, 0.505f, 0.505f)]
+    [TweenPlayerComponentDocumentation("Changes the base color of an Image.")]
     [System.Serializable]
     public class ImageColorComponent : AnimationTweenPlayerComponent
     {

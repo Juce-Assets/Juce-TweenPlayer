@@ -8,6 +8,7 @@ namespace Juce.TweenPlayer.Components
 {
     [TweenPlayerComponent("Transform Rotation Y", "Transform/Rotation X Y Z/Y")]
     [TweenPlayerComponentColor(1f, 0.368f, 0.066f)]
+    [TweenPlayerComponentDocumentation("Animates the rotation Y of a Transform.")]
     [System.Serializable]
     public class TransformRotationYComponent : AnimationTweenPlayerComponent
     {

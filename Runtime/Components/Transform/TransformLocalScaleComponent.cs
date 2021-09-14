@@ -8,6 +8,7 @@ namespace Juce.TweenPlayer.Components
 {
     [TweenPlayerComponent("Transform Local Scale", "Transform/Local Scale")]
     [TweenPlayerComponentColor(1f, 0.368f, 0.066f)]
+    [TweenPlayerComponentDocumentation("Animates the local scale of a Transform.")]
     [System.Serializable]
     public class TransformLocalScaleComponent : AnimationTweenPlayerComponent
     {

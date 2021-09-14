@@ -9,6 +9,7 @@ namespace Juce.TweenPlayer.Components
 {
     [TweenPlayerComponent("TweenPlayer Play", "TweenPlayer/Play")]
     [TweenPlayerComponentColor(0.909f, 0.231f, 0.231f)]
+    [TweenPlayerComponentDocumentation("Merges another TweenPlayer to the current one, and Plays it.")]
     [System.Serializable]
     public class TweenPlayerPlayComponent : AnimationTweenPlayerComponent
     {

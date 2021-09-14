@@ -9,6 +9,8 @@ namespace Juce.TweenPlayer.Components
 {
     [TweenPlayerComponent("Image Fill Ammount", "Image/Fill Ammount")]
     [TweenPlayerComponentColor(0.964f, 0.505f, 0.505f)]
+    [TweenPlayerComponentDocumentation("Amount of the Image shown when the Image.type is set to Image.Type.Filled. " +
+        "0-1 range with 0 being nothing shown, and 1 being the full Image.")]
     [System.Serializable]
     public class ImageFillAmmountComponent : AnimationTweenPlayerComponent
     {

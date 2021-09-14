@@ -8,6 +8,7 @@ namespace Juce.TweenPlayer.Components
 {
     [TweenPlayerComponent("SpriteRenderer Flip Y", "SpriteRenderer/Flip Y")]
     [TweenPlayerComponentColor(0.588f, 0.780f, 0.301f)]
+    [TweenPlayerComponentDocumentation("Toggles the flip Y property of a SpriteRenderer.")]
     [System.Serializable]
     public class SpriteRendererFlipYComponent : AnimationTweenPlayerComponent
     {

@@ -8,6 +8,7 @@ namespace Juce.TweenPlayer.Components
 {
     [TweenPlayerComponent("Light Color", "Light/Color")]
     [TweenPlayerComponentColor(0.658f, 0.517f, 0.952f)]
+    [TweenPlayerComponentDocumentation("Changes the color of a Light.")]
     [System.Serializable]
     public class LightColorComponent : AnimationTweenPlayerComponent
     {

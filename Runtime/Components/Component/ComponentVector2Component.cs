@@ -10,6 +10,7 @@ namespace Juce.TweenPlayer.Components
 {
     [TweenPlayerComponent("Component Vector2", "Component/Vector2")]
     [TweenPlayerComponentColor(1f, 0.160f, 0.160f)]
+    [TweenPlayerComponentDocumentation("Animates a Vector2 property from another component.")]
     [System.Serializable]
     public class ComponentVector2Component : AnimationTweenPlayerComponent
     {

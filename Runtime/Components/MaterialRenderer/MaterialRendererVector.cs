@@ -6,16 +6,16 @@ using UnityEngine;
 
 namespace Juce.TweenPlayer.Components
 {
-    [TweenPlayerComponent("Material Renderer Color", "Material Renderer/Color")]
+    [TweenPlayerComponent("Material Renderer Vector", "Material Renderer/Vector")]
     [TweenPlayerComponentColor(0.835f, 0.878f, 0.294f)]
-    [TweenPlayerComponentDocumentation("Changes a Color material property of a Material Renderer.")]
+    [TweenPlayerComponentDocumentation("Changes a Vector material property of a Material Renderer.")]
     [System.Serializable]
-    public class MaterialRendererColor : AnimationTweenPlayerComponent
+    public class MaterialRendererVector : AnimationTweenPlayerComponent
     {
         [SerializeField] private RendererBinding target = new RendererBinding();
         [SerializeField] private UIntBinding materialIndex = new UIntBinding();
         [SerializeField] private StringBinding materialProperty = new StringBinding();
-        [SerializeField] private ColorBinding value = new ColorBinding();
+        [SerializeField] private Vector4Binding value = new Vector4Binding();
         [SerializeField] private FloatBinding delay = new FloatBinding();
         [SerializeField] private FloatBinding duration = new FloatBinding();
         [SerializeField] private AnimationCurveBinding easing = new AnimationCurveBinding();
@@ -39,7 +39,7 @@ namespace Juce.TweenPlayer.Components
                 rendererValue,
                 materialIndexValue,
                 materialPropertyValue,
-                UnityEditor.ShaderUtil.ShaderPropertyType.Color,
+                UnityEditor.ShaderUtil.ShaderPropertyType.Vector,
                 validationBuilder
                 );
 
@@ -62,7 +62,7 @@ namespace Juce.TweenPlayer.Components
 
             int materialIndexValue = materialIndex.GetValue();
             string materialPropertyValue = materialProperty.GetValue();
-            Color valueValue = value.GetValue();
+            Vector4 valueValue = value.GetValue();
             float durationValue = duration.GetValue();
             AnimationCurve easingValue = easing.GetValue();
 
@@ -81,7 +81,7 @@ namespace Juce.TweenPlayer.Components
 
             ITween delayTween = DelayUtils.Apply(sequenceTween, delay);
 
-            ITween progressTween = material.TweenColor(valueValue, materialPropertyValue, durationValue);
+            ITween progressTween = material.TweenVector(valueValue, materialPropertyValue, durationValue);
 
             progressTween.SetEase(easingValue);
 

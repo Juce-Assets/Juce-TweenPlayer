@@ -8,6 +8,7 @@ namespace Juce.TweenPlayer.Components
 {
     [TweenPlayerComponent("Transform Position", "Transform/Position")]
     [TweenPlayerComponentColor(1f, 0.368f, 0.066f)]
+    [TweenPlayerComponentDocumentation("Animates the position of a Transform.")]
     [System.Serializable]
     public class TransformPositionComponent : AnimationTweenPlayerComponent
     {

@@ -9,6 +9,7 @@ namespace Juce.TweenPlayer.Components
 {
     [TweenPlayerComponent("RawImage Material", "RawImage/Material")]
     [TweenPlayerComponentColor(0.364f, 0.505f, 0.505f)]
+    [TweenPlayerComponentDocumentation("Changes the Material of a RawImage.")]
     [System.Serializable]
     public class RawImageMaterialComponent : AnimationTweenPlayerComponent
     {

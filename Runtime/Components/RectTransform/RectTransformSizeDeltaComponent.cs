@@ -8,6 +8,8 @@ namespace Juce.TweenPlayer.Components
 {
     [TweenPlayerComponent("RectTransform Size Delta", "RectTransform/Size Delta")]
     [TweenPlayerComponentColor(0.19f, 0.81f, 0.34f)]
+    [TweenPlayerComponentDocumentation("The size of this RectTransform relative " +
+        "to the distances between the anchors.")]
     [System.Serializable]
     public class RectTransformSizeDeltaComponent : AnimationTweenPlayerComponent
     {

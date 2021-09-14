@@ -8,6 +8,7 @@ namespace Juce.TweenPlayer.Components
 {
     [TweenPlayerComponent("Transform Local Position", "Transform/Local Position")]
     [TweenPlayerComponentColor(1f, 0.368f, 0.066f)]
+    [TweenPlayerComponentDocumentation("Animates the local position of a Transform.")]
     [System.Serializable]
     public class TransformLocalPositionComponent : AnimationTweenPlayerComponent
     {

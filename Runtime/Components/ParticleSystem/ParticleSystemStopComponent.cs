@@ -8,6 +8,7 @@ namespace Juce.TweenPlayer.Components
 {
     [TweenPlayerComponent("ParticleSystem Stop", "ParticleSystem/Stop")]
     [TweenPlayerComponentColor(0.658f, 0.517f, 0.952f)]
+    [TweenPlayerComponentDocumentation("Stops playing the Particle System using the supplied stop behaviour.")]
     [System.Serializable]
     public class ParticleSystemStopComponent : AnimationTweenPlayerComponent
     {

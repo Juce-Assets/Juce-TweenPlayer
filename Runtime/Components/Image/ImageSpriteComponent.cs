@@ -9,6 +9,7 @@ namespace Juce.TweenPlayer.Components
 {
     [TweenPlayerComponent("Image Sprite", "Image/Sprite")]
     [TweenPlayerComponentColor(0.964f, 0.505f, 0.505f)]
+    [TweenPlayerComponentDocumentation("Changes the Sprite of an Image.")]
     [System.Serializable]
     public class ImageSpriteComponent : AnimationTweenPlayerComponent
     {

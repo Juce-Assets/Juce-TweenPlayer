@@ -10,6 +10,7 @@ namespace Juce.TweenPlayer.Components
 {
     [TweenPlayerComponent("Component Int", "Component/Int")]
     [TweenPlayerComponentColor(1f, 0.160f, 0.160f)]
+    [TweenPlayerComponentDocumentation("Animates an int property from another component.")]
     [System.Serializable]
     public class ComponentIntComponent : AnimationTweenPlayerComponent
     {

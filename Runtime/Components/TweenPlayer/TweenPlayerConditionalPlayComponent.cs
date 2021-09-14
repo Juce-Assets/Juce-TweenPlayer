@@ -9,6 +9,8 @@ namespace Juce.TweenPlayer.Components
 {
     [TweenPlayerComponent("TweenPlayer Conditional Play", "TweenPlayer/Conditional Play")]
     [TweenPlayerComponentColor(0.909f, 0.231f, 0.231f)]
+    [TweenPlayerComponentDocumentation("Merges another TweenPlayer to the current one, and Plays it " +
+        "if the condition equals true.")]
     [System.Serializable]
     public class TweenPlayerConditionalPlayComponent : AnimationTweenPlayerComponent
     {

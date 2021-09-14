@@ -8,6 +8,8 @@ namespace Juce.TweenPlayer.Components
 {
     [TweenPlayerComponent("RectTransform Offset Max", "RectTransform/Offset Max")]
     [TweenPlayerComponentColor(0.19f, 0.81f, 0.34f)]
+    [TweenPlayerComponentDocumentation("The offset of the upper right corner of the " +
+        "rectangle relative to the upper right anchor.")]
     [System.Serializable]
     public class RectTransformOffsetMaxComponent : AnimationTweenPlayerComponent
     {

@@ -10,6 +10,7 @@ namespace Juce.TweenPlayer.Components
 {
     [TweenPlayerComponent("Component Bool", "Component/Bool")] 
     [TweenPlayerComponentColor(1f, 0.160f, 0.160f)]
+    [TweenPlayerComponentDocumentation("Sets a bool property from another component.")]
     [System.Serializable]
     public class ComponentBoolComponent : AnimationTweenPlayerComponent
     {
@@ -62,10 +63,15 @@ namespace Juce.TweenPlayer.Components
 
             sequenceTween.AppendCallback(() =>
             {
+                if(targetValue.Component == null)
+                {
+                    return;
+                }
+
                 ReflectionComponentUtils.SetValue(
                     fieldInfo,
                     propertyInfo,
-                    target.GetValue().Component,
+                    targetValue.Component,
                     value.GetValue()
                     );
             });

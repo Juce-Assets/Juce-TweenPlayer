@@ -8,6 +8,8 @@ namespace Juce.TweenPlayer.Components
 {
     [TweenPlayerComponent("UI Alpha", "UI/Alpha")]
     [TweenPlayerComponentColor(0.976f, 0.760f, 0.168f)]
+    [TweenPlayerComponentDocumentation("Animates the alpha value of a CanvasGroup. " +
+        "If the CanvasGroup does not exist, it's automatically created on the target GameObject")]
     [System.Serializable]
     public class UIAlphaComponent : AnimationTweenPlayerComponent
     {

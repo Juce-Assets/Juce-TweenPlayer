@@ -9,6 +9,7 @@ namespace Juce.TweenPlayer.Components
 {
     [TweenPlayerComponent("UnityEvent Trigger", "UnityEvent/Trigger")]
     [TweenPlayerComponentColor(0.976f, 0.760f, 0.168f)]
+    [TweenPlayerComponentDocumentation("Triggers a UnityEvent.")]
     [System.Serializable]
     public class UnityEventTriggerComponent : AnimationTweenPlayerComponent
     {
@@ -42,6 +43,11 @@ namespace Juce.TweenPlayer.Components
 
             sequenceTween.AppendCallback(() =>
             {
+                if(targetValue == null)
+                {
+                    return;
+                }
+
                 targetValue.Invoke();
             });
 

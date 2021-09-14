@@ -8,6 +8,8 @@ namespace Juce.TweenPlayer.Components
 {
     [TweenPlayerComponent("RectTransform Anchor Max X", "RectTransform/Anchor Max X Y/X")]
     [TweenPlayerComponentColor(0.19f, 0.81f, 0.34f)]
+    [TweenPlayerComponentDocumentation("The normalized position X in the parent RectTransform that " +
+        "the upper right corner is anchored to.")]
     [System.Serializable]
     public class RectTransformAnchorMaxXComponent : AnimationTweenPlayerComponent
     {
@@ -33,16 +35,22 @@ namespace Juce.TweenPlayer.Components
 
         protected override ComponentExecutionResult OnExecute(ISequenceTween sequenceTween)
         {
-            if (target.GetValue() == null)
+            RectTransform targetValue = target.GetValue();
+
+            if (targetValue == null)
             {
                 return ComponentExecutionResult.Empty;
             }
 
+            float valueValue = value.GetValue();
+            float durationValue = duration.GetValue();
+            AnimationCurve easingValue = easing.GetValue();
+
             ITween delayTween = DelayUtils.Apply(sequenceTween, delay);
 
-            ITween progressTween = target.GetValue().TweenAnchorMaxX(value.GetValue(), duration.GetValue());
+            ITween progressTween = targetValue.TweenAnchorMaxX(valueValue, durationValue);
 
-            progressTween.SetEase(easing.GetValue());
+            progressTween.SetEase(easingValue);
 
             sequenceTween.Append(progressTween);
 

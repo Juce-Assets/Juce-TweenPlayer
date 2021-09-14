@@ -8,6 +8,10 @@ namespace Juce.TweenPlayer.Components
 {
     [TweenPlayerComponent("RectTransform Size Y With Current Anchors", "RectTransform/Size With Current Anchors X Y/Y")]
     [TweenPlayerComponentColor(0.19f, 0.81f, 0.34f)]
+    [TweenPlayerComponentDocumentation("Makes the RectTransform calculated rect be a given size on " +
+        "the vertical axis. " +
+        "This produces the given size with the current anchoring. " +
+        "If the parent RectTransform changes size, the size of the rect may change.")]
     [System.Serializable]
     public class RectTransformSizeYWithCurrentAnchorsComponent : AnimationTweenPlayerComponent
     {

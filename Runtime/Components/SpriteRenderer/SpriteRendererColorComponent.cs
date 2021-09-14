@@ -8,6 +8,7 @@ namespace Juce.TweenPlayer.Components
 {
     [TweenPlayerComponent("SpriteRenderer Color", "SpriteRenderer/Color")]
     [TweenPlayerComponentColor(0.588f, 0.780f, 0.301f)]
+    [TweenPlayerComponentDocumentation("Changes the base color of a SpriteRenderer.")]
     [System.Serializable]
     public class SpriteRendererColorComponent : AnimationTweenPlayerComponent
     {

@@ -10,6 +10,7 @@ namespace Juce.TweenPlayer.Components
 {
     [TweenPlayerComponent("Component Float", "Component/Float")]
     [TweenPlayerComponentColor(1f, 0.160f, 0.160f)]
+    [TweenPlayerComponentDocumentation("Animates a float property from another component.")]
     [System.Serializable]
     public class ComponentFloatComponent : AnimationTweenPlayerComponent
     {

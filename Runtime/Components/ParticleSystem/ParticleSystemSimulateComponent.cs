@@ -8,6 +8,8 @@ namespace Juce.TweenPlayer.Components
 {
     [TweenPlayerComponent("ParticleSystem Simulate", "ParticleSystem/Simulate")]
     [TweenPlayerComponentColor(0.658f, 0.517f, 0.952f)]
+    [TweenPlayerComponentDocumentation("Fast-forwards the Particle System by simulating particles " +
+        "over the given period of time, then pauses it.")]
     [System.Serializable]
     public class ParticleSystemSimulateComponent : AnimationTweenPlayerComponent
     {
