@@ -21,6 +21,7 @@
 - [Why](https://github.com/Juce-Assets/Juce-TweenPlayer#why)
 - [Basic Usage](https://github.com/Juce-Assets/Juce-TweenPlayer#basic-usage)
 - [Want to contribute?](https://github.com/alichtman/shallow-backup#want-to-contribute)
+- [Contributors](https://github.com/alichtman/shallow-backup#contributors)
 
 ### Why?
 
@@ -33,14 +34,14 @@ I wanted a tool that allowed teams to:
 - Expand the existing codebase with not much effort.
 
 - Easily bind custom data.
+  
+  
 
 ### Basic Usage
 
 1. Add the Tween Player Component to any GameObject. GameObjects can have more than one Tween Player.
    
    ![](https://github.com/Juce-Assets/Juce-TweenPlayer/blob/develop/Misc/Readme1.png?raw=true)
-   
-   
 
 2. Add Tween Components with the Add Component button.
    
@@ -49,18 +50,18 @@ I wanted a tool that allowed teams to:
    Add as many as you want until the desired animation is reached.
    
    ![](https://github.com/Juce-Assets/Juce-TweenPlayer/blob/develop/Misc/Readme3.png?raw=true)
-   
-   
 
 3. Play!
 - Directly from the editor:
   
   ![](https://github.com/Juce-Assets/Juce-TweenPlayer/blob/develop/Misc/Readme4.png?raw=true)
+  
+  
 
 - Through script:
   
   ```csharp
-    using System;
+  using System;
   using System.Collections.Generic;
   using System.Linq;
   using System.Text;
@@ -88,13 +89,23 @@ I wanted a tool that allowed teams to:
       }
   }
   ```
-  
-  
-  
-  <img title="" src="https://github.com/Juce-Assets/Juce-TweenPlayer/blob/develop/Misc/Readme5.png?raw=true" alt="" data-align="inline">
 
 
 
+### Want to contribute?
+
+**Please follow these steps to get your work merged in.**
+
+0. Clone the repo and make a new branch: `$ git checkout https://github.com/Juce-Assets/Juce-TweenPlayer/tree/develop -b [name_of_new_branch]`.
+
+1. Add a feature, fix a bug, or refactor some code :)
+
+2. Update `README.md` contributors, if necessary.
+
+3. Open a Pull Request with a comprehensive description of changes.
 
 
-### Want to contribute
+
+### Contributors
+
+- Guillem Sunyer 
