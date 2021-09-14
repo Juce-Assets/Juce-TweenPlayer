@@ -20,8 +20,8 @@
 
 - [Why](https://github.com/Juce-Assets/Juce-TweenPlayer#why)
 - [Basic Usage](https://github.com/Juce-Assets/Juce-TweenPlayer#basic-usage)
-- [Want to contribute?](https://github.com/alichtman/shallow-backup#want-to-contribute)
-- [Contributors](https://github.com/alichtman/shallow-backup#contributors)
+- [Want to contribute?](https://github.com/Juce-Assets/Juce-TweenPlayer#want-to-contribute)
+- [Contributors](https://github.com/Juce-Assets/Juce-TweenPlayer#contributors)
 
 ### Why?
 
