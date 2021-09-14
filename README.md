@@ -24,6 +24,8 @@
 - [Want to contribute?](https://github.com/Juce-Assets/Juce-TweenPlayer#want-to-contribute)
 - [Contributors](https://github.com/Juce-Assets/Juce-TweenPlayer#contributors)
 
+
+
 ### Why?
 
 I wanted a tool that allowed teams to:
@@ -35,6 +37,8 @@ I wanted a tool that allowed teams to:
 - Expand the existing codebase with not much effort.
 
 - Easily bind custom data.
+
+
 
 ### Basic Usage
 
@@ -86,6 +90,8 @@ I wanted a tool that allowed teams to:
       }
   }
   ```
+
+### 
 
 ### Bindings
 
@@ -189,6 +195,8 @@ Sometimes, you may want to set dynamic values to certain properties of a Tween C
 2. Update `README.md` contributors, if necessary.
 
 3. Open a Pull Request with a comprehensive description of changes.
+
+### 
 
 ### Contributors
 
