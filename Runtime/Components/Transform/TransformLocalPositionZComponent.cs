@@ -2,6 +2,7 @@
 using UnityEngine;
 using Juce.TweenPlayer.Bindings;
 using Juce.TweenPlayer.Utils;
+using Juce.TweenPlayer.Attributes;
 using Juce.TweenPlayer.Validation;
 
 namespace Juce.TweenPlayer.Components

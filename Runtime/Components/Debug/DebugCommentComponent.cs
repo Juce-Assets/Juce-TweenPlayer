@@ -1,4 +1,5 @@
 ﻿using Juce.TweenPlayer.Bindings;
+using Juce.TweenPlayer.Attributes;
 using UnityEngine;
 
 namespace Juce.TweenPlayer.Components

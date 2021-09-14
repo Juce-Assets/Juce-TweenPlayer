@@ -1,5 +1,6 @@
-﻿using Juce.Tweening;
-using UnityEngine;
+﻿using UnityEngine;
+using Juce.Tweening;
+using Juce.TweenPlayer.Attributes;
 using Juce.TweenPlayer.Bindings;
 using Juce.TweenPlayer.Utils;
 using Juce.TweenPlayer.Validation;

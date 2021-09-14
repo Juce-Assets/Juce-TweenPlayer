@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Juce.TweenPlayer.Components
+namespace Juce.TweenPlayer.Attributes
 {
     public class TweenPlayerComponentAttribute : Attribute
     {

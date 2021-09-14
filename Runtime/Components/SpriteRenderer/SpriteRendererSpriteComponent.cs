@@ -1,9 +1,9 @@
 ﻿using Juce.Tweening;
+using Juce.TweenPlayer.Attributes;
 using Juce.TweenPlayer.Bindings;
 using Juce.TweenPlayer.Utils;
 using Juce.TweenPlayer.Validation;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace Juce.TweenPlayer.Components
 {
