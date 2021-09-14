@@ -40,7 +40,7 @@ I wanted a tool that allowed teams to:
 
 
 
-### Basic Usage
+## Basic Usage
 
 1. Add the Tween Player Component to any GameObject. GameObjects can have more than one Tween Player.
    
