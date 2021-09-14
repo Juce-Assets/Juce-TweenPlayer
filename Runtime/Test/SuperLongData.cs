@@ -4,7 +4,7 @@ using UnityEngine;
 namespace JuceNew
 {
     [System.Serializable]
-    [BindableData("Long Data", "Test/Long Data", "a4b718b0-9e3b-11eb-a8b3-0242ac1300")]
+    [BindableData("Long Data", "Test2/Long Data", "a4b718b0-9e3b-11eb-a8b3-0242ac1300")]
     public class SuperLongData : IBindableData
     {
         [SerializeField] public float ShowDelay;

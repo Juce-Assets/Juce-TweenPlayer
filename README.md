@@ -131,7 +131,7 @@ Sometimes, you may want to set dynamic values to certain properties of a Tween C
    
    ```
    
-   Once the new data is created, we should be able to see it through the Tween Player component
+   Once the new data is created, we should be able to see it through the Tween Player component:
    
    ![](https://github.com/Juce-Assets/Juce-TweenPlayer/blob/develop/Misc/Readme7.png?raw=true)
    
@@ -139,11 +139,11 @@ Sometimes, you may want to set dynamic values to certain properties of a Tween C
    
    
 
-3. When the data is properly set up, you can enable which properties you want to bind from each component (using the toggle found at the left)
+3. When the data is properly set up, you can enable which properties you want to bind from each component (using the toggle found at the left):
    
    ![](https://github.com/Juce-Assets/Juce-TweenPlayer/blob/develop/Misc/Readme9.png?raw=true)
    
-   With this, you can define which data goes to which property
+   With this, you can define which data goes to which property.
    
    
 
