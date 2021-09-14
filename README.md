@@ -20,6 +20,7 @@
 
 - [Why](https://github.com/Juce-Assets/Juce-TweenPlayer#why)
 - [Basic Usage](https://github.com/Juce-Assets/Juce-TweenPlayer#basic-usage)
+- [Bindings](https://github.com/Juce-Assets/Juce-TweenPlayer#bindings)
 - [Want to contribute?](https://github.com/Juce-Assets/Juce-TweenPlayer#want-to-contribute)
 - [Contributors](https://github.com/Juce-Assets/Juce-TweenPlayer#contributors)
 
@@ -34,8 +35,6 @@ I wanted a tool that allowed teams to:
 - Expand the existing codebase with not much effort.
 
 - Easily bind custom data.
-  
-  
 
 ### Basic Usage
 
@@ -55,8 +54,6 @@ I wanted a tool that allowed teams to:
 - Directly from the editor:
   
   ![](https://github.com/Juce-Assets/Juce-TweenPlayer/blob/develop/Misc/Readme4.png?raw=true)
-  
-  
 
 - Through script:
   
@@ -90,6 +87,95 @@ I wanted a tool that allowed teams to:
   }
   ```
 
+### Bindings
+
+Sometimes, you may want to set dynamic values to certain properties of a Tween Component. This is done using Bindings. 
+
+1. Every property of every Tween Component can be binded. First of all, you need to enable bindings on a Tween Player component.
+
+![](https://github.com/Juce-Assets/Juce-TweenPlayer/blob/develop/Misc/Readme6.png?raw=true)
+
+
+
+2. Next, you need to define some data to be binded. We define data to bind like this:
+   
+   - We define a class that inherits from IBindableData
+   
+   - We add the BindableDataAttribute, with the following parameters:
+     
+     - Name that the bindable data will have on the Tween Player component
+     
+     - Path from which we can find this data from the Tween Player component
+     
+     - An identifier, that needs to be unique for all the bindable datas that you have on the project. To avoid unexpected collisions, we recomend to use a random GUID, which can be easily generated, for example, here: https://www.uuidgenerator.net/
+       
+       (Having this unique identifier enables the tool to never loose reference to your data, even if you change the class name)
+   
+   ```csharp
+   using UnityEngine;
+   using Juce.TweenPlayer.BindableData;
+   
+   namespace Assets
+   {
+       [BindableData("Test Bindable Data", "Test/Bindable Data", "a8ea3fa2-9e3b-11eb-a8b3-0242ac130003")]
+       public class BindableData : IBindableData
+       {
+           public int intToBind;
+           public float floatToBind;
+           public string stringToBind;
+           public Vector3 vectorToBind;
+           public Transform transformToBind;
+           // etc...
+       }
+   }
+   
+   ```
+   
+   Once the new data is created, we should be able to see it through the Tween Player component
+   
+   ![](https://github.com/Juce-Assets/Juce-TweenPlayer/blob/develop/Misc/Readme7.png?raw=true)
+   
+   ![](https://github.com/Juce-Assets/Juce-TweenPlayer/blob/develop/Misc/Readme8.png?raw=true)
+   
+   
+
+3. When the data is properly set up, you can enable which properties you want to bind from each component (using the toggle found at the left)
+   
+   ![](https://github.com/Juce-Assets/Juce-TweenPlayer/blob/develop/Misc/Readme9.png?raw=true)
+   
+   With this, you can define which data goes to which property
+   
+   
+
+4. Finally, to bind the actual values when you want to play a Tween Player component, you need to pass the actual BindableData class to the Play method, like this:
+   
+   ```csharp
+   using UnityEngine;
+   using Juce.TweenPlayer;
+   
+   namespace Assets
+   {
+       public class PlayExample : MonoBehaviour
+       {
+           [SerializeField] private TweenPlayer tweenPlayer = default;
+   
+           private void Start()
+           {
+               // We create the actual instance of data to play
+               BindableData bindableData = new BindableData();
+               bindableData.intToBind = 1;
+               bindableData.floatToBind = 5.0f;
+               bindableData.stringToBind = "Test string";
+   
+               // We bind and play the Tween Player
+               tweenPlayer.Play(bindableData);
+           }
+       }
+   }
+   ```
+   
+   Now, your data will be automatically binded to each component using reflection, so you don't need to do anything else!
+
 
 
 ### Want to contribute?
@@ -104,8 +190,6 @@ I wanted a tool that allowed teams to:
 
 3. Open a Pull Request with a comprehensive description of changes.
 
-
-
 ### Contributors
 
-- Guillem Sunyer 
+- Guillem SC 
