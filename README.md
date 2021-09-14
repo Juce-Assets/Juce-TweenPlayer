@@ -19,7 +19,7 @@
 # Contents
 
 - [Why](https://github.com/Juce-Assets/Juce-TweenPlayer#why)
-- [Basic Usage](https://github.com/Juce-Assets/Juce-TweenPlayer#basicusage)
+- [Basic Usage](https://github.com/Juce-Assets/Juce-TweenPlayer#basic-usage)
 - [Want to contribute?](https://github.com/alichtman/shallow-backup#want-to-contribute)
 
 ### Why?
@@ -59,7 +59,42 @@ I wanted a tool that allowed teams to:
 
 - Through script:
   
+  ```csharp
+  ;
+  using System;
+  using System.Collections.Generic;
+  using System.Linq;
+  using System.Text;
+  using System.Threading.Tasks;
+  using UnityEngine;
+  using Juce.TweenPlayer;
+  
+  namespace Assets
+  {
+      public class PlayExample : MonoBehaviour
+      {
+          [SerializeField] private TweenPlayer tweenPlayer = default;
+  
+          private void Start()
+          {
+              // Plays the sequence
+              tweenPlayer.Play();
+  
+              // Instantly stops the sequence
+              tweenPlayer.Kill();
+  
+              // Instantly reaches end of sequence
+              tweenPlayer.Complete();
+          }
+      }
+  }
+  ```
+  
+  
+  
   <img title="" src="https://github.com/Juce-Assets/Juce-TweenPlayer/blob/develop/Misc/Readme5.png?raw=true" alt="" data-align="inline">
+
+
 
 
 
