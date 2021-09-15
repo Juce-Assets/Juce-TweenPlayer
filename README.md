@@ -21,10 +21,9 @@
 - [Why](https://github.com/Juce-Assets/Juce-TweenPlayer#why)
 - [Basic Usage](https://github.com/Juce-Assets/Juce-TweenPlayer#basic-usage)
 - [Bindings](https://github.com/Juce-Assets/Juce-TweenPlayer#bindings)
+- [Tween Components Documentation](https://github.com/Juce-Assets/Juce-TweenPlayer#tween-components-documentation)
 - [Want to contribute?](https://github.com/Juce-Assets/Juce-TweenPlayer#want-to-contribute)
 - [Contributors](https://github.com/Juce-Assets/Juce-TweenPlayer#contributors)
-
-
 
 ## Why?
 
@@ -37,8 +36,6 @@ I wanted a tool that allowed teams to:
 - Expand the existing codebase with not much effort.
 
 - Easily bind custom data.
-
-
 
 ## Basic Usage
 
@@ -101,8 +98,6 @@ Sometimes, you may want to set dynamic values to certain properties of a Tween C
 
 ![](https://github.com/Juce-Assets/Juce-TweenPlayer/blob/develop/Misc/Readme6.png?raw=true)
 
-
-
 2. Next, you need to define some data to be binded. We define data to bind like this:
    
    - We define a class that inherits from IBindableData
@@ -134,7 +129,6 @@ Sometimes, you may want to set dynamic values to certain properties of a Tween C
            // etc...
        }
    }
-   
    ```
    
    Once the new data is created, we should be able to see it through the Tween Player component:
@@ -142,16 +136,12 @@ Sometimes, you may want to set dynamic values to certain properties of a Tween C
    ![](https://github.com/Juce-Assets/Juce-TweenPlayer/blob/develop/Misc/Readme7.png?raw=true)
    
    ![](https://github.com/Juce-Assets/Juce-TweenPlayer/blob/develop/Misc/Readme8.png?raw=true)
-   
-   
 
 3. When the data is properly set up, you can enable which properties you want to bind from each component (using the toggle found at the left):
    
    ![](https://github.com/Juce-Assets/Juce-TweenPlayer/blob/develop/Misc/Readme9.png?raw=true)
    
    With this, you can define which data goes to which property.
-   
-   
 
 4. Finally, to bind the actual values when you want to play a Tween Player component, you need to pass the actual BindableData class to the Play method, like this:
    
@@ -181,6 +171,18 @@ Sometimes, you may want to set dynamic values to certain properties of a Tween C
    ```
    
    Now, your data will be automatically binded to each component using reflection, so you don't need to do anything else!
+
+## 
+
+## ## Tween Components Documentation
+
+You can toggle the components documentation inside the Unity editor by going to a component contextual menu, and selecting Show Documentation.
+
+![](https://github.com/Juce-Assets/Juce-TweenPlayer/blob/develop/Misc/Readme11.png?raw=true)
+
+
+
+![](https://github.com/Juce-Assets/Juce-TweenPlayer/blob/develop/Misc/Readme10.png?raw=true)
 
 
 
