@@ -44,7 +44,7 @@ I wanted a tool that allowed teams to:
 
 Since Unity is moving towards a very granular approach, we dont want to force our users to have all the dependences installed in your project to start using the tool.
 
-To enanble or disable different extensions, first open on the Unity top bar: *Tools/Juce/Configuration* to open the Juce Configuration Window.
+To enanble or disable different extensions, first open on the Unity top bar: ***Tools/Juce/Configuration*** to open the Juce Configuration Window.
 
 ![](https://github.com/Juce-Assets/Juce-TweenPlayer/blob/develop/Misc/Readme12.png?raw=true)
 
