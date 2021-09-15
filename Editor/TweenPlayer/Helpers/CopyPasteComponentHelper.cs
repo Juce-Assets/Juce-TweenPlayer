@@ -1,4 +1,5 @@
 ﻿using Juce.TweenPlayer.Components;
+using Juce.TweenPlayer.Logic;
 using System.Collections.Generic;
 using UnityEditor;
 
@@ -38,18 +39,22 @@ namespace Juce.TweenPlayer.Helpers
             Copy(new TweenPlayerComponent[] { component });
         }
 
-        public static void PasteAsNew(TweenPlayer tweenPlayer, TweenPlayerComponent destination, int destinationOffset = 0)
+        public static void PasteAsNew(
+            TweenPlayerEditor editor, 
+            TweenPlayerComponent destination, 
+            int destinationOffset = 0
+            )
         {
             if (copiedComponents.Count == 0)
             { 
                 return;
             }
 
-            int index = tweenPlayer.Components.Count;
+            int index = editor.ActualTarget.Components.Count;
 
-            for (int i = 0; i < tweenPlayer.Components.Count; ++i)
+            for (int i = 0; i < editor.ActualTarget.Components.Count; ++i)
             {
-                TweenPlayerComponent component = tweenPlayer.Components[i];
+                TweenPlayerComponent component = editor.ActualTarget.Components[i];
 
                 if (component == destination)
                 {
@@ -60,17 +65,22 @@ namespace Juce.TweenPlayer.Helpers
 
             index += destinationOffset;
 
+            UndoHelper.BeginUndo();
+
             for(int i = 0; i < copiedComponents.Count; ++i)
             {
                 TweenPlayerComponent copiedComponent = copiedComponents[i];
 
-                TweenPlayerComponent newComponent = tweenPlayer.AddTweenPlayerComponent(
+                TweenPlayerComponent newComponent = CreateComponentLogic.Execute(
+                    editor,
                     copiedComponent.GetType(), 
-                    index + 1 + i
+                    index + i + 1
                     );
 
-                EditorUtility.CopySerializedManagedFieldsOnly(copiedComponent, newComponent);
+                PasteComponentValuesLogic.Execute(editor, copiedComponent, newComponent);
             }
+
+            UndoHelper.EndUndo();
         }
 
         public static bool CanPasteValues(TweenPlayerComponent destination)
@@ -95,7 +105,7 @@ namespace Juce.TweenPlayer.Helpers
             return copiedComponent.GetType() == destination.GetType();
         }
 
-        public static void PasteValues(TweenPlayerComponent destination)
+        public static void PasteValues(TweenPlayerEditor editor, TweenPlayerComponent destination)
         {
             bool canPasteValues = CanPasteValues(destination);
 
@@ -106,7 +116,7 @@ namespace Juce.TweenPlayer.Helpers
 
             TweenPlayerComponent copiedComponent = copiedComponents[0];
 
-            EditorUtility.CopySerializedManagedFieldsOnly(copiedComponent, destination);
+            PasteComponentValuesLogic.Execute(editor, copiedComponent, destination);
         }
     }
 }

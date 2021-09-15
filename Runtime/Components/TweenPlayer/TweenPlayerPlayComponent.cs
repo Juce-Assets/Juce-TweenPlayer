@@ -60,13 +60,15 @@ namespace Juce.TweenPlayer.Components
                 return ComponentExecutionResult.Empty;
             }
 
+            bool completeValue = complete.GetValue();
+
             ITween delayTween = DelayUtils.Apply(sequenceTween, delay);
 
-            ITween progressTween = target.GetValue().GenerateSequence();
+            ITween progressTween = targetValue.GenerateSequence();
 
             sequenceTween.Append(progressTween);
 
-            if (complete.GetValue())
+            if (completeValue)
             {
                 sequenceTween.JoinCallback(progressTween.Complete);
             }

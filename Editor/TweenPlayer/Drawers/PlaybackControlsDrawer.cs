@@ -6,20 +6,22 @@ namespace Juce.TweenPlayer.Drawers
     public static class PlaybackControlsDrawer
     {
         public static void Draw(TweenPlayerEditor editor)
-        {
-            EditorGUI.BeginDisabledGroup(!Application.isPlaying);
-            {                                
-                using (new EditorGUILayout.VerticalScope(EditorStyles.helpBox))
+        {                                         
+            using (new EditorGUILayout.VerticalScope(EditorStyles.helpBox))
+            {
+                EditorGUILayout.BeginHorizontal();
                 {
-                    EditorGUILayout.BeginHorizontal();
-                    {
-                        GUILayout.Label("Show Progress Bars (can slow down editor)");
-                        editor.ToolData.ProgressBarsEnabled = EditorGUILayout.Toggle(
-                            editor.ToolData.ProgressBarsEnabled);
-                    }
-                    GUILayout.FlexibleSpace();
-                    EditorGUILayout.EndHorizontal();
+                    GUILayout.Label("Show Progress Bars (can slow down editor)");
 
+                    editor.ToolData.ProgressBarsEnabled = EditorGUILayout.Toggle(
+                        editor.ToolData.ProgressBarsEnabled
+                        );
+                }
+                GUILayout.FlexibleSpace();
+                EditorGUILayout.EndHorizontal();
+
+                EditorGUI.BeginDisabledGroup(!Application.isPlaying);
+                {
                     EditorGUILayout.BeginHorizontal();
                     {
                         if (GUILayout.Button("Play"))
@@ -49,8 +51,9 @@ namespace Juce.TweenPlayer.Drawers
                     }
                     EditorGUILayout.EndHorizontal();
                 }
+                EditorGUI.EndDisabledGroup();
             }
-            EditorGUI.EndDisabledGroup();
+            
         }
     }
 }

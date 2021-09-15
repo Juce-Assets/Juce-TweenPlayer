@@ -1,4 +1,5 @@
 ﻿using Juce.TweenPlayer.Components;
+using UnityEditor;
 
 namespace Juce.TweenPlayer.Logic
 {
@@ -13,6 +14,8 @@ namespace Juce.TweenPlayer.Logic
 
             foreach (TweenPlayerComponent component in editor.ToolData.ComponentsToRemove)
             {
+                Undo.RegisterCompleteObjectUndo(editor.ActualTarget, $"Remove {component.GetType().Name}");
+
                 editor.ActualTarget.Components.Remove(component);
             }
 

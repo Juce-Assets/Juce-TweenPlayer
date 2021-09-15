@@ -14,7 +14,7 @@ namespace Juce.TweenPlayer.Drawers
                 {
                     if (GUILayout.Button("Paste as new"))
                     {
-                        CopyPasteComponentHelper.PasteAsNew(editor.ActualTarget, destination: null);
+                        CopyPasteComponentHelper.PasteAsNew(editor, destination: null);
 
                         EditorUtility.SetDirty(editor.ActualTarget);
                     }

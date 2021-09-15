@@ -1,4 +1,5 @@
-﻿using UnityEditor;
+﻿using Juce.TweenPlayer.Logic;
+using UnityEditor;
 using UnityEngine;
 
 namespace Juce.TweenPlayer.Drawers
@@ -14,7 +15,7 @@ namespace Juce.TweenPlayer.Drawers
                 menu.AddItem(new GUIContent(
                     $"{component.MenuPath}"),
                     false, 
-                    () => editor.ActualTarget.AddTweenPlayerComponent(component.Type)
+                    () => CreateComponentLogic.Execute(editor, component.Type)
                     );
             }
 
