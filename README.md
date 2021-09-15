@@ -202,4 +202,4 @@ You can toggle the components documentation inside the Unity editor by going to 
 
 ## Contributors
 
-- Guillem SC 
+- Guillem SC - [@Guillemsc](https://github.com/Guillemsc)
