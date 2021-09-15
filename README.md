@@ -1,8 +1,9 @@
 # Welcome to Tween Component
+
 [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/Juce-Assets/Juce-Tween/issues)
 [![Twitter Follow](https://img.shields.io/badge/twitter-%406uillem-blue.svg?style=flat&label=Follow)](https://twitter.com/6uillem)
 [![Discord](https://img.shields.io/discord/768962092296044614.svg)](https://discord.gg/dbG7zKA)
-[![Release](https://img.shields.io/github/release/Juce-Assets/Juce-TweenPlayer.svg)](https://github.com/Juce-Assets/Juce-TweenPlayer/releases/latest)
+[![Release](https://img.shields.io/github/release/Juce-Assets/Juce-Tween.svg)](https://github.com/Juce-Assets/Juce-TweenPlayer/releases/latest)
 <img title="" src="https://github.com/Juce-Assets/Juce-TweenPlayer/blob/develop/Misc/Logo.png?raw=true" alt="Logo" data-align="inline">
 
 **Welcome to [Tween Component](https://github.com/Juce-Assets/Juce-TweenPlayer):** an interpolation animation tool aimed to increase your productivity. It allows you to easily create complex tween sequences directly from the editor. No boilerplate, no coding, just plain fun!
@@ -41,8 +42,6 @@ I wanted a tool that allowed teams to:
 
 - Easily bind custom data.
 
-
-
 ## Enabling Extensions (TMPro, Timeline, etc...)
 
 Since Unity is moving towards a very granular approach, we dont want to force our users to have all the dependences installed in your project to start using the tool.
@@ -54,6 +53,8 @@ To enanble or disable different extensions, first open on the Unity top bar: ***
 Once the window is opened, you just need to select which extension you want to use in your project. (You may need to wait for Unity to recompile).
 
 ![](https://github.com/Juce-Assets/Juce-TweenPlayer/blob/develop/Misc/Readme13.png?raw=true)
+
+For some Example scenes to work, you will probably need to add, at least, TextMeshPro to your project, and enable the toggle extension.
 
 ## Basic Usage
 
@@ -113,8 +114,8 @@ Once the window is opened, you just need to select which extension you want to u
 Sometimes, you may want to set dynamic values to certain properties of a Tween Component. This is done using Bindings. 
 
 1. Every property of every Tween Component can be binded. First of all, you need to enable bindings on a Tween Player component.
-
-![](https://github.com/Juce-Assets/Juce-TweenPlayer/blob/develop/Misc/Readme6.png?raw=true)
+   
+   ![](https://github.com/Juce-Assets/Juce-TweenPlayer/blob/develop/Misc/Readme6.png?raw=true)
 
 2. Next, you need to define some data to be binded. We define data to bind like this:
    
@@ -198,11 +199,7 @@ You can toggle the components documentation inside the Unity editor by going to 
 
 ![](https://github.com/Juce-Assets/Juce-TweenPlayer/blob/develop/Misc/Readme11.png?raw=true)
 
-
-
 ![](https://github.com/Juce-Assets/Juce-TweenPlayer/blob/develop/Misc/Readme10.png?raw=true)
-
-
 
 ## Want to contribute?
 
