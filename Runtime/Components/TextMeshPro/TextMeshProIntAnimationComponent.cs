@@ -1,4 +1,6 @@
-﻿using Juce.Tweening;
+﻿#if JUCE_TEXT_MESH_PRO_EXTENSIONS
+
+using Juce.Tweening;
 using Juce.TweenPlayer.Attributes;
 using Juce.TweenPlayer.Bindings;
 using Juce.TweenPlayer.Utils;
@@ -76,3 +78,5 @@ namespace Juce.TweenPlayer.Components
         }
     }
 }
+
+#endif

@@ -19,6 +19,7 @@
 # Contents
 
 - [Why](https://github.com/Juce-Assets/Juce-TweenPlayer#why)
+- [Enabling Extensions](https://github.com/Juce-Assets/Juce-TweenPlayer#basic-usage)
 - [Basic Usage](https://github.com/Juce-Assets/Juce-TweenPlayer#basic-usage)
 - [Bindings](https://github.com/Juce-Assets/Juce-TweenPlayer#bindings)
 - [Tween Components Documentation](https://github.com/Juce-Assets/Juce-TweenPlayer#tween-components-documentation)
@@ -36,6 +37,20 @@ I wanted a tool that allowed teams to:
 - Expand the existing codebase with not much effort.
 
 - Easily bind custom data.
+
+
+
+## ## Enabling Extensions (TMPro, Timeline, etc...)
+
+Since Unity is moving towards a very granular approach, we dont want to force our users to have all the dependences installed in your project to start using the tool.
+
+To enanble or disable different extensions, first open on the Unity top bar: *Tools/Juce/Configuration* to open the Juce Configuration Window.
+
+![](https://github.com/Juce-Assets/Juce-TweenPlayer/blob/develop/Misc/Readme12.png?raw=true)
+
+Once the window is opened, you just need to select which extension you want to use in your project. (You may need to wait for Unity to recompile).
+
+![](https://github.com/Juce-Assets/Juce-TweenPlayer/blob/develop/Misc/Readme13.png?raw=true)
 
 ## Basic Usage
 

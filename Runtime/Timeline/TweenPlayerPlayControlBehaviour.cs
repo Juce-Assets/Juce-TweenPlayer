@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿#if JUCE_TIMELINE_EXTENSIONS
+
+using UnityEngine;
 using UnityEngine.Playables;
 
 namespace Juce.TweenPlayer.Timeline
@@ -40,3 +42,5 @@ namespace Juce.TweenPlayer.Timeline
         }
     }
 }
+
+#endif
