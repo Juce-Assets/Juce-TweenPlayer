@@ -2,7 +2,7 @@
 [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/Juce-Assets/Juce-Tween/issues)
 [![Twitter Follow](https://img.shields.io/badge/twitter-%406uillem-blue.svg?style=flat&label=Follow)](https://twitter.com/6uillem)
 [![Discord](https://img.shields.io/discord/768962092296044614.svg)](https://discord.gg/dbG7zKA)
-[![Release](https://img.shields.io/github/release/Juce-Assets/Juce-Tween.svg)](https://github.com/Juce-Assets/Juce-TweenPlayer/releases/latest)
+[![Release](https://img.shields.io/github/release/Juce-Assets/Juce-TweenPlayer.svg)](https://github.com/Juce-Assets/Juce-TweenPlayer/releases/latest)
 <img title="" src="https://github.com/Juce-Assets/Juce-TweenPlayer/blob/develop/Misc/Logo.png?raw=true" alt="Logo" data-align="inline">
 
 **Welcome to [Tween Component](https://github.com/Juce-Assets/Juce-TweenPlayer):** an interpolation animation tool aimed to increase your productivity. It allows you to easily create complex tween sequences directly from the editor. No boilerplate, no coding, just plain fun!
