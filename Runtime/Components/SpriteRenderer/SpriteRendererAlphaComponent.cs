@@ -7,14 +7,14 @@ using UnityEngine;
 
 namespace Juce.TweenPlayer.Components
 {
-    [TweenPlayerComponent("SpriteRenderer Color", "SpriteRenderer/Color")]
+    [TweenPlayerComponent("SpriteRenderer Alpha", "SpriteRenderer/Alpha")]
     [TweenPlayerComponentColor(0.588f, 0.780f, 0.301f)]
-    [TweenPlayerComponentDocumentation("Changes the base color of a SpriteRenderer.")]
+    [TweenPlayerComponentDocumentation("Changes the color alpha value of a SpriteRenderer.")]
     [System.Serializable]
-    public class SpriteRendererColorComponent : AnimationTweenPlayerComponent
+    public class SpriteRendererAlphaComponent : AnimationTweenPlayerComponent
     {
         [SerializeField] private SpriteRendererBinding target = new SpriteRendererBinding();
-        [SerializeField] private ColorBinding value = new ColorBinding();
+        [SerializeField] private UnitFloatBinding value = new UnitFloatBinding();
         [SerializeField] private FloatBinding delay = new FloatBinding();
         [SerializeField] private FloatBinding duration = new FloatBinding();
         [SerializeField] private AnimationCurveBinding easing = new AnimationCurveBinding();
@@ -42,13 +42,13 @@ namespace Juce.TweenPlayer.Components
                 return ComponentExecutionResult.Empty;
             }
 
-            Color valueValue = value.GetValue();
+            float valueValue = value.GetValue();
             float durationValue = duration.GetValue();
             AnimationCurve easingValue = easing.GetValue();
 
             ITween delayTween = DelayUtils.Apply(sequenceTween, delay);
 
-            ITween progressTween = targetValue.TweenColor(valueValue, durationValue);
+            ITween progressTween = targetValue.TweenColorAlpha(valueValue, durationValue);
 
             progressTween.SetEase(easingValue);
 
