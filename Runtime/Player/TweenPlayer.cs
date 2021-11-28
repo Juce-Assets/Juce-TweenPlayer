@@ -15,6 +15,9 @@ namespace Juce.TweenPlayer
     public class TweenPlayer : MonoBehaviour
     {
         [SerializeField, HideInInspector]
+        private bool showProgressBars = default;
+
+        [SerializeField, HideInInspector]
         private ExecutionMode executionMode = ExecutionMode.Manual;
 
         [SerializeField, HideInInspector]

@@ -4,6 +4,7 @@ namespace Juce.TweenPlayer.Data
 {
     public class SerializedPropertiesData
     {
+        public SerializedProperty ShowProgressBarsProperty { get; set; }
         public SerializedProperty ExecutionModeProperty { get; set; }
         public SerializedProperty LoopModeProperty { get; set; }
         public SerializedProperty LoopResetModeProperty { get; set; }

@@ -7,7 +7,7 @@ namespace Juce.TweenPlayer.Drawers
     {
         public static void Draw(TweenPlayerEditor editor)
         {
-            if(!editor.ToolData.ProgressBarsEnabled)
+            if(!editor.SerializedPropertiesData.ShowProgressBarsProperty.boolValue)
             {
                 return;
             }

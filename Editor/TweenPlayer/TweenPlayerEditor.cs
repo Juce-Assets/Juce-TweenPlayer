@@ -65,7 +65,7 @@ namespace Juce.TweenPlayer
                 ActuallyRemoveComponentsLogic.Execute(this);
             }
 
-            if (ToolData.ProgressBarsEnabled && Application.isPlaying)
+            if (SerializedPropertiesData.ShowProgressBarsProperty.boolValue && Application.isPlaying)
             {
                 Repaint();
             }

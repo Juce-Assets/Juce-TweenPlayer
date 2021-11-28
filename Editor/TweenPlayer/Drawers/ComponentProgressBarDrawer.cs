@@ -10,7 +10,7 @@ namespace Juce.TweenPlayer.Drawers
             TweenPlayerComponent component
             )
         {
-            if(!editor.ToolData.ProgressBarsEnabled)
+            if(!editor.SerializedPropertiesData.ShowProgressBarsProperty.boolValue)
             {
                 return;
             }

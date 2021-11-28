@@ -21,6 +21,5 @@ namespace Juce.TweenPlayer.Data
         public Vector2 ShowBindedDataPropertiesScrollViewPosition { get; set; } = Vector2.zero;
 
         public bool DocumentationEnabled { get; set; } = false;
-        public bool ProgressBarsEnabled { get; set; } = false;
     }
 }

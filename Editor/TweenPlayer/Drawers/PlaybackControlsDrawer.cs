@@ -13,8 +13,8 @@ namespace Juce.TweenPlayer.Drawers
                 {
                     GUILayout.Label("Show Progress Bars (can slow down editor)");
 
-                    editor.ToolData.ProgressBarsEnabled = EditorGUILayout.Toggle(
-                        editor.ToolData.ProgressBarsEnabled
+                    editor.SerializedPropertiesData.ShowProgressBarsProperty.boolValue = EditorGUILayout.Toggle(
+                        editor.SerializedPropertiesData.ShowProgressBarsProperty.boolValue
                         );
                 }
                 GUILayout.FlexibleSpace();
