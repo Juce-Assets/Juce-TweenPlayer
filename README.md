@@ -193,13 +193,17 @@ Sometimes, you may want to set dynamic values to certain properties of a Tween C
 
 ###### 
 
-## ## Tween Components Documentation
+## Tween Components Documentation
 
 You can toggle the components documentation inside the Unity editor by going to a component contextual menu, and selecting Show Documentation.
 
 ![](https://github.com/Juce-Assets/Juce-TweenPlayer/blob/develop/Misc/Readme11.png?raw=true)
 
 ![](https://github.com/Juce-Assets/Juce-TweenPlayer/blob/develop/Misc/Readme10.png?raw=true)
+
+### Conclusions
+
+We are always aiming to improve this tool. You can always leave suggestions on the [Issues](https://github.com/Juce-Assets/Juce-TweenPlayer/issues) link, and if you like it we encourage you to [leave a reviw on the Asset Store, since it helps us a lot!](https://assetstore.unity.com/packages/tools/animation/tween-component-203112).
 
 ## Want to contribute?
 
