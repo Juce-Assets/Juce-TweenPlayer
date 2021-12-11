@@ -59,7 +59,7 @@ Download this repository, and place it under the Assets folder of your Unity pro
 And that's all, with that you should be ready to go!
 
 ### - Via UPM
-Unity does not support resolving dependences from a git url. Because of that, you will need to install some other packages to add this missing functionality.
+Unity does not support resolving dependences from a git url. Because of that, you will need to add some other packages to your unity project to add this missing functionality.
 - https://github.com/mob-sakai/GitDependencyResolverForUnity
 - https://github.com/mob-sakai/UpmGitExtension
 
