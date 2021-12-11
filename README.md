@@ -60,8 +60,8 @@ And that's all, with that you should be ready to go!
 
 ### - Via UPM
 Unity does not support resolving dependences from git url. Because of that, you will need to install some other packages
-https://github.com/mob-sakai/GitDependencyResolverForUnity
-https://github.com/mob-sakai/UpmGitExtension
+- https://github.com/mob-sakai/GitDependencyResolverForUnity
+- https://github.com/mob-sakai/UpmGitExtension
 
 Once those two packages are installed, you can just go to the Unity Package Manager, click on the button to install Package From Github Repository, and paste the link of this repository. All dependeces will be resolved automatically.
 
