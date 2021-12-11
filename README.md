@@ -45,7 +45,7 @@ I wanted a tool that allowed teams to:
 - Easily bind custom data.
 
 ## Installing
-### Via Github
+### - Via Github
 #### Dependences
 First of all, you will need to download the following dependences
 - [Juce-Utils](https://github.com/Juce-Assets/Juce-Utils)
@@ -58,7 +58,7 @@ Download this repository, and place it under the Assets folder of your Unity pro
 
 And that's all, with that you should be ready to go!
 
-### Via UPM
+### - Via UPM
 Unity does not support resolving dependences from git url. Because of that, you will need to install some other packages
 https://github.com/mob-sakai/GitDependencyResolverForUnity
 https://github.com/mob-sakai/UpmGitExtension
