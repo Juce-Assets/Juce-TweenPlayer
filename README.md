@@ -23,6 +23,7 @@
 # Contents
 
 - [Why](https://github.com/Juce-Assets/Juce-TweenPlayer#why)
+- [Installing](https://github.com/Juce-Assets/Juce-TweenPlayer#installing)
 - [Enabling Extensions](https://github.com/Juce-Assets/Juce-TweenPlayer#enabling-extensions-tmpro-timeline-etc)
 - [Basic Usage](https://github.com/Juce-Assets/Juce-TweenPlayer#basic-usage)
 - [Bindings](https://github.com/Juce-Assets/Juce-TweenPlayer#bindings)
@@ -41,6 +42,19 @@ I wanted a tool that allowed teams to:
 - Expand the existing codebase with not much effort.
 
 - Easily bind custom data.
+
+## Installing
+### Dependences
+First of all, you will need to download the following dependences
+- [Juce-Utils](https://github.com/Juce-Assets/Juce-Utils)
+- [Juce-Tween](https://github.com/Juce-Assets/Juce-Tween)
+
+Download the full repositories, and then place them under the Assets folder of your Unity project.
+
+### Project installation
+Download this repository, and place it under the Assets folder of your Unity project.
+
+And that's all, with that you should be ready to go!
 
 ## Enabling Extensions (TMPro, Timeline, etc...)
 
