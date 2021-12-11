@@ -44,14 +44,15 @@ I wanted a tool that allowed teams to:
 - Easily bind custom data.
 
 ## Installing
-### Dependences
+### Via Github
+#### Dependences
 First of all, you will need to download the following dependences
 - [Juce-Utils](https://github.com/Juce-Assets/Juce-Utils)
 - [Juce-Tween](https://github.com/Juce-Assets/Juce-Tween)
 
 Download the full repositories, and then place them under the Assets folder of your Unity project.
 
-### Project installation
+#### Project installation
 Download this repository, and place it under the Assets folder of your Unity project.
 
 And that's all, with that you should be ready to go!
