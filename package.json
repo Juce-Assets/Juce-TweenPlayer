@@ -4,7 +4,7 @@
   "displayName": "Juce-ComponentTween",
   "description": "Component based Tweening library",
     "dependencies": {
-		"com.juce.utils": "1.2.0"
+		"com.juce.utils": "1.2.0",
 		"com.juce.tween": "1.4.0"
   },
   "keywords": [
