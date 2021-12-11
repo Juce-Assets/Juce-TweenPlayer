@@ -1,7 +1,7 @@
 {
-  "name": "com.juce.componenttween",
+  "name": "com.juce.tweencomponent",
   "version": "1.3.0",
-  "displayName": "Juce-ComponentTween",
+  "displayName": "Juce-TweenComponent",
   "description": "Component based Tweening library",
     "dependencies": {
 		"com.juce.utils": "1.3.0",
