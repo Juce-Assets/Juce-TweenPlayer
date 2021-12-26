@@ -254,7 +254,7 @@ namespace Juce.TweenPlayer
 
             Play();
 
-            currMainSequence.OnCompleteOrKill += () => taskCompletionSource.TrySetResult(null);
+            currMainSequence.OnCompleteOrKill += () => taskCompletionSource.TrySetResult(default);
 
             cancellationToken.Register(Kill);
 
@@ -328,7 +328,7 @@ namespace Juce.TweenPlayer
             currMainSequence.SetTimeScale(TimeScale);
         }
 
-        public Task AwaitCompleteOrKill()
+        public Task AwaitCompleteOrKill(CancellationToken cancellationToken)
         {
             if(currMainSequence == null)
             {
@@ -337,7 +337,12 @@ namespace Juce.TweenPlayer
 
             TaskCompletionSource<object> taskCompletionSource = new TaskCompletionSource<object>();
 
-            currMainSequence.OnCompleteOrKill += () => taskCompletionSource.TrySetResult(null);
+            currMainSequence.OnCompleteOrKill += () => taskCompletionSource.TrySetResult(default);
+
+            cancellationToken.Register(() =>
+            {
+                taskCompletionSource.TrySetResult(default);
+            });
 
             return taskCompletionSource.Task;
         }
