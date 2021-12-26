@@ -328,6 +328,20 @@ namespace Juce.TweenPlayer
             currMainSequence.SetTimeScale(TimeScale);
         }
 
+        public Task AwaitCompleteOrKill()
+        {
+            if(currMainSequence == null)
+            {
+                return Task.CompletedTask; 
+            }
+
+            TaskCompletionSource<object> taskCompletionSource = new TaskCompletionSource<object>();
+
+            currMainSequence.OnCompleteOrKill += () => taskCompletionSource.TrySetResult(null);
+
+            return taskCompletionSource.Task;
+        }
+
         private void SetLoop(ITween tween, LoopMode loopMode)
         {
             switch (loopMode)
