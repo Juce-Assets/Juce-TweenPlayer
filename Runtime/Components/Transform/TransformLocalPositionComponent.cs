@@ -14,7 +14,7 @@ namespace Juce.TweenPlayer.Components
     public class TransformLocalPositionComponent : AnimationTweenPlayerComponent
     {
         [SerializeField] private TransformBinding target = new TransformBinding();
-        [SerializeField] private Vector2Binding value = new Vector2Binding();
+        [SerializeField] private Vector3Binding value = new Vector3Binding();
         [SerializeField] private FloatBinding delay = new FloatBinding();
         [SerializeField] private FloatBinding duration = new FloatBinding();
         [SerializeField] private AnimationCurveBinding easing = new AnimationCurveBinding();
@@ -42,7 +42,7 @@ namespace Juce.TweenPlayer.Components
                 return ComponentExecutionResult.Empty;
             }
 
-            Vector2 valueValue = value.GetValue();
+            Vector3 valueValue = value.GetValue();
             float durationValue = duration.GetValue();
             AnimationCurve easingValue = easing.GetValue();
 
