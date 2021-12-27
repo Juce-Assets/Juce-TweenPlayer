@@ -38,6 +38,8 @@ namespace Juce.TweenPlayer
         [SerializeField, HideInInspector] 
         private string bindableDataUid = default;
 
+        private bool destroyed;
+
         private TweenPlayerCache tweenPlayerCache = new TweenPlayerCache();
 
         private ISequenceTween currMainSequence;
@@ -60,6 +62,11 @@ namespace Juce.TweenPlayer
         private void OnEnable()
         {
             TryPlay(ExecutionMode.OnEnable);
+        }
+
+        private void OnDestroy()
+        {
+            destroyed = true;
         }
 
         public TweenPlayerComponent AddTweenPlayerComponent(Type type)
@@ -110,6 +117,11 @@ namespace Juce.TweenPlayer
 
         public void Bind(IBindableData bindableData)
         {
+            if (destroyed)
+            {
+                return;
+            }
+
             bool couldBind = TweenPlayerUtils.TryBindData(this, tweenPlayerCache, bindableData);
 
             if(!couldBind)
@@ -160,6 +172,11 @@ namespace Juce.TweenPlayer
 
         public ISequenceTween GenerateSequence()
         {
+            if(destroyed)
+            {
+                return JuceTween.Sequence();
+            }
+
             FlowContext context = new FlowContext();
 
             foreach (TweenPlayerComponent component in Components)
