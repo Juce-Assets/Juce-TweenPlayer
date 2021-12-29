@@ -59,11 +59,14 @@ Download this repository, and place it under the Assets folder of your Unity pro
 And that's all, with that you should be ready to go!
 
 ### - Via UPM
-Unity does not support resolving dependences from a git url. Because of that, you will need to add some other packages to your unity project to add this missing functionality.
-- https://github.com/mob-sakai/GitDependencyResolverForUnity
-- https://github.com/mob-sakai/UpmGitExtension
-
-Once those two packages are installed, you can just go to the Unity Package Manager, click on the button to install Package From Github Repository, and paste the link of this repository. All dependeces will be resolved automatically.
+Unity does not support resolving dependences from a git url. Because of that, you will need to add the following lines to your [manifest.json](https://docs.unity3d.com/Manual/upm-manifestPrj.html).
+```
+"dependencies": {
+   "com.juce.utils": "git+https://github.com/Juce-Assets/Juce-Utils#1.4.2",
+   "com.juce.tween": "git+https://github.com/Juce-Assets/Juce-Tween#1.5.9",
+   "com.juce.tweencomponent": "git+https://github.com/Juce-Assets/Juce-TweenPlayer#1.3.5",
+},
+```
 
 ## Enabling Extensions (TMPro, Timeline, etc...)
 
