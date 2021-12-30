@@ -230,7 +230,7 @@ You can toggle the components documentation inside the Unity editor by going to 
 
 ### Conclusions
 
-We are always aiming to improve this tool. You can always leave suggestions on the [Issues](https://github.com/Juce-Assets/Juce-TweenPlayer/issues) link, and if you like it we encourage you to [leave a reviw on the Asset Store, since it helps us a lot!](https://assetstore.unity.com/packages/tools/animation/tween-component-203112).
+We are always aiming to improve this tool. You can always leave suggestions on the [Issues](https://github.com/Juce-Assets/Juce-TweenPlayer/issues) link.
 
 ## Want to contribute?
 
