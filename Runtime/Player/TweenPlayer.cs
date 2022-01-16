@@ -376,7 +376,7 @@ namespace Juce.TweenPlayer
 
                 case LoopMode.UntilManuallyStopped:
                     {
-                        tween.SetLoops(int.MaxValue, ResetMode.InitialValues);
+                        tween.SetLoops(int.MaxValue, loopResetMode);
                     }
                     break;
             }

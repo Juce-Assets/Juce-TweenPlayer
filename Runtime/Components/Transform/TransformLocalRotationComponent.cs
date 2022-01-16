@@ -36,20 +36,27 @@ namespace Juce.TweenPlayer.Components
 
         protected override ComponentExecutionResult OnExecute(ISequenceTween sequenceTween)
         {
-            if (target.GetValue() == null)
+            Transform targetValue = target.GetValue();
+
+            if (targetValue == null)
             {
                 return ComponentExecutionResult.Empty;
             }
 
+            Vector3 valueValue = value.GetValue();
+            float durationValue = duration.GetValue();
+            RotationMode modeValue = mode.GetValue();
+            AnimationCurve easingValue = easing.GetValue();
+
             ITween delayTween = DelayUtils.Apply(sequenceTween, delay);
 
-            ITween progressTween = target.GetValue().TweenLocalRotation(
-                value.GetValue(), 
-                duration.GetValue(),
-                mode.GetValue()
+            ITween progressTween = targetValue.TweenLocalRotation(
+                valueValue,
+                durationValue,
+                modeValue
                 );
 
-            progressTween.SetEase(easing.GetValue());
+            progressTween.SetEase(easingValue);
 
             sequenceTween.Append(progressTween);
 
