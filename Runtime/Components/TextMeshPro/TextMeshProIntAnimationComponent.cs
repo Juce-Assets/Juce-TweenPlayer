@@ -59,9 +59,9 @@ namespace Juce.TweenPlayer.Components
 
             ITween progressTween = Tweening.Tween.To(
                 () => currentValue,
-                x =>
+                current =>
                 {
-                    currentValue = x;
+                    currentValue = current;
 
                     targetValue.text = string.Format(formatingValue, currentValue.ToString());
                 },

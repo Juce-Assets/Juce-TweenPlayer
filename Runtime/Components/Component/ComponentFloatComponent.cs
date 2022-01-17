@@ -70,7 +70,7 @@ namespace Juce.TweenPlayer.Components
 
             ITween progressTween = Tween.To(
                 () => ReflectionComponentUtils.GetValue<float>(fieldInfo, propertyInfo, targetValue.Component),
-                x => ReflectionComponentUtils.SetValue(fieldInfo, propertyInfo, targetValue.Component, x),
+                current => ReflectionComponentUtils.SetValue(fieldInfo, propertyInfo, targetValue.Component, current),
                 () => valueValue,
                 durationValue,
                 () => targetValue.Component != null
