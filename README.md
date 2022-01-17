@@ -4,7 +4,7 @@
 [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/Juce-Assets/Juce-Tween/issues)
 [![Twitter Follow](https://img.shields.io/badge/twitter-%406uillem-blue.svg?style=flat&label=Follow)](https://twitter.com/6uillem)
 [![Discord](https://img.shields.io/discord/768962092296044614.svg)](https://discord.gg/dbG7zKA)
-[![Release](https://img.shields.io/github/release/Juce-Assets/Juce-Tween.svg)](https://github.com/Juce-Assets/Juce-TweenPlayer/releases/latest)
+[![Release](https://img.shields.io/github/release/Juce-Assets/Juce-TweenPlayer.svg)](https://github.com/Juce-Assets/Juce-TweenPlayer/releases/latest)
 [![openupm](https://img.shields.io/npm/v/com.juce.tweencomponent?label=openupm&registry_uri=https://package.openupm.com)](https://openupm.com/packages/com.juce.tweencomponent/)
 <img title="" src="https://github.com/Juce-Assets/Juce-TweenPlayer/blob/develop/Misc/Logo.png?raw=true" alt="Logo" data-align="inline">
 
@@ -64,8 +64,8 @@ Unity does not support resolving dependences from a git url. Because of that, yo
 ```
 "dependencies": {
    "com.juce.utils": "git+https://github.com/Juce-Assets/Juce-Utils#1.4.4",
-   "com.juce.tween": "git+https://github.com/Juce-Assets/Juce-Tween#1.5.9",
-   "com.juce.tweencomponent": "git+https://github.com/Juce-Assets/Juce-TweenPlayer#1.3.5",
+   "com.juce.tween": "git+https://github.com/Juce-Assets/Juce-Tween#1.6.2",
+   "com.juce.tweencomponent": "git+https://github.com/Juce-Assets/Juce-TweenPlayer#1.3.6",
 },
 ```
 
