@@ -44,7 +44,7 @@ namespace Juce.TweenPlayer.Components
 
             ITween progressTween = Tween.To(
               () => targetValue.time,
-              (current, final) => { },
+              current => { },
               () => targetValue.main.duration,
               targetValue.main.duration,
               () => targetValue != null

@@ -59,7 +59,7 @@ namespace Juce.TweenPlayer.Components
 
             ITween progressTween = Tweening.Tween.To(
                 () => currentValue,
-                (current, final) =>
+                current =>
                 {
                     currentValue = current;
 
