@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace Juce.TweenPlayer.Components
 {
-    [TweenPlayerComponent("Material Renderer Float", "Material Renderer/Float")]
+    [TweenPlayerComponent("Material Renderer Float", "MaterialRenderer/Float")]
     [TweenPlayerComponentColor(0.835f, 0.878f, 0.294f)]
     [TweenPlayerComponentDocumentation("Changes a Float material property of a Material Renderer.")]
     [System.Serializable]
@@ -23,11 +23,7 @@ namespace Juce.TweenPlayer.Components
 
         public override void Validate(ValidationBuilder validationBuilder)
         {
-            Renderer rendererValue = target.GetValue();
-            int materialIndexValue = materialIndex.GetValue();
-            string materialPropertyValue = materialProperty.GetValue();
-
-            if (!target.WantsToBeBinded && rendererValue == null)
+            if (!target.WantsToBeBinded && target.GetValue() == null)
             {
                 validationBuilder.LogError($"Target value is null");
                 validationBuilder.SetError();
@@ -36,13 +32,20 @@ namespace Juce.TweenPlayer.Components
 
 #if UNITY_EDITOR
 
-            MaterialRendererUtils.Validate(
-                rendererValue,
-                materialIndexValue,
-                materialPropertyValue,
-                UnityEditor.ShaderUtil.ShaderPropertyType.Float,
-                validationBuilder
-                );
+            if (!target.WantsToBeBinded && !materialIndex.WantsToBeBinded && !materialProperty.WantsToBeBinded)
+            {
+                Renderer rendererValue = target.GetValue();
+                int materialIndexValue = materialIndex.GetValue();
+                string materialPropertyValue = materialProperty.GetValue();
+
+                MaterialRendererUtils.Validate(
+                    rendererValue,
+                    materialIndexValue,
+                    materialPropertyValue,
+                    UnityEditor.ShaderUtil.ShaderPropertyType.Float,
+                    validationBuilder
+                    );
+            }
 
 #endif
         }
