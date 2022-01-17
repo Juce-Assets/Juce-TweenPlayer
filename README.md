@@ -64,7 +64,7 @@ Unity does not support resolving dependences from a git url. Because of that, yo
 ```
 "dependencies": {
    "com.juce.utils": "git+https://github.com/Juce-Assets/Juce-Utils#1.4.4",
-   "com.juce.tween": "git+https://github.com/Juce-Assets/Juce-Tween#1.6.0",
+   "com.juce.tween": "git+https://github.com/Juce-Assets/Juce-Tween#1.6.2",
    "com.juce.tweencomponent": "git+https://github.com/Juce-Assets/Juce-TweenPlayer#1.3.6",
 },
 ```
