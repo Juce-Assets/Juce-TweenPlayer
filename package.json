@@ -5,7 +5,7 @@
   "description": "Component based Tweening library",
     "dependencies": {
 		"com.juce.utils": "https://github.com/Juce-Assets/Juce-Utils#1.3.1",
-		"com.juce.tween": "https://github.com/Juce-Assets/Juce-Tween#1.5.4"
+		"com.juce.tween": "https://github.com/Juce-Assets/Juce-Tween#1.6.2"
   },
   "keywords": [
     "Juce",
