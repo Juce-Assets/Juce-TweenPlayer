@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Juce.TweenPlayer.Attributes
+namespace Juce.TweenComponent.Attributes
 {
     public class TweenPlayerComponentColorAttribute : Attribute
     {

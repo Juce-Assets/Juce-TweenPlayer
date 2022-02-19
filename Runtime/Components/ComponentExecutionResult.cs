@@ -1,6 +1,6 @@
 ﻿using Juce.Tweening;
 
-namespace Juce.TweenPlayer.Components
+namespace Juce.TweenComponent.Components
 {
     [System.Serializable]
     public class ComponentExecutionResult

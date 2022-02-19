@@ -1,6 +1,6 @@
-﻿using Juce.TweenPlayer.Bindings;
+﻿using Juce.TweenComponent.Bindings;
 
-namespace Juce.TweenPlayer.Utils
+namespace Juce.TweenComponent.Utils
 {
     public static class BindingUtils
     { 

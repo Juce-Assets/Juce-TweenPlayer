@@ -1,4 +1,4 @@
-﻿namespace Juce.TweenPlayer
+﻿namespace Juce.TweenComponent
 {
     public enum LoopMode
     {

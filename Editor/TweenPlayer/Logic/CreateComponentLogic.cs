@@ -1,8 +1,8 @@
-﻿using Juce.TweenPlayer.Components;
+﻿using Juce.TweenComponent.Components;
 using System;
 using UnityEditor;
 
-namespace Juce.TweenPlayer.Logic
+namespace Juce.TweenComponent.Logic
 {
     public static class CreateComponentLogic
     {

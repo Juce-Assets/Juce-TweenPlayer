@@ -1,7 +1,7 @@
-﻿using Juce.TweenPlayer.Components;
-using Juce.TweenPlayer.Style;
+﻿using Juce.TweenComponent.Components;
+using Juce.TweenComponent.Style;
 
-namespace Juce.TweenPlayer.Drawers
+namespace Juce.TweenComponent.Drawers
 {
     public static class ComponentProgressBarDrawer
     {

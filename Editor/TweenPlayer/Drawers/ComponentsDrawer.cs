@@ -1,11 +1,11 @@
-﻿using Juce.TweenPlayer.Components;
-using Juce.TweenPlayer.Helpers;
-using Juce.TweenPlayer.Logic;
-using Juce.TweenPlayer.Utils;
+﻿using Juce.TweenComponent.Components;
+using Juce.TweenComponent.Helpers;
+using Juce.TweenComponent.Logic;
+using Juce.TweenComponent.Utils;
 using UnityEditor;
 using UnityEngine;
 
-namespace Juce.TweenPlayer.Drawers
+namespace Juce.TweenComponent.Drawers
 {
     public static class ComponentsDrawer
     {

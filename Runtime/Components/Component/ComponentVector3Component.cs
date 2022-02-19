@@ -1,13 +1,13 @@
 ﻿using Juce.Tweening;
-using Juce.TweenPlayer.Attributes;
-using Juce.TweenPlayer.Bindings;
-using Juce.TweenPlayer.ReflectionComponents;
-using Juce.TweenPlayer.Utils;
-using Juce.TweenPlayer.Validation;
+using Juce.TweenComponent.Attributes;
+using Juce.TweenComponent.Bindings;
+using Juce.TweenComponent.ReflectionComponents;
+using Juce.TweenComponent.Utils;
+using Juce.TweenComponent.Validation;
 using System.Reflection;
 using UnityEngine;
 
-namespace Juce.TweenPlayer.Components
+namespace Juce.TweenComponent.Components
 {
     [TweenPlayerComponent("Component Vector3", "Component/Vector3")]
     [TweenPlayerComponentColor(1f, 0.160f, 0.160f)]

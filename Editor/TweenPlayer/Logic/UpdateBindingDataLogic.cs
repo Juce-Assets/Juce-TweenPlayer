@@ -1,8 +1,8 @@
-﻿using Juce.TweenPlayer.Bindings;
+﻿using Juce.TweenComponent.Bindings;
 using System;
 using System.Linq;
 
-namespace Juce.TweenPlayer.Logic
+namespace Juce.TweenComponent.Logic
 {
     public static class UpdateBindingDataLogic
     {

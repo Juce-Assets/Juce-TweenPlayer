@@ -1,9 +1,9 @@
-﻿using Juce.TweenPlayer.Style;
+﻿using Juce.TweenComponent.Style;
 using System;
 using UnityEditor;
 using UnityEngine;
 
-namespace Juce.TweenPlayer.Drawers
+namespace Juce.TweenComponent.Drawers
 {
     public static class ComponentHeaderDrawer
     {

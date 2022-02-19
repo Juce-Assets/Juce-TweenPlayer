@@ -1,11 +1,11 @@
-﻿using Juce.TweenPlayer.Components;
-using Juce.TweenPlayer.Attributes;
-using Juce.TweenPlayer.Utils;
+﻿using Juce.TweenComponent.Components;
+using Juce.TweenComponent.Attributes;
+using Juce.TweenComponent.Utils;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Juce.TweenPlayer.Logic
+namespace Juce.TweenComponent.Logic
 {
     public static class GatherEditorBindingPlayerComponentsLogic
     {

@@ -1,10 +1,10 @@
 ﻿using Juce.Tweening;
-using Juce.TweenPlayer.Attributes;
-using Juce.TweenPlayer.Bindings;
-using Juce.TweenPlayer.Utils;
+using Juce.TweenComponent.Attributes;
+using Juce.TweenComponent.Bindings;
+using Juce.TweenComponent.Utils;
 using UnityEngine;
 
-namespace Juce.TweenPlayer.Components
+namespace Juce.TweenComponent.Components
 {
     [TweenPlayerComponent("Debug Log", "Debug/Log")]
     [TweenPlayerComponentColor(0.5f, 0.192f, 0.721f, useAsBackground: true)]

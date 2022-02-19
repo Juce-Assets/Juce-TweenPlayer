@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Juce.TweenPlayer
+namespace Juce.TweenComponent
 {
     public class EditorTweenPlayerComponent
     {

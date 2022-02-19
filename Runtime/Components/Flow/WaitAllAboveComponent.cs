@@ -1,11 +1,11 @@
 ﻿using Juce.Tweening;
-using Juce.TweenPlayer.Attributes;
-using Juce.TweenPlayer.Bindings;
-using Juce.TweenPlayer.Flow;
-using Juce.TweenPlayer.Utils;
+using Juce.TweenComponent.Attributes;
+using Juce.TweenComponent.Bindings;
+using Juce.TweenComponent.Flow;
+using Juce.TweenComponent.Utils;
 using UnityEngine;
 
-namespace Juce.TweenPlayer.Components
+namespace Juce.TweenComponent.Components
 {
     [TweenPlayerComponent("Wait All Above", "Flow/WaitAllAbove")]
     [TweenPlayerComponentColor(0f, 0.792f, 0.721f, useAsBackground: true)]

@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Juce.TweenPlayer.ReflectionComponents
+namespace Juce.TweenComponent.ReflectionComponents
 {
     [Serializable]
     public class ReflectionComponentInt 

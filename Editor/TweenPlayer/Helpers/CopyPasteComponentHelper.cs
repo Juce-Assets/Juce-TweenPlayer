@@ -1,9 +1,9 @@
-﻿using Juce.TweenPlayer.Components;
-using Juce.TweenPlayer.Logic;
+﻿using Juce.TweenComponent.Components;
+using Juce.TweenComponent.Logic;
 using System.Collections.Generic;
 using UnityEditor;
 
-namespace Juce.TweenPlayer.Helpers
+namespace Juce.TweenComponent.Helpers
 {
     public static class CopyPasteComponentHelper
     {

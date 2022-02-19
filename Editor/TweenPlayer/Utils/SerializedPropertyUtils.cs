@@ -1,7 +1,7 @@
 ﻿using UnityEditor;
 using UnityEngine;
 
-namespace Juce.TweenPlayer.Utils
+namespace Juce.TweenComponent.Utils
 {
     public static class SerializedPropertyUtils
     {

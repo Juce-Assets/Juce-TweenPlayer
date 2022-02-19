@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Reflection;
 
-namespace Juce.TweenPlayer.Utils
+namespace Juce.TweenComponent.Utils
 {
     public static class ReflectionComponentUtils
     {

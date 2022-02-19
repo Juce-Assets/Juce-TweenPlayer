@@ -1,15 +1,15 @@
 ﻿using Juce.Tweening;
-using Juce.TweenPlayer.BindableData;
-using Juce.TweenPlayer.Components;
-using Juce.TweenPlayer.Flow;
-using Juce.TweenPlayer.Utils;
+using Juce.TweenComponent.BindableData;
+using Juce.TweenComponent.Components;
+using Juce.TweenComponent.Flow;
+using Juce.TweenComponent.Utils;
 using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using UnityEngine;
 
-namespace Juce.TweenPlayer
+namespace Juce.TweenComponent
 {
     public class TweenPlayer : MonoBehaviour
     {

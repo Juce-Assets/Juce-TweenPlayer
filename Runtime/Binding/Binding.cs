@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Juce.TweenPlayer.Bindings
+namespace Juce.TweenComponent.Bindings
 {
     [System.Serializable]
     public class Binding

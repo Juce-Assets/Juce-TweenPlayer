@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Juce.TweenPlayer.Validation
+namespace Juce.TweenComponent.Validation
 {
     public class ValidationResult
     {

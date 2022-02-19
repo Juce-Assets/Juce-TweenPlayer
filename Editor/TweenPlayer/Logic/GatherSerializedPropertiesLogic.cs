@@ -1,4 +1,4 @@
-﻿namespace Juce.TweenPlayer.Logic
+﻿namespace Juce.TweenComponent.Logic
 {
     public static class GatherSerializedPropertiesLogic
     {

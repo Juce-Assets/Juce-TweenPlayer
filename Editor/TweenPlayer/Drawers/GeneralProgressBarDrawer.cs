@@ -1,7 +1,7 @@
-﻿using Juce.TweenPlayer.Style;
+﻿using Juce.TweenComponent.Style;
 using UnityEngine;
 
-namespace Juce.TweenPlayer.Drawers
+namespace Juce.TweenComponent.Drawers
 {
     public static class GeneralProgressBarDrawer 
     {

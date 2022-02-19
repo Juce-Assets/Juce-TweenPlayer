@@ -1,8 +1,8 @@
 ﻿using System;
 using UnityEngine;
-using Juce.TweenPlayer.Utils;
+using Juce.TweenComponent.Utils;
 
-namespace Juce.TweenPlayer.Bindings
+namespace Juce.TweenComponent.Bindings
 {
     [System.Serializable]
     public class TweenPlayerBinding : Binding

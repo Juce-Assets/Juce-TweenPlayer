@@ -1,4 +1,4 @@
-namespace Juce.TweenPlayer.BindableData
+namespace Juce.TweenComponent.BindableData
 {
     public interface IBindableData 
     {

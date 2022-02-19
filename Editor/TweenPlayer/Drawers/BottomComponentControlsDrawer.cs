@@ -1,8 +1,8 @@
-﻿using Juce.TweenPlayer.Helpers;
+﻿using Juce.TweenComponent.Helpers;
 using UnityEditor;
 using UnityEngine;
 
-namespace Juce.TweenPlayer.Drawers
+namespace Juce.TweenComponent.Drawers
 {
     public static class BottomComponentControlsDrawer
     {

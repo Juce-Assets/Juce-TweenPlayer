@@ -1,9 +1,9 @@
-﻿using Juce.TweenPlayer.BindableData;
+﻿using Juce.TweenComponent.BindableData;
 using UnityEditor;
 using UnityEngine;
 using static UnityEditor.GenericMenu;
 
-namespace Juce.TweenPlayer.Drawers
+namespace Juce.TweenComponent.Drawers
 {
     public static class BindableDataContextMenuDrawer
     {

@@ -1,7 +1,7 @@
-﻿using Juce.TweenPlayer.Validation;
+﻿using Juce.TweenComponent.Validation;
 using UnityEngine;
 
-namespace Juce.TweenPlayer.Utils
+namespace Juce.TweenComponent.Utils
 {
     public static class MaterialRendererUtils
     {

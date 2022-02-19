@@ -1,9 +1,9 @@
 ﻿using Juce.Tweening;
-using Juce.TweenPlayer.Utils;
+using Juce.TweenComponent.Utils;
 using System;
 using UnityEngine;
 
-namespace Juce.TweenPlayer.Bindings
+namespace Juce.TweenComponent.Bindings
 {
     [System.Serializable]
     public class AnimationCurveBinding : Binding

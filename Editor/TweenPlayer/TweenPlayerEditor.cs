@@ -1,14 +1,14 @@
-using Juce.TweenPlayer.Bindings;
-using Juce.TweenPlayer.Components;
-using Juce.TweenPlayer.Data;
-using Juce.TweenPlayer.Drawers;
-using Juce.TweenPlayer.Helpers;
-using Juce.TweenPlayer.Logic;
+using Juce.TweenComponent.Bindings;
+using Juce.TweenComponent.Components;
+using Juce.TweenComponent.Data;
+using Juce.TweenComponent.Drawers;
+using Juce.TweenComponent.Helpers;
+using Juce.TweenComponent.Logic;
 
 using UnityEditor;
 using UnityEngine;
 
-namespace Juce.TweenPlayer
+namespace Juce.TweenComponent
 {
     [CustomEditor(typeof(TweenPlayer))]
     public class TweenPlayerEditor : Editor

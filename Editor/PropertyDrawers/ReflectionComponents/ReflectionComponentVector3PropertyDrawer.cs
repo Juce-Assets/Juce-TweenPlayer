@@ -1,8 +1,8 @@
-﻿using Juce.TweenPlayer.ReflectionComponents;
+﻿using Juce.TweenComponent.ReflectionComponents;
 using UnityEditor;
 using UnityEngine;
 
-namespace Juce.TweenPlayer.PropertyDrawers.ReflectionComponents
+namespace Juce.TweenComponent.PropertyDrawers.ReflectionComponents
 {
     [CustomPropertyDrawer(typeof(ReflectionComponentVector3))]
     public class ReflectionComponentVector3PropertyDrawer : PropertyDrawer

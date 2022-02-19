@@ -1,12 +1,12 @@
 ﻿using Juce.Tweening;
-using Juce.TweenPlayer.Attributes;
-using Juce.TweenPlayer.Bindings;
-using Juce.TweenPlayer.Utils;
-using Juce.TweenPlayer.Validation;
+using Juce.TweenComponent.Attributes;
+using Juce.TweenComponent.Bindings;
+using Juce.TweenComponent.Utils;
+using Juce.TweenComponent.Validation;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace Juce.TweenPlayer.Components
+namespace Juce.TweenComponent.Components
 {
     [TweenPlayerComponent("UnityEvent Trigger", "UnityEvent/Trigger")]
     [TweenPlayerComponentColor(0.976f, 0.760f, 0.168f)]

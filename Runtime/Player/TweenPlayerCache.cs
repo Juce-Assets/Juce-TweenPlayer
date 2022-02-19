@@ -1,8 +1,8 @@
-﻿using Juce.TweenPlayer.Components;
+﻿using Juce.TweenComponent.Components;
 using System.Collections.Generic;
 using System.Reflection;
 
-namespace Juce.TweenPlayer
+namespace Juce.TweenComponent
 {
     public class TweenPlayerCache
     {

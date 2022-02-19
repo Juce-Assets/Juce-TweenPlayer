@@ -1,6 +1,6 @@
-﻿using Juce.TweenPlayer.Bindings;
+﻿using Juce.TweenComponent.Bindings;
 
-namespace Juce.TweenPlayer.Logic
+namespace Juce.TweenComponent.Logic
 {
     public static class TryGetBindedVariableIndexLogic
     {

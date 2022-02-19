@@ -1,7 +1,7 @@
 ﻿using Juce.Tweening;
-using Juce.TweenPlayer.Flow;
+using Juce.TweenComponent.Flow;
 
-namespace Juce.TweenPlayer.Components
+namespace Juce.TweenComponent.Components
 {
     [System.Serializable]
     public class FlowComponent : TweenPlayerComponent

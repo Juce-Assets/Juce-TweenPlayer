@@ -1,10 +1,10 @@
 ﻿using Juce.Tweening;
-using Juce.TweenPlayer.BindableData;
-using Juce.TweenPlayer.Flow;
-using Juce.TweenPlayer.Validation;
+using Juce.TweenComponent.BindableData;
+using Juce.TweenComponent.Flow;
+using Juce.TweenComponent.Validation;
 using UnityEngine;
 
-namespace Juce.TweenPlayer.Components
+namespace Juce.TweenComponent.Components
 {
     [System.Serializable]
     public class TweenPlayerComponent

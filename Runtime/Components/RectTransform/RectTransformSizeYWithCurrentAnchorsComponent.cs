@@ -1,11 +1,11 @@
 ﻿using Juce.Tweening;
-using Juce.TweenPlayer.Attributes;
-using Juce.TweenPlayer.Bindings;
-using Juce.TweenPlayer.Utils;
-using Juce.TweenPlayer.Validation;
+using Juce.TweenComponent.Attributes;
+using Juce.TweenComponent.Bindings;
+using Juce.TweenComponent.Utils;
+using Juce.TweenComponent.Validation;
 using UnityEngine;
 
-namespace Juce.TweenPlayer.Components
+namespace Juce.TweenComponent.Components
 {
     [TweenPlayerComponent("RectTransform Size Y With Current Anchors", "RectTransform/Size With Current Anchors X Y/Y")]
     [TweenPlayerComponentColor(0.19f, 0.81f, 0.34f)]

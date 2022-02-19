@@ -1,13 +1,13 @@
 ﻿#if JUCE_TEXT_MESH_PRO_EXTENSIONS
 
 using Juce.Tweening;
-using Juce.TweenPlayer.Attributes;
-using Juce.TweenPlayer.Bindings;
-using Juce.TweenPlayer.Utils;
-using Juce.TweenPlayer.Validation;
+using Juce.TweenComponent.Attributes;
+using Juce.TweenComponent.Bindings;
+using Juce.TweenComponent.Utils;
+using Juce.TweenComponent.Validation;
 using UnityEngine;
 
-namespace Juce.TweenPlayer.Components
+namespace Juce.TweenComponent.Components
 {
     [TweenPlayerComponent("TextMeshPro Text", "TextMeshPro/Text")]
     [TweenPlayerComponentColor(0.5f, 0.468f, 0.266f)]

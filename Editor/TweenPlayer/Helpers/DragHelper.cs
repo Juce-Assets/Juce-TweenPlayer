@@ -1,7 +1,7 @@
 ﻿using UnityEditor;
 using UnityEngine;
 
-namespace Juce.TweenPlayer.Helpers
+namespace Juce.TweenComponent.Helpers
 {
     public class DragHelper
     {

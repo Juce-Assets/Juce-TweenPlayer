@@ -1,6 +1,6 @@
 ﻿using System.Text;
 
-namespace Juce.TweenPlayer.Utils
+namespace Juce.TweenComponent.Utils
 {
     public static class StringUtils
     {

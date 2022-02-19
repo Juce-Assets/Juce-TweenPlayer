@@ -1,10 +1,10 @@
-﻿using Juce.TweenPlayer.Components;
-using Juce.TweenPlayer.Attributes;
+﻿using Juce.TweenComponent.Components;
+using Juce.TweenComponent.Attributes;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Juce.TweenPlayer.Utils
+namespace Juce.TweenComponent.Utils
 {
     public static class EditorComponentUtils
     {

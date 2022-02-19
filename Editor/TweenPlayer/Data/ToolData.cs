@@ -1,10 +1,10 @@
-﻿using Juce.TweenPlayer.BindableData;
-using Juce.TweenPlayer.Components;
+﻿using Juce.TweenComponent.BindableData;
+using Juce.TweenComponent.Components;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Juce.TweenPlayer.Data
+namespace Juce.TweenComponent.Data
 {
     public class ToolData
     {

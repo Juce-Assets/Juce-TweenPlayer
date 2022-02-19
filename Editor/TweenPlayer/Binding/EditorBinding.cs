@@ -1,7 +1,7 @@
-﻿using Juce.TweenPlayer.Utils;
+﻿using Juce.TweenComponent.Utils;
 using System;
 
-namespace Juce.TweenPlayer.Bindings
+namespace Juce.TweenComponent.Bindings
 {
     public class EditorBinding 
     {

@@ -1,4 +1,4 @@
-﻿using Juce.TweenPlayer.Utils;
+﻿using Juce.TweenComponent.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,7 +6,7 @@ using System.Reflection;
 using UnityEditor;
 using UnityEngine;
 
-namespace Juce.TweenPlayer.PropertyDrawers.ReflectionComponents
+namespace Juce.TweenComponent.PropertyDrawers.ReflectionComponents
 {
     public static class ReflectionComponentDrawer
     {

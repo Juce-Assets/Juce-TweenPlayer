@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Juce.TweenPlayer.BindableData
+namespace Juce.TweenComponent.BindableData
 {
     public class EditorBindableData
     {

@@ -1,10 +1,10 @@
-﻿using Juce.TweenPlayer.Bindings;
-using Juce.TweenPlayer.Logic;
-using Juce.TweenPlayer.Utils;
+﻿using Juce.TweenComponent.Bindings;
+using Juce.TweenComponent.Logic;
+using Juce.TweenComponent.Utils;
 using UnityEditor;
 using UnityEngine;
 
-namespace Juce.TweenPlayer.Drawers
+namespace Juce.TweenComponent.Drawers
 {
     public static class BindingDrawer
     {

@@ -1,12 +1,12 @@
 ﻿using Juce.Tweening;
-using Juce.TweenPlayer.Attributes;
-using Juce.TweenPlayer.Bindings;
-using Juce.TweenPlayer.Utils;
-using Juce.TweenPlayer.Validation;
+using Juce.TweenComponent.Attributes;
+using Juce.TweenComponent.Bindings;
+using Juce.TweenComponent.Utils;
+using Juce.TweenComponent.Validation;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Juce.TweenPlayer.Components
+namespace Juce.TweenComponent.Components
 {
     [TweenPlayerComponent("Image Fill Ammount", "Image/Fill Ammount")]
     [TweenPlayerComponentColor(0.964f, 0.505f, 0.505f)]

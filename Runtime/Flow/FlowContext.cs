@@ -1,6 +1,6 @@
 ﻿using Juce.Tweening;
 
-namespace Juce.TweenPlayer.Flow
+namespace Juce.TweenComponent.Flow
 {
     public class FlowContext
     {

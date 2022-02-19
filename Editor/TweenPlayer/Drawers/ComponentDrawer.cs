@@ -1,15 +1,15 @@
-﻿using Juce.TweenPlayer.Bindings;
-using Juce.TweenPlayer.Components;
-using Juce.TweenPlayer.Logic;
-using Juce.TweenPlayer.Style;
-using Juce.TweenPlayer.Utils;
-using Juce.TweenPlayer.Validation;
+﻿using Juce.TweenComponent.Bindings;
+using Juce.TweenComponent.Components;
+using Juce.TweenComponent.Logic;
+using Juce.TweenComponent.Style;
+using Juce.TweenComponent.Utils;
+using Juce.TweenComponent.Validation;
 using System.Collections.Generic;
 using System.Reflection;
 using UnityEditor;
 using UnityEngine;
 
-namespace Juce.TweenPlayer.Drawers
+namespace Juce.TweenComponent.Drawers
 {
     public static class ComponentDrawer
     {

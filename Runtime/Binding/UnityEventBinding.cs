@@ -1,9 +1,9 @@
 ﻿using System;
 using UnityEngine;
-using Juce.TweenPlayer.Utils;
+using Juce.TweenComponent.Utils;
 using UnityEngine.Events;
 
-namespace Juce.TweenPlayer.Bindings
+namespace Juce.TweenComponent.Bindings
 {
     [System.Serializable]
     public class UnityEventBinding : Binding

@@ -1,9 +1,9 @@
-﻿using Juce.TweenPlayer.BindableData;
-using Juce.TweenPlayer.Logic;
+﻿using Juce.TweenComponent.BindableData;
+using Juce.TweenComponent.Logic;
 using UnityEditor;
 using UnityEngine;
 
-namespace Juce.TweenPlayer.Drawers
+namespace Juce.TweenComponent.Drawers
 {
     public static class BindableDataDrawer
     {

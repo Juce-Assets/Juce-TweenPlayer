@@ -1,11 +1,11 @@
-﻿using Juce.TweenPlayer.BindableData;
-using Juce.TweenPlayer.Utils;
+﻿using Juce.TweenComponent.BindableData;
+using Juce.TweenComponent.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 
-namespace Juce.TweenPlayer.Logic
+namespace Juce.TweenComponent.Logic
 {
     public static class GatherEditorBindableDataLogic
     {

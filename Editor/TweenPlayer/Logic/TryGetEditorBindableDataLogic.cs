@@ -1,6 +1,6 @@
-﻿using Juce.TweenPlayer.BindableData;
+﻿using Juce.TweenComponent.BindableData;
 
-namespace Juce.TweenPlayer.Logic
+namespace Juce.TweenComponent.Logic
 {
     public static class TryGetEditorBindableDataLogic
     {

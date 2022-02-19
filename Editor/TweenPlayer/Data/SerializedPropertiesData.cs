@@ -1,6 +1,6 @@
 ﻿using UnityEditor;
 
-namespace Juce.TweenPlayer.Data
+namespace Juce.TweenComponent.Data
 {
     public class SerializedPropertiesData
     {

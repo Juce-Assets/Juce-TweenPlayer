@@ -1,10 +1,10 @@
-﻿using Juce.TweenPlayer.BindableData;
+﻿using Juce.TweenComponent.BindableData;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 
-namespace Juce.TweenPlayer.Utils
+namespace Juce.TweenComponent.Utils
 {
     public static class EditorBindableDataUtils
     {

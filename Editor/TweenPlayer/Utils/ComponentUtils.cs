@@ -1,8 +1,8 @@
-﻿using Juce.TweenPlayer.BindableData;
-using Juce.TweenPlayer.Components;
+﻿using Juce.TweenComponent.BindableData;
+using Juce.TweenComponent.Components;
 using System;
 
-namespace Juce.TweenPlayer.Utils
+namespace Juce.TweenComponent.Utils
 {
     public static class ComponentUtils
     {

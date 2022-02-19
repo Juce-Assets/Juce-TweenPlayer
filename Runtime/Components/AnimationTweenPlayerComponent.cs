@@ -1,8 +1,8 @@
 ﻿using Juce.Tweening;
-using Juce.TweenPlayer.Flow;
+using Juce.TweenComponent.Flow;
 using UnityEngine;
 
-namespace Juce.TweenPlayer.Components
+namespace Juce.TweenComponent.Components
 {
     [System.Serializable]
     public class AnimationTweenPlayerComponent : TweenPlayerComponent

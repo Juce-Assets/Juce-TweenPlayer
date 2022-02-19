@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Juce.TweenPlayer.Example6
+namespace Juce.TweenComponent.Example6
 {
     public class Example6 : MonoBehaviour
     {

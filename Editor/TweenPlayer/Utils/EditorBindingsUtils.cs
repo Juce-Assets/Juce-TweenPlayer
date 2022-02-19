@@ -1,8 +1,8 @@
-﻿using Juce.TweenPlayer.Bindings;
+﻿using Juce.TweenComponent.Bindings;
 using System.Collections.Generic;
 using System.Reflection;
 
-namespace Juce.TweenPlayer.Utils
+namespace Juce.TweenComponent.Utils
 {
     public static class EditorBindingsUtils
     {

@@ -1,8 +1,8 @@
-﻿using Juce.TweenPlayer.Validation;
+﻿using Juce.TweenComponent.Validation;
 using System.Linq;
 using UnityEditor;
 
-namespace Juce.TweenPlayer.Drawers
+namespace Juce.TweenComponent.Drawers
 {
     public static class ValidationDrawer
     {
