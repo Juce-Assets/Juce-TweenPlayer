@@ -48,6 +48,19 @@ namespace Juce.TweenComponent
 
         public float TimeScale { get; private set; } = 1.0f;
 
+        public bool IsPlaying
+        {
+            get
+            {
+                if(currMainSequence == null)
+                {
+                    return false;
+                }
+
+                return currMainSequence.IsPlaying;
+            }
+        }
+
         private void Awake()
         {
             TryPlay(ExecutionMode.Awake);

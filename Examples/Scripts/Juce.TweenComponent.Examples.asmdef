@@ -1,5 +1,5 @@
 {
-    "name": "Juce.TweenPlayer.Examples",
+    "name": "Juce.TweenComponent.Examples",
     "rootNamespace": "",
     "references": [
         "GUID:8bc451827501f8e45a97f2e2d20a6338"
