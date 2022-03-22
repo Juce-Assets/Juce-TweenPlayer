@@ -1,6 +1,6 @@
 {
   "name": "com.juce.tweencomponent",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "displayName": "Juce-TweenComponent",
   "description": "Component based Tweening library",
     "dependencies": {
