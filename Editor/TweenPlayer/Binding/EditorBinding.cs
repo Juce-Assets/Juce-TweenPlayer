@@ -1,5 +1,6 @@
 ﻿using Juce.TweenComponent.Utils;
 using System;
+using UnityEditor;
 
 namespace Juce.TweenComponent.Bindings
 {
@@ -10,6 +11,8 @@ namespace Juce.TweenComponent.Bindings
         public string FormatedName { get; }
         public Binding Binding { get; }
         public string[] BindableFields { get; set; } = Array.Empty<string>();
+
+        public SerializedProperty SerializedProperty { get; set; }
 
         public EditorBinding(
             Type type, 

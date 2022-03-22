@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Juce.TweenComponent.Bindings;
+using System;
+using System.Collections.Generic;
+using System.Reflection;
 using UnityEngine;
 
 namespace Juce.TweenComponent
@@ -11,6 +14,8 @@ namespace Juce.TweenComponent
         public Color Color { get; }
         public bool UseColorAsBackground { get; }
         public string Documentation { get; }
+
+        public List<EditorBinding> EditorBindings { get; private set; } = new List<EditorBinding>();
 
         public EditorTweenPlayerComponent(
             Type type,

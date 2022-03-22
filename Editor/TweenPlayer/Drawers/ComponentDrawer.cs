@@ -20,21 +20,6 @@ namespace Juce.TweenComponent.Drawers
            int componentIndex
            )
         {
-            List<FieldInfo> fields = ReflectionUtils.GetFields(component.GetType(), typeof(Binding));
-
-            List<EditorBinding> componentEditorBindings = new List<EditorBinding>();
-
-            foreach (FieldInfo field in fields)
-            {
-                Binding bindingInstance = (Binding)field.GetValue(component);
-
-                componentEditorBindings.Add(new EditorBinding(
-                    bindingInstance.BindingType,
-                    field.Name,
-                    bindingInstance
-                    ));
-            }
-
             bool found = EditorComponentUtils.TryGetCachedEditorPlayerComponent(
                 editor,
                 component.GetType(),
@@ -44,6 +29,22 @@ namespace Juce.TweenComponent.Drawers
             if (!found)
             {
                 return;
+            }
+
+            if (editorPlayerComponent.EditorBindings.Count == 0)
+            {
+                List<FieldInfo> fields = ReflectionUtils.GetFields(component.GetType(), typeof(Binding));
+
+                foreach (FieldInfo field in fields)
+                {
+                    Binding bindingInstance = (Binding)field.GetValue(component);
+
+                    editorPlayerComponent.EditorBindings.Add(new EditorBinding(
+                        bindingInstance.BindingType,
+                        field.Name,
+                        bindingInstance
+                        ));
+                }
             }
 
             bool hasColor = editorPlayerComponent.Color.a > 0.0f;
@@ -113,7 +114,7 @@ namespace Juce.TweenComponent.Drawers
 
                 ValidateComponentEditorBindings(
                     editor.SerializedPropertiesData.BindingEnabledProperty.boolValue,
-                    componentEditorBindings,
+                    editorPlayerComponent.EditorBindings,
                     validationBuilder
                     );
 
@@ -129,7 +130,7 @@ namespace Juce.TweenComponent.Drawers
                     EditorGUILayout.Space();
                 }
 
-                foreach (EditorBinding editorBinding in componentEditorBindings)
+                foreach (EditorBinding editorBinding in editorPlayerComponent.EditorBindings)
                 {
                     UpdateBindingDataLogic.Execute(
                         editor,

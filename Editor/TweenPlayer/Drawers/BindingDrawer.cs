@@ -46,7 +46,7 @@ namespace Juce.TweenComponent.Drawers
         {
             editorBinding.Binding.Binded = false;
 
-            SerializedProperty serializedProperty = parentSerializedProperty.FindPropertyRelative(editorBinding.Name);
+            editorBinding.SerializedProperty = parentSerializedProperty.FindPropertyRelative(editorBinding.Name);
 
             EditorGUILayout.BeginHorizontal();
             {
@@ -62,7 +62,7 @@ namespace Juce.TweenComponent.Drawers
 
                 EditorGUILayout.Space();
 
-                SerializedPropertyUtils.DrawSerializedPropertyChildren(serializedProperty, showNames: false);
+                SerializedPropertyUtils.DrawSerializedPropertyChildren(editorBinding.SerializedProperty, showNames: false);
             }
             GUILayout.FlexibleSpace();
             EditorGUILayout.EndHorizontal();
