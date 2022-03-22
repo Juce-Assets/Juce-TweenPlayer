@@ -49,6 +49,11 @@ namespace Juce.TweenComponent.Components
                         return;
                     }
 
+                    if(!targetValue.isActiveAndEnabled)
+                    {
+                        return;
+                    }
+
                     targetValue.Play();
                 });
 
