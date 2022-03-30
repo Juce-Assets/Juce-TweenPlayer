@@ -221,13 +221,20 @@ namespace Juce.TweenComponent
             return context.MainSequence;
         }
          
-        public void Play()
+        public void Play(bool instantly = false)
         {
             ISequenceTween sequence = GenerateSequence();
 
             sequence.SetTimeScale(TimeScale);
 
-            sequence.Play();
+            if (!instantly)
+            {
+                sequence.Play();
+            }
+            else
+            {
+                sequence.Complete();
+            }
         }
 
         public void Complete()
@@ -288,16 +295,6 @@ namespace Juce.TweenComponent
             cancellationToken.Register(Kill);
 
             return taskCompletionSource.Task;
-        }
-
-        public void Play(bool instantly)
-        {
-            Play();
-
-            if(instantly)
-            {
-                Complete();
-            }
         }
 
         public void Play(IBindableData bindableData, bool instantly)
