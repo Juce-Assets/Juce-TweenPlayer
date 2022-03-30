@@ -284,13 +284,13 @@ namespace Juce.TweenComponent
             Play(instantly);
         }
 
-        public Task Play(CancellationToken cancellationToken)
+        public Task Play(bool instantly, CancellationToken cancellationToken)
         {
             TaskCompletionSource<object> taskCompletionSource = new TaskCompletionSource<object>();
 
-            Play();
-
             currMainSequence.OnCompleteOrKill += () => taskCompletionSource.TrySetResult(default);
+
+            Play(instantly);
 
             cancellationToken.Register(Kill);
 
@@ -301,31 +301,14 @@ namespace Juce.TweenComponent
         {
             Bind(bindableData);
 
-            return Play(cancellationToken);
-        }
-
-        public Task Play(bool instantly, CancellationToken cancellationToken)
-        {
-            if (!instantly)
-            {
-                return Play(cancellationToken);
-            }
-
-            Play(instantly, cancellationToken);
-
-            return Task.CompletedTask;
+            return Play(instantly: false, cancellationToken);
         }
 
         public Task Play(IBindableData bindableData, bool instantly, CancellationToken cancellationToken)
         {
-            if(!instantly)
-            {
-                return Play(bindableData, cancellationToken); 
-            }
+            Bind(bindableData);
 
-            Play(bindableData, instantly, cancellationToken);
-
-            return Task.CompletedTask;
+            return Play(instantly, cancellationToken);
         }
 
         public void SetTimeScale(float timeScale)
