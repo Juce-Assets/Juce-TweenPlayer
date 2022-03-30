@@ -277,11 +277,11 @@ namespace Juce.TweenComponent
             currMainSequence.Replay();
         }
 
-        public void Play(IBindableData bindableData)
+        public void Play(IBindableData bindableData, bool instantly = false)
         {
             Bind(bindableData);
 
-            Play();
+            Play(instantly);
         }
 
         public Task Play(CancellationToken cancellationToken)
@@ -295,16 +295,6 @@ namespace Juce.TweenComponent
             cancellationToken.Register(Kill);
 
             return taskCompletionSource.Task;
-        }
-
-        public void Play(IBindableData bindableData, bool instantly)
-        {
-            Play(bindableData);
-
-            if (instantly)
-            {
-                Complete();
-            }
         }
 
         public Task Play(IBindableData bindableData, CancellationToken cancellationToken)
@@ -321,9 +311,7 @@ namespace Juce.TweenComponent
                 return Play(cancellationToken);
             }
 
-            Play(cancellationToken);
-
-            Complete();
+            Play(instantly, cancellationToken);
 
             return Task.CompletedTask;
         }
@@ -335,9 +323,7 @@ namespace Juce.TweenComponent
                 return Play(bindableData, cancellationToken); 
             }
 
-            Play(bindableData, cancellationToken);
-
-            Complete();
+            Play(bindableData, instantly, cancellationToken);
 
             return Task.CompletedTask;
         }
