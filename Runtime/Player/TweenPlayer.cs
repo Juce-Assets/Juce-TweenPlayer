@@ -291,11 +291,16 @@ namespace Juce.TweenComponent
 
         public Task Play(bool instantly, CancellationToken cancellationToken)
         {
+            Play(instantly);
+
+            if(instantly)
+            {
+                return Task.CompletedTask;
+            }
+
             TaskCompletionSource<object> taskCompletionSource = new TaskCompletionSource<object>();
 
             currMainSequence.OnCompleteOrKill += () => taskCompletionSource.TrySetResult(default);
-
-            Play(instantly);
 
             cancellationToken.Register(Kill);
 
