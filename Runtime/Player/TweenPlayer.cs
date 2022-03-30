@@ -284,6 +284,11 @@ namespace Juce.TweenComponent
             Play(instantly);
         }
 
+        public Task Play(CancellationToken cancellationToken)
+        {
+            return Play(instantly: false, cancellationToken);
+        }
+
         public Task Play(bool instantly, CancellationToken cancellationToken)
         {
             TaskCompletionSource<object> taskCompletionSource = new TaskCompletionSource<object>();
