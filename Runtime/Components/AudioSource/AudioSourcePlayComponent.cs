@@ -15,6 +15,7 @@ namespace Juce.TweenComponent.Components
     {
         [SerializeField] private AudioSourceBinding target = new AudioSourceBinding();
         [SerializeField] private FloatBinding delay = new FloatBinding();
+        [SerializeField] private BoolBinding callIfCompletingInstantly = new BoolBinding();
 
         public override void Validate(ValidationBuilder validationBuilder)
         {
@@ -39,6 +40,8 @@ namespace Juce.TweenComponent.Components
                 return ComponentExecutionResult.Empty;
             }
 
+            bool callIfCompletingInstantlyValue = callIfCompletingInstantly.GetValue();
+
             ITween delayTween = DelayUtils.Apply(sequenceTween, delay);
 
             sequenceTween.AppendCallback(
@@ -55,7 +58,9 @@ namespace Juce.TweenComponent.Components
                     }
 
                     targetValue.Play();
-                });
+                },
+                callIfCompletingInstantlyValue
+                );
 
             return new ComponentExecutionResult(delayTween);
         }
