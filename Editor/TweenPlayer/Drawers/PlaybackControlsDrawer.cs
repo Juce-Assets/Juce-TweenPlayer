@@ -31,7 +31,14 @@ namespace Juce.TweenComponent.Drawers
 
                         if (GUILayout.Button("Complete"))
                         {
-                            editor.ActualTarget.Complete();
+                            if (!editor.ActualTarget.IsPlaying)
+                            {
+                                editor.ActualTarget.Play(instantly: true);
+                            }
+                            else
+                            {
+                                editor.ActualTarget.Complete();
+                            }
                         }
 
                         if (GUILayout.Button("Kill"))
