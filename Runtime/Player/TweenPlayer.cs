@@ -220,7 +220,7 @@ namespace Juce.TweenComponent
 
             return context.MainSequence;
         }
-         
+
         public void Play(bool instantly = false)
         {
             ISequenceTween sequence = GenerateSequence();
@@ -293,7 +293,7 @@ namespace Juce.TweenComponent
         {
             Play(instantly);
 
-            if(instantly)
+            if (!currMainSequence.IsPlaying)
             {
                 return Task.CompletedTask;
             }
