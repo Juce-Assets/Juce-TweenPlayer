@@ -63,7 +63,7 @@ And that's all, with that you should be ready to go!
 Unity does not support resolving dependences from a git url. Because of that, you will need to add the following lines to your [manifest.json](https://docs.unity3d.com/Manual/upm-manifestPrj.html).
 ```
 "dependencies": {
-   "com.juce.utils": "git+https://github.com/Juce-Assets/Juce-Utils#",
+   "com.juce.utils": "git+https://github.com/Juce-Assets/Juce-Utils",
    "com.juce.tween": "git+https://github.com/Juce-Assets/Juce-Tween",
    "com.juce.tweencomponent": "git+https://github.com/Juce-Assets/Juce-TweenPlayer",
 },
