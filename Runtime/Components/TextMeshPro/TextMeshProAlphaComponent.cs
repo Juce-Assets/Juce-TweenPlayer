@@ -1,6 +1,4 @@
-﻿#if JUCE_TEXT_MESH_PRO_EXTENSIONS
-
-using Juce.Tweening;
+﻿using Juce.Tweening;
 using Juce.TweenComponent.Attributes;
 using Juce.TweenComponent.Bindings;
 using Juce.TweenComponent.Utils;
@@ -61,4 +59,4 @@ namespace Juce.TweenComponent.Components
     }
 }
 
-#endif
+

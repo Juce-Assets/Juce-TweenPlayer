@@ -1,9 +1,7 @@
-﻿#if JUCE_TIMELINE_EXTENSIONS
-
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Playables;
 
-namespace Juce.TweenPlayer.Timeline
+namespace Juce.TweenComponent.Timeline
 {
     [System.Serializable]
     public class TweenPlayerPlayControlBehaviour : PlayableBehaviour
@@ -42,5 +40,3 @@ namespace Juce.TweenPlayer.Timeline
         }
     }
 }
-
-#endif

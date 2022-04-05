@@ -1,10 +1,8 @@
-﻿#if JUCE_TIMELINE_EXTENSIONS
-
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Playables;
 using UnityEngine.Timeline;
 
-namespace Juce.TweenPlayer.Timeline
+namespace Juce.TweenComponent.Timeline
 {
     public class TweenPlayerControlClip : PlayableAsset, ITimelineClipAsset
     {
@@ -18,5 +16,3 @@ namespace Juce.TweenPlayer.Timeline
         }
     }
 }
-
-#endif

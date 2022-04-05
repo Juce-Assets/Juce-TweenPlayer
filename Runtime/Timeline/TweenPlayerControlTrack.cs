@@ -1,8 +1,6 @@
-﻿#if JUCE_TIMELINE_EXTENSIONS
+﻿using UnityEngine.Timeline;
 
-using UnityEngine.Timeline;
-
-namespace Juce.TweenPlayer.Timeline
+namespace Juce.TweenComponent.Timeline
 {
     [TrackColor(0.2f, 0.2f, 0.2f)]
     [TrackBindingType(typeof(TweenPlayer))]
@@ -12,5 +10,3 @@ namespace Juce.TweenPlayer.Timeline
  
     }
 }
-
-#endif
