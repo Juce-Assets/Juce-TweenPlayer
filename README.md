@@ -46,6 +46,11 @@ I wanted a tool that allowed teams to:
 - Easily bind custom data.
 
 ## Installing
+
+Unity Package Manager dependences:
+- TextMeshPro
+- Timeline
+
 ### - Via Github
 #### Dependences
 First of all, you will need to download the following dependences
